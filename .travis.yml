@@ -6,7 +6,7 @@ php:
 sudo: false
 
 env:
-    - SYMFONY_VERSION="2.8.*"
+    - LARAVEL_VERSION="5.1.*"
 
 before_install:
   - if [ "$MONGO_VERSION" != "" ]; then pecl -q install -f mongo-2.4.9; fi # Use a specific driver version when needed rather than the one shipped by Travis
@@ -15,14 +15,11 @@ before_install:
 
 
 before_script:
-  - mysql -e "create database IF NOT EXISTS pap;" -uroot
   - /home/travis/.phpenv/versions/5.6/bin/composer self-update
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
-  - php app/console doctrine:schema:update --force
-  - php app/console doctrine:fixtures:load --append
 
-script: phpunit -c app
+script: phpunit
 
 cache:
   directories:
