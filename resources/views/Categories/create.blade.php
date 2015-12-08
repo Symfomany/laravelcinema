@@ -1,5 +1,7 @@
-<html>
-    <body>
+{{--Héritage de ma vue mère--}}
+@extends('layout')
+
+@section('content')
         <h1>Creation categories</h1>
 
         <form action="{{ route('categories_store') }}" method="post">
@@ -15,5 +17,5 @@
             {{ csrf_field() }}
 
         </form>
-    </body>
-</html>
+
+@endsection
