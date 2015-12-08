@@ -1,6 +1,7 @@
 <?php
 // chemin relatif ou se trouve la classe
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 
 /**
@@ -21,6 +22,14 @@ class ActorsController extends Controller{
         return view('Actors/index');
     }
 
+    /**
+     * Page Acceuil
+     */
+    public function read($id){
+
+        // vue
+        return view('Actors/read');
+    }
 
     /**
      * Page Acceuil
@@ -34,7 +43,7 @@ class ActorsController extends Controller{
     /**
      * Page Acceuil
      */
-    public function edit(){
+    public function edit($id){
 
         // vue
         return view('Actors/edit');
@@ -43,20 +52,30 @@ class ActorsController extends Controller{
     /**
      * Page Acceuil
      */
-    public function read(){
+    public function delete($id){
 
-        // vue
-        return view('Actors/read');
     }
+
 
     /**
-     * Page Acceuil
+     * Action d'enregistrement en base de données
+     * depuis mon formulaire
+     * Classe Request permet de réceptionner les données
+     * en POST de manières scurisés
      */
-    public function delete(){
+    public function store(Request $request){
+
+        //recupérer le titre de mon film en POST
+        //input(name de mon champ) permet de récupérer
+        // la données titre en POST de manière sécurisée
+        $firstname = $request->input(['firstname']);
+        $lastname = $request->input(['lastname']);
+
+        //exit() => sortir de l'execution PHP
+        // dump() fonction de debogage
+
 
     }
-
-
 
 
 

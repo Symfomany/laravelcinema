@@ -10,6 +10,7 @@ global_exclude_dirs:
     - node_modules
     - screen
     - socket
+    - theme
 
 
 rules:

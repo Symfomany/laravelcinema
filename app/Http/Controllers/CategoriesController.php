@@ -2,6 +2,8 @@
 // chemin relatif ou se trouve la classe
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 
 /**
  * Class MainController
@@ -29,6 +31,7 @@ class CategoriesController extends Controller{
         return view('Categories/create');
     }
 
+
     /**
      * Page Acceuil
      */
@@ -41,7 +44,7 @@ class CategoriesController extends Controller{
     /**
      * Page Acceuil
      */
-    public function read(){
+    public function read($id){
 
         // vue
         return view('Categories/read');
@@ -55,7 +58,24 @@ class CategoriesController extends Controller{
     }
 
 
+    /**
+     * Action d'enregistrement en base de données
+     * depuis mon formulaire
+     * Classe Request permet de réceptionner les données
+     * en POST de manières scurisés
+     */
+    public function store(Request $request){
 
+        //recupérer le titre de mon film en POST
+        //input(name de mon champ) permet de récupérer
+        // la données titre en POST de manière sécurisée
+        $input = $request->input(['title']);
+
+        //exit() => sortir de l'execution PHP
+        // dump() fonction de debogage
+
+
+    }
 
 
 
