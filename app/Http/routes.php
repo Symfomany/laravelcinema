@@ -40,6 +40,17 @@ Route::group(['prefix' => 'admin'], function () {
             'uses' => 'MoviesController@create'
         ]);
 
+
+
+        /**
+         * Store movies in database from form
+         */
+        Route::post('/store', [
+
+            'uses' => 'MoviesController@store'
+        ]);
+
+
         /**
          * Page read: voir un film
          */
