@@ -16,15 +16,6 @@ class MoviesController extends Controller{
      */
     public function index(){
 
-        $chaine = "Je suis une chaine de la #SymfonyCon";
-        $tab = array(
-            "nom" => "Boyer",
-            "prenom" => "Julien",
-            "age" => 27,
-            "passions" => array("PHP7", "JS", "Angular"),
-            "diplome" => "Expert en Ingeniererie Informatique"
-        );
-
         // vue
         return view('Movies/index');
     }
