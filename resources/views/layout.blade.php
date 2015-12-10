@@ -6,8 +6,17 @@
 
 
 <section id="content_wrapper">
-    @section('content')
-    @show
+
+    {{--Fil d'arianne--}}
+    @include('Partial/_breadscrumb')
+
+    @include('Partial/_flashdatas')
+
+    <div id="content">
+        @section('content')
+        @show
+    </div>
+
 </section>
 
 {{--inclusion du footer--}}

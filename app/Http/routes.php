@@ -75,6 +75,29 @@ Route::group(['prefix' => 'admin'], function () {
             'as' => 'movies_delete',
             'uses' => 'MoviesController@delete'
         ])->where('id', '[0-9]+');
+
+
+        /**
+         * Activate: Activer un film
+         */
+        Route::get('/activate/{id}', [
+            'as' => 'movies_activate',
+            'uses' => 'MoviesController@activate'
+        ])->where('id', '[0-9]+');
+
+
+
+        /**
+         * Cover: Mise en avant d'un film
+         */
+        Route::get('/cover/{id}', [
+            'as' => 'movies_cover',
+            'uses' => 'MoviesController@cover'
+        ])->where('id', '[0-9]+');
+
+
+
+
     });
 
 

@@ -1,0 +1,1 @@
+$(document).ready(function(){$("div.alert-danger,div.alert-success").delay(5e3).slideUp("slow")});

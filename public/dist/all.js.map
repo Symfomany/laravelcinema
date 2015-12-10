@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","file":"all.js","sourcesContent":["$(document).ready(function() {\n\n    $('div.alert-danger,div.alert-success').delay(5000).slideUp('slow');\n\n});"],"sourceRoot":"/source/"}
