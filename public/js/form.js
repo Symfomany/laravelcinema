@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
-
     $('.wysiwyg').summernote({
         height: 200
     });
 
     $(".markdown").markdown();
+
+    $(".select2").select2();
 
 
     $('.datepicker').datetimepicker({
@@ -16,9 +17,8 @@ $(document).ready(function() {
 
     $("#slider").slider({
         range: "min",
-        min: 0,
-        max: 100,
-        value: 30,
+        min: 30,
+        max: 420,
         slide: function(event, ui) {
             $(".slider-countbox").val(ui.value);
         }

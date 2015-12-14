@@ -21,6 +21,11 @@ class Actors extends Model{
 
 
 
+    public function movies()
+    {
+        return $this->hasMany('\App\Http\Model\Movies');
+    }
+
 
 
 

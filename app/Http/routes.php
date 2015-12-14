@@ -1,7 +1,6 @@
 <?php
 
 
-
 /**
  * Pages Accueil
  * uses => appel le nom du controlleur
@@ -14,11 +13,40 @@ Route::get('/', [
 
 
 /**
+ * Auth Routing
+ * Routes implicites
+ */
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController'
+]);
+
+
+/**
  * BackOffice
  */
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
+
+    /**
+     * Pages Dashboard
+     * uses => appel le nom du controlleur
+     * et l'action du controller
+     */
+    Route::get('/', [
+        'as' => 'dashboard',
+        'uses' => 'MainController@dashboard'
+    ]);
+
+    /**
+     * COMMENTAIRES
+     */
+    Route::group(['prefix' => 'comments'], function () {
+        Route::get('/index', ['uses' => 'CommentsController@index','as' => 'comments.index']);
+        Route::post('{id}/update', ['uses' => 'CommentsController@update','as' => 'comments.update']);
+
+    });
 
 
     /**

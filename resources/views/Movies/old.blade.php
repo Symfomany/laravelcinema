@@ -176,11 +176,11 @@
                             <label for="note_presse" class="col-sm-2 control-label">Note de la presse</label>
                             <div class="col-sm-10">
                                 <select name="note_presse" class="form-control form-group-margin">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
                                 </select>
                                 @if ($errors->has('note_presse'))
                                     <p class="help-block text-danger">{{ $errors->first('note_presse') }}</p>
@@ -203,7 +203,14 @@
                                 <input class="switcher" name="cover" type="checkbox" data-class="switcher-primary" checked="checked">&nbsp;&nbsp;
                             </div>
                         </div>
-                    </div>
+                    @if ($errors->has('cover'))
+                        <p class="help-block text-danger">{{ $errors->first('image') }}</p>
+                    @endif
+                    @if ($errors->has('visible'))
+                        <p class="help-block text-danger">{{ $errors->first('image') }}</p>
+                    @endif
+
+                </div>
 
                         <div class="form-group">
                             <label for="image" class="col-sm-2 control-label">Image</label>

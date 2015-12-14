@@ -1,11 +1,4 @@
 <ul class="nav navbar-nav navbar-right">
-    <li>
-        <div class="navbar-btn btn-group">
-            <a href="#" class="topbar-menu-toggle btn btn-sm" data-toggle="button">
-                <span class="ad ad-wand"></span>
-            </a>
-        </div>
-    </li>
     <li class="dropdown menu-merge">
         <div class="navbar-btn btn-group">
             <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
@@ -26,7 +19,7 @@
                                     <span class="fa fa-tags"></span>
                                 </div>
                                 <div class="timeline-desc">
-                                    <b>Michael</b> Added to his store:
+                                    <b>{{ Auth::user()->username }}</b> Added to his store:
                                     <a href="#">Ipod</a>
                                 </div>
                                 <div class="timeline-date">1:25am</div>
@@ -350,7 +343,9 @@
                             <div id="nav-tab3" class="tab-pane scroller-nm" role="tabpanel">
                                 <ul class="media-list" role="menu">
                                     <li class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>
+                                        <a class="media-left" href="#">
+                                            {{--<img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar">--}}
+                                        </a>
                                         <div class="media-body">
                                             <h5 class="media-heading">Article
                                                 <small class="text-muted">- 08/16/22</small>
@@ -359,7 +354,9 @@
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/2.jpg" class="mw40" alt="avatar"> </a>
+                                        <a class="media-left" href="#">
+                                            {{--<img src="assets/img/avatars/2.jpg" class="mw40" alt="avatar"> --}}
+                                        </a>
                                         <div class="media-body">
                                             <h5 class="media-heading mv5">Article
                                                 <small> - 08/16/22</small>
@@ -369,7 +366,7 @@
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/3.jpg" class="mw40" alt="avatar"> </a>
+                                        {{--<a class="media-left" href="#"> <img src="assets/img/avatars/3.jpg" class="mw40" alt="avatar"> </a>--}}
                                         <div class="media-body">
                                             <h5 class="media-heading">Article
                                                 <small class="text-muted">- 08/16/22</small>
@@ -378,7 +375,7 @@
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/4.jpg" class="mw40" alt="avatar"> </a>
+                                        {{--<a class="media-left" href="#"> <img src="assets/img/avatars/4.jpg" class="mw40" alt="avatar"> </a>--}}
                                         <div class="media-body">
                                             <h5 class="media-heading mv5">Article
                                                 <small class="text-muted">- 08/16/22</small>
@@ -387,7 +384,7 @@
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>
+                                        {{--<a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>--}}
                                         <div class="media-body">
                                             <h5 class="media-heading">Article
                                                 <small class="text-muted">- 08/16/22</small>
@@ -396,7 +393,7 @@
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/2.jpg" class="mw40" alt="avatar"> </a>
+                                        {{--<a class="media-left" href="#"> <img src="assets/img/avatars/2.jpg" class="mw40" alt="avatar"> </a>--}}
                                         <div class="media-body">
                                             <h5 class="media-heading mv5">Article
                                                 <small> - 08/16/22</small>
@@ -406,7 +403,7 @@
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/3.jpg" class="mw40" alt="avatar"> </a>
+                                        {{--<a class="media-left" href="#"> <img src="assets/img/avatars/3.jpg" class="mw40" alt="avatar"> </a>--}}
                                         <div class="media-body">
                                             <h5 class="media-heading">Article
                                                 <small class="text-muted">- 08/16/22</small>
@@ -518,8 +515,8 @@
     </li>
     <li class="dropdown menu-merge">
         <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-            <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">
-            <span class="hidden-xs pl15"> Michael .R </span>
+            {{--<img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">--}}
+            <span class="hidden-xs pl15"> {{ Auth::user()->getFullname() }} </span>
             <span class="caret caret-tp hidden-xs"></span>
         </a>
         <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -565,7 +562,7 @@
                     <span class="fa fa-gear"></span> Settings </a>
             </li>
             <li class="dropdown-footer">
-                <a href="#" class="">
+                <a href="{{ url('auth/logout') }}" class="">
                     <span class="fa fa-power-off pr5"></span> Logout </a>
             </li>
         </ul>

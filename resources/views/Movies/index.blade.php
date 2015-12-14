@@ -44,7 +44,6 @@
     <h3>
         <i class="fa fa-file-movie-o"></i> Liste de <i>{{  count($movies) }} films</i>
 
-
         <a href="{{ route('movies_create') }}" class="btn btn-primary btn-sm pull-right">
             <i class="fa fa-plus"></i> Créer un film
         </a>
@@ -60,10 +59,11 @@
                             <th> Photo</th>
                             <th class="sorting_asc"> Titre</th>
                             <th class="sorting_asc"> Catégorie</th>
+                            <th class="sorting_asc"> Equipe</th>
                             <th> Description</th>
                             <th> Visible</th>
-                            <th class="sorting_asc"> Date de sortie</th>
-                            <th > Actions</th>
+                            <th> Date</th>
+                            <th> Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -74,10 +74,9 @@
                                 <td><a href="">{{ $movie->title }}</a></td>
                                 <td><a href="">{{ $movie->categories->title }}</a></td>
                                 <td>
-                                    @foreach($movie->actors as $actor)
-                                        {{ $actor->firstname }}
-                                        {{ $actor->lastname }}
-                                    @endforeach
+                                    <p><span class="badge badge-default">{{ count($movie->actors) }}</span> acteurs </p>
+                                    <p><span class="badge badge-default">{{ count($movie->directors) }}</span> réas </p>
+                                    <p><span class="badge badge-default">{{ count($movie->comments) }}</span> comms </p>
                                 </td>
                                 <td>{{ str_limit(strip_tags($movie->description),250,'...') }}</td>
                                 <td>
@@ -101,9 +100,9 @@
                                         </a>
                                     @endif
                                 </td>
-{{--                                <td>{{  \Carbon\Carbon::createFromFormat('Y-m-d', $movie->date_release)->format('d/m/Y') }}</td>--}}
+                                <td>{{  \Carbon\Carbon::createFromFormat('Y-m-d', $movie->date_release)->format('d/m/Y') }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                    <a href="{{ route("movies_edit", ['id' => $movie->id]) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Editer</a>
                                     <a href="{{ route('movies_delete', ['id' => $movie->id ]) }}" class="btn btn-sm btn-danger">
                                         <i class="fa fa-times"></i> Supprimer
                                     </a>

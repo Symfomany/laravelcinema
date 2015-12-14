@@ -19,6 +19,17 @@ elixir(function(mix) {
      '*.js'
     ], 'public/dist');
 
+    mix.styles([
+        'style.css'
+    ]).stylesIn('public/css');
+
+
+    mix.sass('*.sass', 'public/css/app.css');
+
+
+    mix.scripts([
+        '*.js'
+    ], 'public/js');
 });
 
 

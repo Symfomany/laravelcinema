@@ -20,9 +20,13 @@ class MainController extends Controller{
     }
 
 
+    /**
+     * Page Acceuil
+     */
+    public function dashboard(){
 
-
-
+        return view('Main/dashboard');
+    }
 
 }
 

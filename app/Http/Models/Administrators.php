@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Http\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,10 +10,14 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
-                                    CanResetPasswordContract
-{
+
+/**
+ */
+class Administrators extends Model implements AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract{
+
+
     use Authenticatable, Authorizable, CanResetPassword;
 
     /**
@@ -21,7 +25,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'administrators';
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +40,15 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+
+    public function getFullname(){
+        return ucfirst($this->firstname)." ". ucfirst($this->lastname);
+    }
+
+
 }
+
+
+

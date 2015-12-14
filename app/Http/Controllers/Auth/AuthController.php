@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Models\Administrators;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,31 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+
+    /**
+     * Redirections (surcharge des valeurs par défaut de Laravel)
+     */
+
+    /**
+     * @var string
+     */
+    protected $loginPath = '/auth/login';
+
+    /**
+     * @var string
+     */
+    protected $redirectPath = '/admin/';
+
+    /**
+     * @var string
+     */
+    protected $redirectAfterLogout = '/auth/login/';
+
+    /**
+     * @var string
+     */
+    protected $redirectTo = '/admin/login';
+
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +70,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:administrators',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -57,10 +83,19 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Administrators::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Get Page on login
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getLogin()
+    {
+        return view('Auth/login');
     }
 }

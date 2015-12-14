@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "caouecs/laravel4-lang": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -46,6 +47,7 @@
             "php artisan key:generate"
         ]
     },
+    "prefer-dist": "dev",
     "config": {
         "preferred-install": "dist"
     }
