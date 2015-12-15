@@ -1,6 +1,7 @@
 <?php
 // chemin relatif ou se trouve la classe
 namespace App\Http\Controllers;
+use App\Http\Models\Actors;
 use Illuminate\Http\Request;
 
 
@@ -18,8 +19,12 @@ class ActorsController extends Controller{
      */
     public function index(){
 
+        $actors = Actors::all();
         // vue
-        return view('Actors/index');
+        return view('Actors/index', [
+
+            'actors' => $actors
+        ]);
     }
 
     /**

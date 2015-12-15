@@ -163,7 +163,8 @@
                                     @if ($errors->has('cover'))
                                         <p class="help-block text-danger">{{ $errors->first('cover') }}</p>
                                     @endif
-                                <hr />
+                                </div>
+                            <hr />
                                 <div class="row">
                                     <span class="rating block">
                                       <span class="lbl-text">Note de presse</span>

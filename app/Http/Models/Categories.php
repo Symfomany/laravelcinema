@@ -22,10 +22,14 @@ class Categories extends Model{
 
     /**
      * Relation avec la classe Movies
+     * One To Many 1..n
+     * le nom de la méthode movies() doot porter le nom de
+     * ma table mis en relation
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function movies()
     {
+        // namespace + nom de la classe mis en relation
         return $this->hasMany('App\Http\Models\Movies');
     }
 

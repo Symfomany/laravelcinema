@@ -2,6 +2,7 @@
 // chemin relatif ou se trouve la classe
 namespace App\Http\Controllers;
 
+use App\Http\Models\Categories;
 use Illuminate\Http\Request;
 
 
@@ -12,13 +13,18 @@ use Illuminate\Http\Request;
  * et doit hérité de la super classe Controller
  */
 class CategoriesController extends Controller{
+
     /**
-     * Page Acceuil
+     * Page de liste des catégories
      */
     public function index(){
 
-        // vue
-        return view('Categories/index');
+        // récupérer toutes mes catégories
+        $categories = Categories::all();
+
+        return view('Categories/index', [
+            'categories' => $categories
+        ]);
     }
 
 

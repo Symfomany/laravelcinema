@@ -7,9 +7,9 @@
 
 @section('bodyclass')
     external-page external-alt sb-l-c sb-r-c
-    @endsection
+@endsection
 
-    @section('content')
+@section('content')
             <!-- Begin: Content -->
     <section id="content">
 
@@ -78,7 +78,7 @@
 
                             <!-- Password Input -->
                             <div class="section">
-                                <label for="username" class="field-label text-muted fs18 mb10">Password</label>
+                                <label for="password" class="field-label text-muted fs18 mb10">Password</label>
                                 <label for="password" class="field prepend-icon">
                                     <input type="password" name="password" id="password" class="gui-input" placeholder="Mot de passe">
                                     <label for="password" class="field-icon">

@@ -11,13 +11,13 @@
           <div class="sidebar-widget author-widget">
             <div class="media">
               <a class="media-left" href="#">
-                <img src="assets/img/avatars/3.jpg" class="img-responsive">
+                <img src="{{ Auth::user()->photo }}" class="img-responsive">
               </a>
               <div class="media-body">
                 <div class="media-links">
-                   <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="{{ url('auth/logout') }}">Logout</a>
+                   <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="{{ url('auth/logout') }}">Deconnexion</a>
                 </div>
-                <div class="media-author">{{ Auth::user()->getFullname() }}</div>
+                <div class="media-author">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</div>
               </div>
             </div>
           </div>
@@ -61,6 +61,12 @@
               <span class="sidebar-title">Gestion des films</span>
             </a>
           </li>
+          {{--<li @if(\Request::route()->getName() == "movies_index" ) class="active" @endif>--}}
+            {{--<a href="{{ route('movies_index') }}">--}}
+              {{--<span class="glyphicon glyphicon-"></span>--}}
+              {{--<span class="sidebar-title">Gestion des administrateurs</span>--}}
+            {{--</a>--}}
+          {{--</li>--}}
           <li>
             <a href="">
               <span class="glyphicon glyphicon-list"></span>
@@ -97,6 +103,16 @@
               <span class="sidebar-title">Gestion des utilisateurs</span>
             </a>
           </li>
+          @can('isSuperAdmin', Auth::user())
+            @can('isExpired', Auth::user())
+              <li  @if(\Request::route()->getName() == "administrators_index") class="active" @endif>
+                <a href="{{ route('administrators_index') }}">
+                  <span class="glyphicon glyphicon-book"></span>
+                  <span class="sidebar-title">Gestion des administrateurs</span>
+                </a>
+              </li>
+            @endcan
+          @endcan
           </ul>
         <!-- End: Sidebar Menu -->
 

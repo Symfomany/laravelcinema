@@ -27,8 +27,6 @@ Route::controllers([
  */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-
-
     /**
      * Pages Dashboard
      * uses => appel le nom du controlleur
@@ -124,7 +122,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         ])->where('id', '[0-9]+');
 
 
-
+        /**
+         * Action Like
+         */
+        Route::get('/like/{id}/{action}', [
+            'as' => 'movies_like',
+            'uses' => 'MoviesController@like'
+        ]);
 
     });
 
@@ -237,7 +241,42 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
 
 
-});
+
+    // CRUD de administrators
+    Route::group(['prefix' => "administrators",    "middleware" => "authorisation"], function () {
+
+        Route::get('/index', [
+            'as' => 'administrators_index',
+            'uses' => 'AdministratorsController@index'
+        ]);
+
+        Route::get('/remove/{id}', [
+            'as' => 'administrators_remove',
+            'uses' => 'AdministratorsController@remove'
+        ]);
+
+
+        Route::get('/edit/{id}', [
+            'as' => 'administrators_edit',
+            'uses' => 'AdministratorsController@edit'
+        ]);
+
+        Route::get('/create', [
+            'as' => 'administrators_create',
+            'uses' => 'AdministratorsController@create'
+        ]);
+
+        Route::post('/store/{id?}', [
+            'as' => 'administrators_store',
+            'uses' => 'AdministratorsController@store'
+        ]);
+
+
+
+    });
+
+
+    });
 
 //
 //

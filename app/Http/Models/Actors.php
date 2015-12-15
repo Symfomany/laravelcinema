@@ -23,7 +23,7 @@ class Actors extends Model{
 
     public function movies()
     {
-        return $this->hasMany('\App\Http\Model\Movies');
+        return $this->belongsToMany('\App\Http\Model\Movies');
     }
 
 

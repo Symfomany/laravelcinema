@@ -60,6 +60,7 @@
                             <th class="sorting_asc"> Titre</th>
                             <th class="sorting_asc"> Catégorie</th>
                             <th class="sorting_asc"> Equipe</th>
+                            <th class="sorting_asc"> Acteurs</th>
                             <th> Description</th>
                             <th> Visible</th>
                             <th> Date</th>
@@ -69,14 +70,53 @@
                         <tbody>
                         @foreach($movies as $movie)
                             <tr>
-                                <td>{{ $movie->id }}</td>
+                                <td>{{ $movie->id }}
+
+                                    @if(!in_array($movie->id, session('likes', [])))
+
+                                    <a href="{{ route('movies_like', [
+                                        'id' => $movie->id,
+                                        'action' => 'like'
+                                    ]) }}">
+                                        <span class="fa fa-heart"></span>
+                                    </a>
+                                    @else
+                                        <a href="{{ route('movies_like', [
+                                        'id' => $movie->id,
+                                        'action' => 'dislike'
+                                    ]) }}">
+                                            <span class="fa fa-heart-o"></span>
+                                        </a>
+                                    @endif
+
+
+                                </td>
                                 <td><img src="{{ $movie->image }}" class="img-responsive col-md-10" /></td>
                                 <td><a href="">{{ $movie->title }}</a></td>
                                 <td><a href="">{{ $movie->categories->title }}</a></td>
                                 <td>
-                                    <p><span class="badge badge-default">{{ count($movie->actors) }}</span> acteurs </p>
-                                    <p><span class="badge badge-default">{{ count($movie->directors) }}</span> réas </p>
-                                    <p><span class="badge badge-default">{{ count($movie->comments) }}</span> comms </p>
+                                    <p>
+                                        <span class="badge badge-default">
+                                            {{ count($movie->actors) }}
+                                        </span> acteurs
+                                    </p>
+                                    <p>
+                                        <span class="badge badge-default">
+                                            {{ count($movie->directors) }}
+                                        </span> réas </p>
+                                    <p>
+                                        <span class="badge badge-default">
+                                            {{ count($movie->comments) }}</span>
+                                        comms </p>
+                                </td>
+                                <td>
+                                    <ul>
+                                    @foreach($movie->actors as $actor)
+                                        <li >
+                                            {{ $actor->firstname }} {{ $actor->lastname }}
+                                        </li>
+                                    @endforeach
+                                    </ul>
                                 </td>
                                 <td>{{ str_limit(strip_tags($movie->description),250,'...') }}</td>
                                 <td>

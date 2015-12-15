@@ -8,6 +8,7 @@ use App\Http\Models\Categories;
 use App\Http\Models\Directors;
 use App\Http\Models\Movies;
 use App\Http\Requests\MoviesRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -142,6 +143,31 @@ class MoviesController extends Controller{
         }
 
         return Redirect::route('movies_index');
+    }
+
+
+    /**
+     * Fonction de like des films, enregistré en session
+     * @param Request $request
+     */
+    public function like($id, $action)
+    {
+        $movie = Movies::find($id);
+
+        $likes = session("likes", []);
+
+        if ($action == "like") {
+
+            $likes[$id] = $movie->id;
+
+        }else{
+            unset($likes[$id]);
+        }
+        Session::put("likes", $likes);
+        Session::flash('success', "Le film {$movie->title} a bien été liké");
+
+        return Redirect::route('movies_index');
+
     }
 
 

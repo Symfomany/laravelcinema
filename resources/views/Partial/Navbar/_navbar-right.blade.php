@@ -515,7 +515,7 @@
     </li>
     <li class="dropdown menu-merge">
         <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-            {{--<img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">--}}
+            <img src="{{ Auth::user()->photo }}" alt="avatar" class="mw30 br64">
             <span class="hidden-xs pl15"> {{ Auth::user()->getFullname() }} </span>
             <span class="caret caret-tp hidden-xs"></span>
         </a>
@@ -563,7 +563,7 @@
             </li>
             <li class="dropdown-footer">
                 <a href="{{ url('auth/logout') }}" class="">
-                    <span class="fa fa-power-off pr5"></span> Logout </a>
+                    <span class="fa fa-power-off pr5"></span> Deconnexion </a>
             </li>
         </ul>
     </li>

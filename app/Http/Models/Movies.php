@@ -39,6 +39,7 @@ class Movies extends Model{
 
     /**
      * Retourne la catégorie à laquelle appartient un objet film
+     * Many To One : n..1
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function categories()
@@ -46,12 +47,10 @@ class Movies extends Model{
         return $this->belongsTo('App\Http\Models\Categories');
     }
 
-
-    public function comments()
-    {
-        return $this->hasMany('App\Http\Models\Comments');
-    }
-
+    /**
+     * belongsToMany(): Many To Many
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function actors()
     {
         return $this->belongsToMany('App\Http\Models\Actors');
@@ -60,6 +59,11 @@ class Movies extends Model{
     public function directors()
     {
         return $this->belongsToMany('App\Http\Models\Directors');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Http\Models\Comments');
     }
 
     public function sessions()

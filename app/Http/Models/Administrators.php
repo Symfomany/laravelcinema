@@ -2,18 +2,26 @@
 
 namespace App\Http\Models;
 
-use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
+
+
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 
 /**
+ * Je dois implémenter ces 3 interfaces
+ * pour que ma classe model Administrators
+ * puisse être support d'authentification,
+ * d'autorisation et et mise à zero du mot de passe
  */
-class Administrators extends Model implements AuthenticatableContract,
+class Administrators extends Model
+    implements AuthenticatableContract,
     AuthorizableContract,
     CanResetPasswordContract{
 
