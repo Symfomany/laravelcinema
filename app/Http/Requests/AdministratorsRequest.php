@@ -23,9 +23,11 @@ class AdministratorsRequest extends FormRequest
      */
     public function rules()
     {
-        // get id since router
+        // Je viens recupérer mon id en URL si je suis en mode edition
+        // Depuis ma route, je peux récupérer un argument "id"
         $id = $this->route('id');
 
+        // Création d'administrateur
         if($id == null) {
             return [
                 'firstname' => 'required|max:255',
@@ -35,7 +37,9 @@ class AdministratorsRequest extends FormRequest
                 'password' => 'required|confirmed|min:6',
                 'image' => 'required|image',
             ];
-        }else{
+        }
+        // Edition administrateur
+        else{
             return [
                 'firstname' => 'required|max:255',
                 'lastname' => 'required|max:255',

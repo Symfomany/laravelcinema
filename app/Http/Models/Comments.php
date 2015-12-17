@@ -20,21 +20,18 @@ class Comments extends Model{
     protected $table = 'comments';
 
 
+    /**
+     *  Return the average of notes
+     */
+    public function getAvgNote(){
+        $results = DB::table('comments')
+            ->select(DB::raw('ROUND(AVG(note)) as avgnote'))
+            ->first();
 
-    public function bestCommenter()
-    {
-
-
-        $bestCommenter = DB::select('
-            SELECT user.username, COUNT( user_id ) AS nb_comments
-            FROM  `comments`
-            LEFT JOIN user ON user.id = comments.user_id
-            GROUP BY user_id
-            ORDER BY COUNT( user_id ) DESC
-            LIMIT 1');
-
-        return $bestCommenter;
+        return $results;
     }
+
+
 
     /* RELATIONS */
 

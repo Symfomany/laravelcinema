@@ -55,8 +55,8 @@
               <span class="sidebar-title">Dashboard</span>
             </a>
           </li>
-          <li @if(\Request::route()->getName() == "movies_index" ) class="active" @endif>
-            <a href="{{ route('movies_index') }}">
+          <li @if(\Request::route()->getName() == "movies_index") class="active" @endif>
+            <a id="link_movies_index" href="{{ route('movies_index') }}">
               <span class="glyphicon glyphicon-film"></span>
               <span class="sidebar-title">Gestion des films</span>
             </a>

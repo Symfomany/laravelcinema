@@ -349,7 +349,7 @@
                             </div>
                             <hr />
 
-                            <button style="width: 100%" type="submit" class="btn btn-lg btn-primary">
+                            <button id="send" style="width: 100%" type="submit" class="btn btn-lg btn-primary">
                                 <i class="fa fa-check"></i> Enregistrer ce film
                             </button>
 

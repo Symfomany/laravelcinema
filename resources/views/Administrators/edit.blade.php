@@ -117,7 +117,6 @@
                             <div class="col-md-6">
                                 <div class="form-group form-group-md">
                                     <label for="title" class="control-label">Mot de passe</label>
-
                                     <div class="input-group">
                                           <span class="input-group-addon">
                                             <i class="fa fa-lock"></i>
@@ -154,6 +153,7 @@
                                     @endif
                                 </div>
                             </div>
+                            <p class="alert alert-danger">Ne modifier votre mot de passe que si necessaire</p>
 
                         </div>
 
@@ -181,7 +181,7 @@
                         <div class="form-group">
 
                             <label class="switch switch-primary">
-                                <input @if( $administrator->super_admin == 1) checked @endif type="checkbox" name="super_admin" id="t4" value="1" checked="">
+                                <input @if( $administrator->super_admin == 1) checked @endif type="checkbox" name="super_admin" id="t4" value="1" >
                                 <label for="t4" data-on="Oui" data-off="Non"></label>
                                 <span>Utilisateur est t-il super administrateur?</span>
                             </label>

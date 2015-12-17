@@ -13,23 +13,25 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.sass');
-
-    mix.scripts([
-     '*.js'
-    ], 'public/dist');
-
-    mix.styles([
-        'style.css'
-    ]).stylesIn('public/css');
-
-
-    mix.sass('*.sass', 'public/css/app.css');
-
-
-    mix.scripts([
-        '*.js'
-    ], 'public/js');
+    mix.phpUnit();
+    //
+    //mix.sass('app.sass');
+    //
+    //mix.scripts([
+    // '*.js'
+    //], 'public/dist');
+    //
+    //mix.styles([
+    //    'style.css'
+    //]).stylesIn('public/css');
+    //
+    //
+    //mix.sass('*.sass', 'public/css/app.css');
+    //
+    //
+    //mix.scripts([
+    //    '*.js'
+    //], 'public/js');
 });
 
 

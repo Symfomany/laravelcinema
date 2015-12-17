@@ -33,6 +33,17 @@ class Movies extends Model{
     }
 
 
+    /**
+     * Return moyenne des notes de presse
+     */
+    public function getAvgNotePresse(){
+        $result = DB::table('movies')
+                ->select(DB::raw("ROUND(AVG(note_presse)) as avgpress"))
+                ->first();
+
+        return $result;
+
+    }
 
     /***************************************************** Relationships ***********************************************************/
 

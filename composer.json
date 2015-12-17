@@ -8,7 +8,6 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "predis/predis": "*",
-        "nesbot/carbon": "^1.21",
         "caouecs/laravel4-lang": "^2.0"
     },
     "require-dev": {
@@ -49,6 +48,7 @@
         ]
     },
     "prefer-dist": "dev",
+    "minimum-stability": "dev",
     "config": {
         "preferred-install": "dist"
     }

@@ -11,15 +11,31 @@ use Illuminate\Support\Facades\DB;
  * de ma table movies
  * Hérite de ma super classe Model
  */
-class Users extends Model{
+class User extends Model{
 
 
     /**
      * Décrit le nom de la table
      * que classe fait référence
      */
-    protected $table = 'users';
+    protected $table = 'user';
 
+    /**
+     *  Retourne les 24 derniers utilisateurs
+     */
+    public function getLastUsers(){
+
+        // retourne le resultat de ma requete SELECT * FROM movies
+        $result =  DB::table('user')
+            ->orderBy('created_at', 'DESC')
+            ->take(24)
+            ->get();
+
+            //->toSql();
+            // traduire en SQL ma requête
+
+        return $result;
+    }
 
 
     /**
@@ -28,9 +44,15 @@ class Users extends Model{
     public function getAllMovies(){
 
         // retourne le resultat de ma requete SELECT * FROM movies
-        return DB::table('users')->get();
-
+        return DB::table('user')->get();
     }
+
+
+
+
+
+
+
 
 
     /**

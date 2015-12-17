@@ -56,16 +56,16 @@ class AdministratorsController extends Controller{
         return view('Administrators/create');
     }
     /**
-     * To remove an administrators
-     * @param $id
-     * @return mixed
+     * To store an administrators
+     * ARgument $id est facultatif: null est sa valeur par défaut
      */
     public function store(AdministratorsRequest $request, $id = null){
 
-        //creation
+        // creation: créer un nouvel administrateur
         if($id == null){
             $administrator = new Administrators();
         }else{
+            // edition: récupérer un administrateur
             $administrator = Administrators::find($id);
         }
 
@@ -73,7 +73,13 @@ class AdministratorsController extends Controller{
         $administrator->lastname = $request->lastname;
         $administrator->email = $request->email;
         $administrator->description = $request->description;
-        $administrator->password = bcrypt($request->password); //if en mode edit
+
+        // si l'utilisateur modifie
+        // son mot de passe en mode edition
+        if(!empty($request->password)){
+            $administrator->password = bcrypt($request->password); //if en mode edit
+        }
+
         $administrator->super_admin =  $request->super_admin;
         $administrator->expiration_date = new \DateTime('+1 year');
         $administrator->active = true;

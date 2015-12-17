@@ -242,6 +242,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
 
+
+    Route::group(['prefix' => "api"], function () {
+
+        // mon retour en JSON de mes catégories
+        Route::get('/categories', [
+            'as' => 'api_categories',
+            'uses' => 'ApiController@categories'
+        ]);
+
+
+    });
+
+
+
+
     // CRUD de administrators
     Route::group(['prefix' => "administrators",    "middleware" => "authorisation"], function () {
 
@@ -266,10 +281,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
             'uses' => 'AdministratorsController@create'
         ]);
 
+        /**
+         * Argument {id} est facultatif par le symbole "?"
+         */
         Route::post('/store/{id?}', [
             'as' => 'administrators_store',
             'uses' => 'AdministratorsController@store'
         ]);
+
+
+
 
 
 
