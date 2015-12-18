@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 /**
  * Class MainController
  * V2 Fin de promotion
+ * texte pour exemple
  * @package App\Http\Controllers
  * Sufficé par le mot clef Controller
  * et doit hérité de la super classe Controller
