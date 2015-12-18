@@ -35,14 +35,14 @@ class Comments extends Model{
 
     /* RELATIONS */
 
-    public function movie()
+    public function movies()
     {
-        return $this->belongsTo('\App\Http\Models\Movies', 'movies_id');
+        return $this->belongsTo('\App\Http\Models\Movies');
     }
 
     public function user()
     {
-        return $this->belongsTo('\App\Http\Models\Users');
+        return $this->belongsTo('\App\Http\Models\User');
     }
 
 

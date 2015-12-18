@@ -44,6 +44,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/index', ['uses' => 'CommentsController@index','as' => 'comments.index']);
         Route::post('{id}/update', ['uses' => 'CommentsController@update','as' => 'comments.update']);
 
+        /**
+         * Action Like
+         */
+        Route::get('/like/{id}/{action}', [
+            'as' => 'comments_like',
+            'uses' => 'CommentsController@like'
+        ]);
+
     });
 
 
@@ -249,6 +257,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/categories', [
             'as' => 'api_categories',
             'uses' => 'ApiController@categories'
+        ]);
+        // mon retour en JSON de mes catégories
+        Route::get('/actors', [
+            'as' => 'api_actors',
+            'uses' => 'ApiController@actors'
         ]);
 
 

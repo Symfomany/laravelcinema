@@ -6,24 +6,10 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 class MoviesTest extends TestCase
 {
 
+    use WithoutMiddleware;
 
-    /**
-     * @var \Illuminate\Session\SessionManager
-     */
-    protected $manager;
+    // https://openclassrooms.com/courses/decouvrez-le-framework-php-laravel/les-tests-unitaires-4
 
-    public function setUp()
-    {
-        parent::setUp();
-
-
-        // Avoid "Session store not set on request." - Exception!
-        \Illuminate\Support\Facades\Session::setDefaultDriver('array');
-        $this->manager = app('session');
-
-        $user = \App\Http\Models\Administrators::where('email', 'julien2@meetserious.com')->first();
-        \Illuminate\Support\Facades\Auth::setUser($user);
-    }
 
     /**
      * A basic functional test example.
@@ -32,8 +18,6 @@ class MoviesTest extends TestCase
      */
     public function testHomepage()
     {
-        $this->markTestSkipped("Sorry...");
-
         $this->visit('/')
             ->see("We're Getting Ready To Launch!");
     }
@@ -43,7 +27,6 @@ class MoviesTest extends TestCase
      */
     public function testAdmin()
     {
-        $this->markTestSkipped("Sorry...");
 
         $this->visit('/admin')
             ->followRedirects()
@@ -57,8 +40,6 @@ class MoviesTest extends TestCase
      */
     public function testAuthentificationFailure()
     {
-        $this->markTestSkipped("Sorry...");
-
         $this->visit('/auth/login')
             ->see("Email")
             ->see("Password")
@@ -66,6 +47,8 @@ class MoviesTest extends TestCase
             ->type('djscrave', 'password')
             ->press('Connexion')
             ->followRedirects()
+            ->see("Email")
+            ->see("Password")
             ->seePageIs('/auth/login');
 
     }
@@ -74,16 +57,14 @@ class MoviesTest extends TestCase
      */
     public function testAuthentificationSuccess()
     {
-        $this->markTestSkipped("Sorry...");
-
          $this->visit('/auth/login')
-             ->withoutMiddleware()
              ->type('julien2@meetserious.com', 'email')
              ->type('123456', 'password')
              ->check('remember')
              ->press('Connexion')
              ->followRedirects()
              ->seePageIs('/admin');
+
     }
 
     /**
@@ -91,10 +72,8 @@ class MoviesTest extends TestCase
      */
     public function testMoviesVisibleAndCover()
     {
-        $this->markTestSkipped("Sorry...");
 
         $this->visit('/auth/login')
-            ->withoutMiddleware()
             ->type('julien2@meetserious.com', 'email')
             ->type('123456', 'password')
             ->check('remember')
@@ -104,7 +83,7 @@ class MoviesTest extends TestCase
             ->click('Gestion des films')
             ->seePageIs("admin/movies/index")
             ->see("Le seigneur des anneaux")
-            ->get('http://localhost:8000/admin/movies/cover/1')
+            ->get('http://localhost:8000/admin/movies/cover/1') //get requet
             ->followRedirects()
             ->see("Le film Le seigneur des anneaux a bien été retiré de l'avant")
             ->seeInDatabase('movies', ['id' => 1, 'cover' => 0])
@@ -118,9 +97,9 @@ class MoviesTest extends TestCase
     public function testMoviesCreateFailure()
     {
 
+        $this->markTestSkipped("Sorry...");
 
         $this
-            ->withoutMiddleware()
             ->visit('/admin/movies/create');
 //            ->seePageIs('/admin/movies/create')
 //            ->type('z', 'title')

@@ -148,24 +148,41 @@ class MoviesController extends Controller{
 
     /**
      * Fonction de like des films, enregistré en session
+     * Session : mécanisme de stockage temporelle
+     * BDD: mécanisme de stockage atemporelle
      * @param Request $request
      */
     public function like($id, $action)
     {
+        // je recupère le film (objet MOvies)
         $movie = Movies::find($id);
 
+        // je recupère ma variable likes en session
+        // et je fixe un tableau par défaut
+        // si j'ai rien en sessions likes
         $likes = session("likes", []);
 
+        // si l'action est "like"
         if ($action == "like") {
 
+            // J'ajoute mon movie dans le tableaux des likes en session
             $likes[$id] = $movie->id;
+            Session::flash('danger', "Le film {$movie->title} a bien été liké");
 
         }else{
-            unset($likes[$id]);
-        }
-        Session::put("likes", $likes);
-        Session::flash('success', "Le film {$movie->title} a bien été liké");
 
+            // je supprime le like dans le tableaux des likes
+            // unset() supprimer un element dans un tableau en PHP
+            unset($likes[$id]);
+
+            Session::flash('success', "Le film {$movie->title} a bien été disliké");
+        }
+
+
+        //j'enregistre en session mon nouveau tableaux des likes
+        Session::put("likes", $likes);
+
+        // une redirection avec message flash
         return Redirect::route('movies_index');
 
     }

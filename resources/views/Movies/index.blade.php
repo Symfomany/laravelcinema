@@ -39,8 +39,8 @@
 
 {{--Ecriture dans mon content--}}
 @section('content')
-    <div class="col-md-12">
 
+    <div class="col-md-12">
     <h3>
         <i class="fa fa-file-movie-o"></i> Liste de <i>{{  count($movies) }} films</i>
 

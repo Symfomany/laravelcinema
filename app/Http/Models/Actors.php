@@ -26,6 +26,22 @@ class Actors extends Model{
         return $this->belongsToMany('\App\Http\Model\Movies');
     }
 
+    /**
+     * Get nb actors by city
+     * @return mixed
+     */
+    public function getNbActorsByCity(){
+
+        $result = DB::table('actors')
+                    ->select(DB::raw("COUNT(id) as nb"), "city")
+                    ->groupBy('city')
+                    ->get();
+
+        return $result;
+
+
+    }
+
 
     /**
      * Retourne la moyenne d'age des acteurs

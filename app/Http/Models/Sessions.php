@@ -54,6 +54,7 @@ class Sessions extends Model{
         */
 
         $result = DB::table('sessions')
+
                     ->select("sessions.date_session", "movies.title AS mtitle", "cinema.title AS mcinema")
                     ->join("movies", "sessions.movies_id",'=', "movies.id")
                     ->join("cinema", "sessions.cinema_id",'=', "cinema.id")

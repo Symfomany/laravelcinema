@@ -10,113 +10,78 @@
     <h2><span class="text-light-gray">Films /</span> index</h2>
 @endsection
 
-<h2>Commentaires</h2>
+<div class="panel">
+    <div class="panel-heading">
 
+        <h3><i class="fa fa-comments"></i> {{ count($comments) }} Commentaires</h3>
+        <hr />
 
-<div class="stat-cell bg-success valign-middle col-md-4">
-    <!-- Stat panel bg icon -->
-    <i class="fa fa-pencil bg-icon"></i>
-    <!-- Extra large text -->
-    <span class="text-xlg"><strong>{{ $bestCommenter[0]->username }}</strong></span><br>
-    <!-- Big text -->
-    <span class="text-bg">a le plus commenté</span><br>
-    <!-- Small text -->
-    <span class="text-sm">({{ $bestCommenter[0]->nb_comments }} commentaires)</span>
-</div>
+    </div>
+    <div class="panel-body">
 
-<!-- Tableau -->
-<div class="table table-light">
-    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-comments" id="jq-datatables-example">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Film</th>
-            <th>Contenu</th>
-            <th>Favoris</th>
-            <th>User</th>
-            <th>Note</th>
-            <th>Statut</th>
-            <th>Date création</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($comments as $comment)
-            <tr class="
+        <!-- Tableau -->
+        <div class="table table-light">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-comments" id="jq-datatables-example">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th><i class="fa fa-film"></i> Film</th>
+                    <th><i class="fa fa-file-text"></i> Contenu</th>
+                    <th><i class="fa fa-user"></i> User</th>
+                    <th><i class="fa fa-user"></i> Note</th>
+                    <th><i class="fa fa-user"></i> Statut</th>
+                    <th><i class="fa fa-user"></i> Date</th>
+                    <th><i class="fa fa-user"></i> Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($comments as $comment)
+                    <tr class="
                     @if ($comment->state == 0)
-                    alert-danger
-                @elseif ($comment->state ==1)
-                    alert-warning
-                @else
-                    alert-success
-                @endif">
-                <td>{{ $comment->id }}</td>
-
-                <td>
-                    {{ $comment->movie->title }}
-                    {{-- Like --}}
-                    <a class="like"
-                       data-url="{{ route('movies.like') }}"
-                       data-token="{{ csrf_token() }}"
-                       data-action="like"
-                       data-id="{{ $comment->movie->id }}">
-                        <i class="fa fa-thumbs-o-up icon-space"></i>
-                    </a>
-                    <?php
-                    if (session("moviesLike") !== NULL ) {
-                        $count = array_count_values(session("moviesLike"));
-                    }
-                    ?>
-                    <span class="label label-primary likeCounter">
-
-                        @if (session("moviesLike") == NULL || !isset($count[$comment->movie->id]))
-                            0
+                            alert-danger
+                            @elseif ($comment->state ==1)
+                            alert-warning
                         @else
-                            {{ $count[$comment->movie->id] }}
-                        @endif
+                            alert-success
+                        @endif">
+                        <td>{{ $comment->id }}</td>
+                        <td>
+                            <a href="">{{ $comment->movies->title }}</a>
+                        </td>
+                        <td>
+                            {{ $comment->content }}
+                        </td>
 
+                        {{-- A REMPLACER PAR LE NOM --}}
+                        <td> <a href="">{{ $comment->user->username }}</a></td>
 
-                        </span>
+                        <td> {!! str_repeat("<i class='fa fa-star'></i>",$comment->note ) !!}</td>
+                        <td>
+                            @if($comment->state == 0)
+                                <i class='fa fa-eye-slash'></i>
+                            @elseif($comment->state == 1)
+                                <i class='fa fa-hourglass-start'></i>
+                            @else
+                                <i class='fa fa-eye'></i>
+                            @endif
+                        </td>
+                        <td>
+                            <i class="badge badge-info"> {{ \Carbon\Carbon::createFromFormat("Y-m-d H:i:s",$comment->created_at)->diffForHumans() }}</i>
 
-                    {{-- Dislike --}}
-                    <a href="#"><i class="fa fa-thumbs-o-down icon-space"></i></a>
-                </td>
+                        </td>
+                        <td>
 
+                            <a class="btn btn-xs btn-success"><i class="fa fa-star"></i>Ajouter en favoris</a> <br /><br />
+                            <a class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> Editer</a>
+                            <a class="btn btn-xs btn-danger"><i class="fa fa-times"></i> Supprimer</a>
+                        </td>
 
-                <td>
-                    <a class="bs-x-editable-comment"
-                       data-pk="{{ $comment->id }}"
-                       data-token="{{ csrf_token() }}"
-                       data-url="{{ route('comments.update', ['id' => $comment->id]) }}">
-                        {{--                           data-url="{{ route('comments.update', ['id' => $comment->id, 'value' => $comment->content]) }}">--}}
-                        {{ $comment->content }}
-                    </a>
-                </td>
-                <td>
-                    <div id="switchers-colors-square" class="form-group-margin">
-                        <input
-                                data-token="{{ csrf_token() }}"
-                                data-id="{{  $comment->id }}"
-                                data-url="{{  route("comments.favoris") }}"
-                                type="checkbox" data-class="switcher-warning" class="fav"
-                                {{--@if(in_array($movie->id, session('favoris', [])))--}}
-                                {{--checked--}}
-                                {{--@endif--}}
-
-                                >&nbsp;&nbsp;
-                    </div>
-                </td>
-
-                {{-- A REMPLACER PAR LE NOM --}}
-                <td> {{ $comment->user->username }}</td>
-
-                <td> {{ $comment->note }} /5</td>
-                <td> {{ $comment->state}}</td>
-                <td> {{ $comment->date_created}}</td>
-
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 

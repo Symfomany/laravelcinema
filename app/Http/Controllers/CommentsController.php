@@ -24,14 +24,10 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        $datas = [
+
+        return view('Comments/index', [
             'comments' => Comments::all()
-        ];
-
-        $comment= new Comments();
-        $datas['bestCommenter'] = $comment->bestCommenter();
-
-        return view('Comments/index', $datas);
+        ]);
     }
 
     /**

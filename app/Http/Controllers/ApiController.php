@@ -40,6 +40,40 @@ class ApiController extends Controller{
     }
 
 
+    /**
+     * [{
+    name: 'Toronto',
+    data: [15]
+    }, {
+    name: 'Paris',
+    data: [120]
+    }, {
+    name: 'Facebook',
+    data: [90]
+    }, {
+    name: 'Dribble',
+    data: [120]
+    }]
+     */
+    public function actors(){
+
+        $obj = new Actors();
+        $resultat = $obj->getNbActorsByCity();
+
+        //exit(dump($resultat));
+
+        $tab = [];
+        foreach($resultat as $actor){
+            $tab[] = [
+                "name" => $actor->city,
+                "data" => [(int)$actor->nb],
+            ];
+        }
+
+        return $tab ;
+    }
+
+
 }
 
 
