@@ -10,7 +10,8 @@
         "predis/predis": "*",
         "caouecs/laravel4-lang": "^2.0",
         "deployer/deployer": "^3.0",
-        "laravel/envoy": "~1.0"
+        "laravel/envoy": "~1.0",
+        "laravelrus/localized-carbon": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

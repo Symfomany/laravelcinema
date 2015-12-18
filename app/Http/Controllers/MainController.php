@@ -6,7 +6,10 @@ use App\Http\Models\Comments;
 use App\Http\Models\Movies;
 use App\Http\Models\Sessions;
 use App\Http\Models\User;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 
 /**
@@ -26,10 +29,42 @@ class MainController extends Controller{
     }
 
 
+    public function ajaxmovies(Request $request){
+
+        $title = $request->title;
+
+        $validator = Validator::make(
+            $request->all(),  //request all : tous les elements de requetses
+            [
+            'title' => 'required|min:10',
+            ],[
+            'title.required' => "Votre titre est obligatoire",
+            'title.min' => "Votre titre est trop court"
+            ]);
+
+        if ($validator->fails()) { // si mon validateur échoue
+            return $validator->errors()->all();
+        }else{
+            Movies::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'categories_id' => $request->categories_id
+            ]);
+
+            return $request->title;
+        }
+
+
+
+
+    }
+
+
     /**
      * Page Acceuil
      */
     public function dashboard(){
+
 
         $nbacteurs = Actors::count();
         $nbcommentaires = Comments::count();

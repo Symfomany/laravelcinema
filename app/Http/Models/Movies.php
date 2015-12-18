@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\DB;
 class Movies extends Model{
 
 
+
+    protected $fillable = ['title', 'description', 'categories_id'];
+
+
     /**
      * Décrit le nom de la table
      * que classe fait référence

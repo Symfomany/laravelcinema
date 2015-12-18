@@ -66,7 +66,7 @@
                             @endif
                         </td>
                         <td>
-                            <i class="badge badge-info"> {{ \Carbon\Carbon::createFromFormat("Y-m-d H:i:s",$comment->created_at)->diffForHumans() }}</i>
+                            <i class="badge badge-info"> {{ \Carbon\Carbon::cre("Y-m-d H:i:s",$comment->created_at)->diffForHumans() }}</i>
 
                         </td>
                         <td>

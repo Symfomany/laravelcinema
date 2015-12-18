@@ -18,6 +18,29 @@
     <script>
         $(document).ready(function(){
 
+
+            $('a.btn-danger').click(function(e){
+
+                var elt = $(this);
+
+                //1. blocker mon evenement HREF (redirection)
+                e.preventDefault();
+
+                //2. Envoyer de ma requête:
+                // Méthode ajax de Jquery
+                // Une requete en GET
+                // sur l'URL /index.html
+                $.ajax({
+                    method: "GET",
+                    url: $(this).attr('href') //href du <a>
+                }).done(function() { //quand l'ajax est terminé
+                    elt.parents('tr').fadeOut('slow');
+
+                });
+            });
+
+
+
             $('table').dataTable({
                 "language": {
                     "lengthMenu": "Afficher _MENU_ par page",

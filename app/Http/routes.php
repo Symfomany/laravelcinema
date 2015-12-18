@@ -37,6 +37,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'uses' => 'MainController@dashboard'
     ]);
 
+
+
+    /**
+     * Création de film
+     */
+    Route::post('/ajax/create-film', [
+        'as' => 'ajax_movies',
+        'uses' => 'MainController@ajaxmovies'
+    ]);
     /**
      * COMMENTAIRES
      */

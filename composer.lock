@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2f25dd64901e39bb0dba91ae9e09766d",
-    "content-hash": "d46d4b9c9967301aa67dd3f14732bdfd",
+    "hash": "013a01b3fbee6e74b9623ab0f58a4817",
+    "content-hash": "b6dd180d0e7a9620eb4c1db20f257ed2",
     "packages": [
         {
             "name": "caouecs/laravel4-lang",
@@ -159,29 +159,27 @@
         },
         {
             "name": "deployer/deployer",
-            "version": "v3.0.0-beta.5",
+            "version": "v3.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/deployer.git",
-                "reference": "48abeec2a7ac6c94e8f94d490da3bb1d5035d346"
+                "reference": "76c6221e51ba9bd4a07f190ca37ca212e4c4c2d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/deployer/zipball/48abeec2a7ac6c94e8f94d490da3bb1d5035d346",
-                "reference": "48abeec2a7ac6c94e8f94d490da3bb1d5035d346",
+                "url": "https://api.github.com/repos/deployphp/deployer/zipball/76c6221e51ba9bd4a07f190ca37ca212e4c4c2d7",
+                "reference": "76c6221e51ba9bd4a07f190ca37ca212e4c4c2d7",
                 "shasum": ""
             },
             "require": {
                 "elfet/pure": "~1.1",
                 "kherge/amend": "~3.0",
                 "php": ">=5.4.0",
-                "phpseclib/phpseclib": "dev-master",
+                "phpseclib/phpseclib": "~2.0",
                 "symfony/console": "~2.6",
                 "symfony/finder": "~2.6",
-                "symfony/process": "~2.6"
-            },
-            "provide": {
-                "ext-ssh2": "*"
+                "symfony/process": "~2.6",
+                "symfony/yaml": "~2.6"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.5"
@@ -210,7 +208,8 @@
                 }
             ],
             "description": "Deployment Tool",
-            "time": "2015-02-20 14:56:15"
+            "homepage": "http://deployer.org",
+            "time": "2015-09-02 06:44:10"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -949,12 +948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e35c7ab0c3e29f93e8e0ac53d041f93d8a5b21dd"
+                "reference": "b16f80878fd3603022d3c84593397cedd9af0bcf"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/b16f80878fd3603022d3c84593397cedd9af0bcf",
-                "reference": "e35c7ab0c3e29f93e8e0ac53d041f93d8a5b21dd",
+                "reference": "b16f80878fd3603022d3c84593397cedd9af0bcf",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1068,51 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-12-15 20:48:16"
+            "time": "2015-12-17 20:35:38"
+        },
+        {
+            "name": "laravelrus/localized-carbon",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelRUS/localized-carbon.git",
+                "reference": "fc0905b060713c4c1ecba60edf5a479931bb2def"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelRUS/localized-carbon/zipball/fc0905b060713c4c1ecba60edf5a479931bb2def",
+                "reference": "fc0905b060713c4c1ecba60edf5a479931bb2def",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=4.1.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laravelrus\\LocalizedCarbon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Egorov",
+                    "email": "amego2006@gmail.com"
+                }
+            ],
+            "description": "A localizable version of Carbon",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "laravel",
+                "time"
+            ],
+            "time": "2015-10-27 23:45:13"
         },
         {
             "name": "league/flysystem",
@@ -1077,12 +1120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "0888b18acf3d21197756516cffdc4a70ed9e9eb3"
+                "reference": "9f6b1ffc949ddaea3f63a2fc848a0684c276dcd4"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9f6b1ffc949ddaea3f63a2fc848a0684c276dcd4",
-                "reference": "0888b18acf3d21197756516cffdc4a70ed9e9eb3",
+                "reference": "9f6b1ffc949ddaea3f63a2fc848a0684c276dcd4",
                 "shasum": ""
             },
             "require": {
@@ -1153,7 +1196,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-12-12 10:36:24"
+            "time": "2015-12-17 09:20:45"
         },
         {
             "name": "monolog/monolog",
@@ -1161,12 +1204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "cab3ff71ffc802af272928ff71341cfc51e8ee98"
+                "reference": "205f528f5b23e5b9a3e95991d38da2ef9b2db408"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Seldaek/monolog/zipball/205f528f5b23e5b9a3e95991d38da2ef9b2db408",
-                "reference": "cab3ff71ffc802af272928ff71341cfc51e8ee98",
+                "reference": "205f528f5b23e5b9a3e95991d38da2ef9b2db408",
                 "shasum": ""
             },
             "require": {
@@ -1231,7 +1274,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-11-26 23:48:42"
+            "time": "2015-12-16 18:41:23"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -1475,16 +1518,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "dev-master",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "b1deba5a2892c9f264aa15afad554182ebe85695"
+                "reference": "d86550f5de73680215e4242187aa6b4728b4f034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/b1deba5a2892c9f264aa15afad554182ebe85695",
-                "reference": "b1deba5a2892c9f264aa15afad554182ebe85695",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d86550f5de73680215e4242187aa6b4728b4f034",
+                "reference": "d86550f5de73680215e4242187aa6b4728b4f034",
                 "shasum": ""
             },
             "require": {
@@ -1560,7 +1603,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2015-12-14 19:56:27"
+            "time": "2015-12-17 03:03:27"
         },
         {
             "name": "predis/predis",
@@ -3235,6 +3278,55 @@
             "time": "2015-12-05 10:02:55"
         },
         {
+            "name": "symfony/yaml",
+            "version": "2.8.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "aceecdb89565ebdedd908aaf327f5c34305be981"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/aceecdb89565ebdedd908aaf327f5c34305be981",
+                "reference": "aceecdb89565ebdedd908aaf327f5c34305be981",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-12-05 13:47:06"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "1.1.x-dev",
             "source": {
@@ -4457,55 +4549,6 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2015-06-21 13:59:46"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "8bae579c7afa252c055855f071c751eb75dcf6c4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/8bae579c7afa252c055855f071c751eb75dcf6c4",
-                "reference": "8bae579c7afa252c055855f071c751eb75dcf6c4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "https://symfony.com",
-            "time": "2015-12-05 11:13:35"
         }
     ],
     "aliases": [],
