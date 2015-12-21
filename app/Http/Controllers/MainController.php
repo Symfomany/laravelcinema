@@ -86,7 +86,7 @@ class MainController extends Controller{
         $seances = $session->getNextSession();
         $users = $user->getLastUsers();
 
-        //exit(dump($users));
+//        exit(dump($users));
 
         /*
          $seances = Sessions::where("date_session",  ">", DB::raw("NOW()"))

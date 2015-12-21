@@ -31,7 +31,7 @@ class MoviesController extends Controller{
         $movies = Movies::all();
 
         return view('Movies/index',[
-                'movies' => $movies
+                'movies' => $movies,
             ]
         );
     }

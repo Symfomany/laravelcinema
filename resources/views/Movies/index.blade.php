@@ -67,7 +67,7 @@
     <h3>
         <i class="fa fa-file-movie-o"></i> Liste de <i>{{  count($movies) }} films</i>
 
-        <a href="{{ route('movies_create') }}" class="btn btn-primary btn-sm pull-right">
+        <a href="{{ url('movies_create') }}" class="btn btn-primary btn-sm pull-right">
             <i class="fa fa-plus"></i> Créer un film
         </a>
 
