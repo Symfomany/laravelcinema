@@ -10,6 +10,24 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
      */
     protected $baseUrl = 'http://localhost:8000';
 
+
+    /**
+     * Authentifier un user
+     * @return $this
+     */
+    public function authentification(){
+
+        $this->visit('/auth/login')
+//            ->withoutMiddleware()
+            ->type('julien2@meetserious.com','email')
+            ->type('123456','password')
+            ->check('remember')
+            ->press('Connexion')
+            ->followRedirects();
+
+        return $this;
+
+    }
     /**
      * Creates the application.
      *

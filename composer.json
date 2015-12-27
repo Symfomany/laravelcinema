@@ -9,9 +9,9 @@
         "laravel/framework": "5.1.*",
         "predis/predis": "*",
         "caouecs/laravel4-lang": "^2.0",
-        "deployer/deployer": "^3.0",
         "laravel/envoy": "~1.0",
-        "laravelrus/localized-carbon": "*"
+        "laravelrus/localized-carbon": "*",
+        "netshell/paypal": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

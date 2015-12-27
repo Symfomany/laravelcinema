@@ -1,111 +1,94 @@
 <?php
-
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-
+/**
+ * Class MoviesTest
+ * Test Movies CRUD
+ */
 class MoviesTest extends TestCase
 {
 
-    use WithoutMiddleware;
 
-    // https://openclassrooms.com/courses/decouvrez-le-framework-php-laravel/les-tests-unitaires-4
+    use \Illuminate\Foundation\Testing\DatabaseTransactions;
+    use \Illuminate\Foundation\Testing\WithoutMiddleware;
 
-
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
-    public function testHomepage()
-    {
-        $this->visit('/')
-            ->see("We're Getting Ready To Launch!");
-    }
 
     /**
-     *  Test login
+     * Test Dashboard
      */
-    public function testAdmin()
+    public function testCreateFailure()
     {
+//        $user = \App\Http\Models\Administrators::find(73);
+//        $this->be($user); //You are now authenticated via l'administrator 73
 
-        $this->visit('/admin')
+//        exit(dump(\Illuminate\Support\Facades\Auth::user()));
+
+
+        $this->visit('/admin/movies/create')
+            ->type('s','title')
+            ->press('Enregistrer ce film')
             ->followRedirects()
-            ->see("Email")
-            ->see("Password");
+            ->seePageIs('/admin/movies/create')
+            ->see('Ce champ doit faire plus de 5 caractères')
+            ->see('date release  est obligatoire');
+//            ->visit("/admin/movies/create");
+
     }
 
-
     /**
-     *  Test login
+     * Test Remove Movies
      */
-    public function testAuthentificationFailure()
-    {
-        $this->visit('/auth/login')
-            ->see("Email")
-            ->see("Password")
-            ->type('blabla@gmail.com', 'email')
-            ->type('djscrave', 'password')
-            ->press('Connexion')
+    public function testRemove(){
+        $this->markTestSkipped();
+        // methode permet l'authifictaion via un objet Administrator
+        //Authentificatoo automatique via 'objet Administrateur (73)
+        $user = \App\Http\Models\Administrators::find(73);
+        $this->be($user); //You are now authenticated via l'administrator 73
+
+        $this
+            //->authentification()
+            ->visit('/admin/movies/index')
+//            ->click('Gestion des films')
+            ->get('http://localhost:8000/admin/movies/delete/3')
             ->followRedirects()
-            ->see("Email")
-            ->see("Password")
-            ->seePageIs('/auth/login');
-
-    }
-    /**
-     *  Test login Success
-     */
-    public function testAuthentificationSuccess()
-    {
-         $this->visit('/auth/login')
-             ->type('julien2@meetserious.com', 'email')
-             ->type('123456', 'password')
-             ->check('remember')
-             ->press('Connexion')
-             ->followRedirects()
-             ->seePageIs('/admin');
-
+            ->notSeeInDatabase('movies', ['id' => 3])
+            ->see("Le film Godzilla a bien été supprimé");
     }
 
     /**
-     *  Test login
+     * Test Dashboard
      */
-    public function testMoviesVisibleAndCover()
+    public function testActivateAndCover()
     {
+        $this->markTestSkipped();
 
         $this->visit('/auth/login')
-            ->type('julien2@meetserious.com', 'email')
-            ->type('123456', 'password')
+            ->withoutMiddleware()
+            ->type('julien2@meetserious.com','email')
+            ->type('123456','password')
             ->check('remember')
             ->press('Connexion')
             ->followRedirects()
-            ->see('Dashboard')
-            ->click('Gestion des films')
-            ->seePageIs("admin/movies/index")
-            ->see("Le seigneur des anneaux")
-            ->get('http://localhost:8000/admin/movies/cover/1') //get requet
+            ->seePageIs('/admin')
+//            ->click('Gestion des films')
+            ->visit('/admin/movies/index')
+            ->seePageIs('/admin/movies/index')
+            ->see('Godzilla')
+            //->assertEquals('movies_index', \Illuminate\Support\Facades\Request::route()->getName())
+            ->get('http://localhost:8000/admin/movies/cover/3')
             ->followRedirects()
-            ->see("Le film Le seigneur des anneaux a bien été retiré de l'avant")
-            ->seeInDatabase('movies', ['id' => 1, 'cover' => 0])
-            ->get('http://localhost:8000/admin/movies/activate/1')
+            ->seeInDatabase('movies', ['id' => 3, 'cover' => 0])
+            ->get('http://localhost:8000/admin/movies/activate/3')
             ->followRedirects()
-            ->seeInDatabase('movies', ['id' => 1, 'visible' => 0]);
+            ->seeInDatabase('movies', ['id' => 3, 'visible' => 0])
+            ->see("Le film Godzilla a bien été retiré de l'avant")
+            ->seePageIs('/admin/movies/index');
+            //get() faire une requete en GET
+
+
+        //je peux appeler un test dans un autre
+
+//        $this->seePageIs('/admin');
     }
-    /**
-     *  Test login
-     */
-    public function testMoviesCreateFailure()
-    {
 
-        $this->markTestSkipped("Sorry...");
-
-        $this
-            ->visit('/admin/movies/create');
-//            ->seePageIs('/admin/movies/create')
-//            ->type('z', 'title')
-//            ->press('Enregistrer ce film');
-
-    }
 
 
 }

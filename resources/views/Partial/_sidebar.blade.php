@@ -26,7 +26,7 @@
           <div class="sidebar-widget menu-widget">
             <div class="row text-center mbn">
               <div class="col-xs-4">
-                <a href="{{ route('homepage') }}" class="text-primary" data-toggle="tooltip" data-placement="top" title="Dashboard">
+                <a href="{{ route('admin_dashboard') }}" class="text-primary" data-toggle="tooltip" data-placement="top" title="Dashboard">
                   <span class="glyphicon glyphicon-home"></span>
                 </a>
               </div>
@@ -49,8 +49,8 @@
         <!-- Start: Sidebar Menu -->
         <ul class="nav sidebar-menu">
           <li class="sidebar-label pt20">Menu</li>
-          <li @if(\Request::route()->getName() == "homepage") class="active" @endif>
-            <a href="{{ route('homepage') }}">
+          <li @if(\Request::route()->getName() == "admin_dashboard") class="active" @endif>
+            <a href="{{ route('admin_dashboard') }}">
               <span class="glyphicon glyphicon-home"></span>
               <span class="sidebar-title">Dashboard</span>
             </a>
@@ -103,8 +103,8 @@
               <span class="sidebar-title">Gestion des utilisateurs</span>
             </a>
           </li>
-          @can('isSuperAdmin', Auth::user())
-            @can('isExpired', Auth::user())
+          @can('isSuperAdmin', \Illuminate\Support\Facades\Auth::user())
+            @can('isExpired', \Illuminate\Support\Facades\Auth::user())
               <li  @if(\Request::route()->getName() == "administrators_index") class="active" @endif>
                 <a href="{{ route('administrators_index') }}">
                   <span class="glyphicon glyphicon-book"></span>

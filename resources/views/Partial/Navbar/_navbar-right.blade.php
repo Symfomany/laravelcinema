@@ -15,9 +15,10 @@
                     <div class="panel-body panel-scroller scroller-sm scroller-pn pn scroller scroller-active">
                         <div class="scroller-bar" style="height: 199px;"><div class="scroller-track" style="height: 189px; margin-bottom: 5px; margin-top: 5px;"><div class="scroller-handle" style="height: 76.4904px; top: 0px;"></div></div></div>
                             <div class="scroller-content">
-                                <ol class="timeline-list">
-                                   @forelse(session("likes", []) as $like)
 
+                                <ol class="timeline-list">
+
+                                   @forelse(session("likes", []) as $like)
                                         <li class="timeline-item">
                                         <div class="timeline-icon bg-dark light">
                                             <span class="fa fa-film"></span>
@@ -60,7 +61,7 @@
                                             <span class="fa fa-film"></span>
                                         </div>
                                         <div class="timeline-desc">
-                                            {{ \App\Http\Models\Movies::find($like)->title }}
+                                            {{ \App\Http\Models\Comments::find($like)->title }}
                                         </div>
                                     </li>
                                 @empty

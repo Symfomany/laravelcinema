@@ -102,7 +102,7 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        return view('Auth/login');
+        return view('Auth/login', ['errors' => []]);
     }
 
 
@@ -135,15 +135,12 @@ class AuthController extends Controller
         $credentials = $this->getCredentials($request);
 
 
-
+        //override AUth atempt() here...
         if (Auth::attempt([
             'email' => $request->email,
             'password' =>  $request->password,
             'active' =>  1,
         ])) {
-
-
-
 
 
             return $this->handleUserWasAuthenticated($request, $throttles);

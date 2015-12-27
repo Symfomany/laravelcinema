@@ -30,6 +30,9 @@ return [
 
     'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
+
+    'auth' => env('MAIL_AUTH', 'login'),
+
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port

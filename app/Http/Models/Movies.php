@@ -15,7 +15,7 @@ class Movies extends Model{
 
 
 
-    protected $fillable = ['title', 'description', 'categories_id'];
+    //protected $fillable = ['title', 'description', 'categories_id'];
 
 
     /**
@@ -60,6 +60,14 @@ class Movies extends Model{
     public function categories()
     {
         return $this->belongsTo('App\Http\Models\Categories');
+    }
+
+    /**
+     * belongsToMany(): Many To Many
+     */
+    public function user()
+    {
+        return $this->belongsToMany('App\Http\Models\User', 'user_favoris',  'movies_id', 'user_id');
     }
 
     /**

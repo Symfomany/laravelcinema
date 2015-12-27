@@ -8,6 +8,7 @@ use App\Http\Models\Categories;
 use App\Http\Models\Directors;
 use App\Http\Models\Movies;
 use App\Http\Requests\MoviesRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -44,6 +45,7 @@ class MoviesController extends Controller{
         $categories = Categories::all();
         $actors = Actors::all();
         $directors = Directors::all();
+
 
         return view('Movies/create',
         [

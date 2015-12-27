@@ -22,10 +22,51 @@ Route::controllers([
 ]);
 
 
+
+
 /**
  * BackOffice
  */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+
+    /**
+     * Cart Payment
+     */
+    Route::group(['prefix' => 'cart'], function () {
+        /**
+         * Pages Recapitulatif
+         */
+        Route::get('/recapitulatif', [
+            'as' => 'cart_recapitulatif',
+            'uses' => 'CartController@recapitulatif'
+        ]);
+
+        /**
+         * Pages Done
+         */
+        Route::get('/done', [
+            'as' => 'cart_done',
+            'uses' => 'CartController@done'
+        ]);
+
+        /**
+         * Page cancel
+         */
+        Route::get('/cancel', [
+            'as' => 'cart_cancel',
+            'uses' => 'CartController@cancel'
+        ]);
+
+        /**
+         * Page cancel
+         */
+        Route::get('/checkout', [
+            'as' => 'cart_checkout',
+            'uses' => 'CartController@checkout'
+        ]);
+
+    });
 
     /**
      * Pages Dashboard
@@ -33,10 +74,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
      * et l'action du controller
      */
     Route::get('/', [
-        'as' => 'dashboard',
+        'as' => 'admin_dashboard',
         'uses' => 'MainController@dashboard'
     ]);
-
 
 
     /**

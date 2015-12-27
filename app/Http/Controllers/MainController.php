@@ -9,7 +9,9 @@ use App\Http\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Netshell\Paypal\Facades\Paypal;
 
 
 /**
@@ -22,6 +24,7 @@ use Illuminate\Support\Facades\Validator;
  * et doit hérité de la super classe Controller
  */
 class MainController extends Controller{
+
 
     /**
      * Page Acceuil
@@ -63,11 +66,36 @@ class MainController extends Controller{
     }
 
 
+
+    public function done(Request $request)
+    {
+        $id = $request->get('paymentId');
+        $token = $request->get('token');
+        $payer_id = $request->get('PayerID');
+
+        $payment = PayPal::getById($id, $this->_apiContext);
+
+        $paymentExecution = PayPal::PaymentExecution();
+
+        $paymentExecution->setPayerId($payer_id);
+        $executePayment = $payment->execute($paymentExecution, $this->_apiContext);
+
+        // Clear the shopping cart, write to database, send notifications, etc.
+        $request->session()->pull('likes', []);
+
+
+        exit(dump($executePayment));
+        // Thank the user for the purchase
+        return view('Main/index');
+    }
+
     /**
      * Page Acceuil
      */
     public function dashboard(){
 
+
+       // $redirectUrl = $response->links[1]->href;
 
         $nbacteurs = Actors::count();
         $nbcommentaires = Comments::count();
@@ -108,6 +136,7 @@ class MainController extends Controller{
             'users' => $users,
         ]);
     }
+
 
 }
 

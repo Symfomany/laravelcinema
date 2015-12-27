@@ -145,6 +145,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Provider By third librairie
+         */
+        Netshell\Paypal\PaypalServiceProvider::class
+
     ],
 
     /*
@@ -193,6 +198,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Paypal'    => Netshell\Paypal\Facades\Paypal::class
 
     ],
 

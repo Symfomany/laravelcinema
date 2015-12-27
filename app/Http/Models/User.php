@@ -29,10 +29,7 @@ class User extends Model{
         $result =  DB::table('user')
             ->orderBy('created_at', 'DESC')
             ->take(24)
-            ->get();
-
-            //->toSql();
-            // traduire en SQL ma requête
+            ->get(); // traduire en SQL
 
         return $result;
     }

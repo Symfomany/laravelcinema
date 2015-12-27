@@ -67,11 +67,12 @@
     <h3>
         <i class="fa fa-file-movie-o"></i> Liste de <i>{{  count($movies) }} films</i>
 
-        <a href="{{ url('movies_create') }}" class="btn btn-primary btn-sm pull-right">
+        <a href="{{ route('movies_create') }}" class="btn btn-primary btn-sm pull-right">
             <i class="fa fa-plus"></i> Créer un film
         </a>
 
     </h3>
+        <hr />
 
     <div class="panel panel-visible" id="spy2">
         <div class="panel-body pn">

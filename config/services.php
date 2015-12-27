@@ -13,6 +13,10 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
+    'paypal' => [
+        'client_id' => 'AbHIGTH8L_dLYNFNUaV7CYZXdOt4O_d0y2RocHEA-hUl_MF1P3OJF8BaAbxuSeGJ6vPJGdEHexTcBIr0',
+        'secret' => 'EJQJRJpai4uLw9LADmSdRxn4PClqznzFgrFVWFKEmxA4dNWCFpSIpUEsYiEO1sZFNrV6U_zLOU6bHCY5'
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
@@ -29,10 +33,5 @@ return [
         'region' => 'us-east-1',
     ],
 
-    'stripe' => [
-        'model'  => App\User::class,
-        'key'    => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
-    ],
 
 ];
