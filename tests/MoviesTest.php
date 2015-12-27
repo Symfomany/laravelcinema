@@ -11,6 +11,7 @@ class MoviesTest extends TestCase
     use \Illuminate\Foundation\Testing\WithoutMiddleware;
 
 
+
     /**
      * Test Dashboard
      */
