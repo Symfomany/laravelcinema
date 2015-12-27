@@ -6,10 +6,7 @@ use App\Http\Models\Comments;
 use App\Http\Models\Movies;
 use App\Http\Models\Sessions;
 use App\Http\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Netshell\Paypal\Facades\Paypal;
 
@@ -70,7 +67,6 @@ class MainController extends Controller{
     public function done(Request $request)
     {
         $id = $request->get('paymentId');
-        $token = $request->get('token');
         $payer_id = $request->get('PayerID');
 
         $payment = PayPal::getById($id, $this->_apiContext);
@@ -83,9 +79,6 @@ class MainController extends Controller{
         // Clear the shopping cart, write to database, send notifications, etc.
         $request->session()->pull('likes', []);
 
-
-        exit(dump($executePayment));
-        // Thank the user for the purchase
         return view('Main/index');
     }
 
@@ -115,8 +108,6 @@ class MainController extends Controller{
 
         $seances = $session->getNextSession();
         $users = $user->getLastUsers();
-
-//        exit(dump($users));
 
         /*
          $seances = Sessions::where("date_session",  ">", DB::raw("NOW()"))

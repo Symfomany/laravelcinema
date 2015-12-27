@@ -62,7 +62,7 @@ class AdministratorsController extends Controller{
     public function store(AdministratorsRequest $request, $id = null){
 
         // creation: créer un nouvel administrateur
-        if($id == null){
+        if($id === null){
             $administrator = new Administrators();
         }else{
             // edition: récupérer un administrateur

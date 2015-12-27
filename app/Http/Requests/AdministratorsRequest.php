@@ -28,7 +28,7 @@ class AdministratorsRequest extends FormRequest
         $id = $this->route('id');
 
         // Création d'administrateur
-        if($id == null) {
+        if($id === null) {
             return [
                 'firstname' => 'required|max:255',
                 'lastname' => 'required|max:255',

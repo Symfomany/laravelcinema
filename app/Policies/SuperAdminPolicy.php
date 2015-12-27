@@ -20,7 +20,7 @@ class SuperAdminPolicy
      */
     public function isSuperAdmin(Administrators $administrator)
     {
-        if($administrator->super_admin == true){
+        if($administrator->super_admin === true){
             return true;
         }else{
             return false;
