@@ -36,6 +36,12 @@ Technologies
 * Bootstrapp 3 based on Material Design
 
 
+Demo
+====
+http://45.55.35.18/index.php/admin
+Login:
+Mdp: 
+
 Screenshots
 ====
 
