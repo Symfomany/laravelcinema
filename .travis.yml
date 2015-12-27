@@ -17,7 +17,7 @@ before_install:
 before_script:
   - /home/travis/.phpenv/versions/5.6/bin/composer self-update
   - composer self-update
-  - cp .env-example .env
+  - cp .env.travis .env
   - composer install --prefer-source --no-interaction --dev
   - php artisan key:generate
   - mysql -e 'create database IF NOT EXISTS  cineacademy;'   -uroot

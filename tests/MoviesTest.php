@@ -53,6 +53,22 @@ class MoviesTest extends TestCase
     }
 
     /**
+     * Test Dashboard
+     */
+    public function testEditFailure()
+    {
+        $this->authentification()
+            ->visit('/admin/movies/edit/3')
+            ->type('Django Unchained','title')
+            ->select('long','type')
+            ->select('vost','bose')
+            ->type("16/03/2014",'date_release')
+            ->press('Enregistrer ce film')
+            ->followRedirects()
+            ->seePageIs('/admin/movies/edit/3');
+    }
+
+    /**
      * Test Remove Movies
      */
     public function testRemove(){
