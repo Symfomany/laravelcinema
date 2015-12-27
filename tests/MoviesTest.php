@@ -69,6 +69,20 @@ class MoviesTest extends TestCase
     }
 
     /**
+     * Test Dashboard
+     */
+    public function testEditSuccess()
+    {
+        $this->authentification()
+            ->visit('/admin/movies/edit/3')
+            ->type('Godzilla 2015 Remake','title')
+            ->type("16/03/2020",'date_release')
+            ->press('Enregistrer ce film')
+            ->followRedirects()
+            ->seePageIs('/admin/movies/index');
+    }
+
+    /**
      * Test Remove Movies
      */
     public function testRemove(){
@@ -81,6 +95,37 @@ class MoviesTest extends TestCase
             ->notSeeInDatabase('movies', ['id' => 3])
             ->see("Le film Godzilla a bien été supprimé");
     }
+
+    /**
+     * Test Add in session Movies
+     */
+    public function testAddCart(){
+        //$this->markTestSkipped();
+        $this
+            ->authentification()
+            ->visit('/admin/movies/index')
+            ->get('http://localhost:8000/admin/movies/like/3/like')
+            ->followRedirects()
+            ->withSession(['likes' => [3]])
+            ->see("Le film Godzilla a bien été liké")
+            ->get('http://localhost:8000/admin/movies/like/3/dislike')
+            ->followRedirects()
+            ->withSession(['likes' => []])
+            ->get('http://localhost:8000/admin/movies/like/3/like')
+            ->followRedirects()
+            ->withSession(['likes' => [3]])
+            ->seePageIs('/admin/movies/index')
+            ->click('Voir mon panier')
+            ->followRedirects()
+            ->seePageIs('/admin/cart/recapitulatif')
+            ->see('Récapitulatif de votre panier')
+            ->see('Godzilla')
+            ->see('31 €');
+
+
+    }
+
+
 
     /**
      * Test Dashboard

@@ -36,7 +36,7 @@
 
                     </div>
                     <div class="panel-footer text-center p7">
-                        <a href="#" class="link-unstyled"><i class="fa fa-trash"></i> Vider mon panier </a>
+                        <a href="{{ route('cart_recapitulatif') }}" class="link-unstyled"><i class="fa fa-th"></i> Voir mon panier </a>
                     </div>
                 </div>
             </div>
