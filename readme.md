@@ -1,3 +1,9 @@
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff/big.png)](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff)
+[![Build Status](https://travis-ci.org/Symfomany/laravelcinema.svg?branch=master)](https://travis-ci.org/Symfomany/laravelcinema)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/?branch=master)
+
+
 ## Laravel PHP Project
 
 Projet Pedagogique en Laravel 5 d'une plateforme cinématographique
@@ -28,10 +34,6 @@ Technologies
 * Faker Objects
 * Bootstrapp 3 based on Material Design
 
-
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff/big.png)](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff)
-[![Build Status](https://travis-ci.org/Symfomany/laravelcinema.svg?branch=master)](https://travis-ci.org/Symfomany/laravelcinema)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/?branch=master)
 
 Screenshots
 ====
