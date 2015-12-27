@@ -60,10 +60,11 @@ class MoviesTest extends TestCase
         $this->authentification()
             ->visit('/admin/movies/edit/3')
             ->type('Django Unchained','title')
-            ->select('vost','bo')
             ->type("16/03/2014",'date_release')
             ->press('Enregistrer ce film')
             ->followRedirects()
+            ->see('La valeur du champ Titre est déjà utilisée.')
+            ->see('Le champ date release doit être une date postérieure au now.')
             ->seePageIs('/admin/movies/edit/3');
     }
 

@@ -21,7 +21,7 @@ before_script:
   - composer install --prefer-source --no-interaction --dev
   - php artisan key:generate
   - mysql -e 'create database IF NOT EXISTS  cineacademy;'   -uroot
-  - mysql -uroot -p cineacademy < mysql/cineacademy.sql
+  - mysql -uroot cineacademy < mysql/cineacademy.sql
 
 
 script: phpunit
