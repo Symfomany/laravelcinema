@@ -20,6 +20,7 @@ Technologies
 * Paypal Account
 * OpenSSL
 * Task launch in schedule here * * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
+* Faker && Seed
 * MongoDB
 * Redis
 * AngularJS

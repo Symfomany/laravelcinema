@@ -11,11 +11,25 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+
+/**
+ * Factory to generate Data Fixtures with Movies & Faker
+ */
+$factory->define(\App\Http\Models\Movies::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'type' => $faker->realText,
+        'note_presse' => $faker->randomDigit,
+        'title' => $faker->title,
+        'categories_id' => 1,
+        'languages' => "fr",
+        'distributeur' => "HBO",
+        'annee' => $faker->randomDigit,
+        'budget' => $faker->randomDigitNotNull,
+        'duree' =>  $faker->randomDigitNotNull,
+        'synopsis' => $faker->paragraph(2),
+        'description' => $faker->paragraph,
+        'created_at' => $faker->dateTimeBetween('-1 year', 'now'),
+        'date_release' => $faker->dateTimeBetween('-30 year', 'now'),
+        'image' => $faker->imageUrl(),
     ];
 });

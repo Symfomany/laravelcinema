@@ -22,6 +22,7 @@ before_script:
   - php artisan key:generate
   - mysql -e 'create database IF NOT EXISTS  cineacademy;'   -uroot
   - mysql -uroot cineacademy < mysql/cineacademy.sql
+  - php artisan  db:seed
 
 
 script: phpunit
