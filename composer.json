@@ -11,7 +11,18 @@
         "caouecs/laravel4-lang": "^2.0",
         "laravel/envoy": "~1.0",
         "laravelrus/localized-carbon": "*",
-        "netshell/paypal": "dev-master"
+        "netshell/paypal": "dev-master",
+        "jenssegers/mongodb": "^2.2",
+        "laravel/socialite": "^2.0",
+        "symfony/dom-crawler": "^2.7",
+        "guzzlehttp/guzzle": "^6.1",
+        "symfony/css-selector": "^2.7",
+        "fabpot/goutte": "^3.1",
+        "alaouy/youtube": "^1.2",
+        "thujohn/twitter": "^2.0",
+        "cviebrock/eloquent-sluggable": "^3.0",
+        "barryvdh/laravel-debugbar": "^2.2@dev"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
