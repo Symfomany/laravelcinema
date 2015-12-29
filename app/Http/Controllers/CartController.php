@@ -8,6 +8,7 @@ use App\Http\Requests\AdministratorsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Netshell\Paypal\Facades\Paypal;
@@ -124,6 +125,7 @@ class CartController extends Controller{
 
         $payment = PayPal::getById($id, $this->_apiContext);
 
+
         $paymentExecution = PayPal::PaymentExecution();
 
         //execution du paiment a partir du Payer
@@ -133,6 +135,10 @@ class CartController extends Controller{
 
         // Clear the shopping cart,
         $request->session()->pull('likes', []);
+
+        //write log
+        Log::info("Un client vient de passer uen commande via Paypal" . $payer_id);
+
 
         // Write database
 
