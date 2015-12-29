@@ -14,6 +14,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.phpUnit();
+    mix.phpSpec();
     //
     //mix.sass('app.sass');
     //

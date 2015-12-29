@@ -111,8 +111,6 @@ class MoviesController extends Controller{
      * @param $id
      */
     public function cover($id){
-        // find() permet de retourner un Objet Movie
-        // depuis son id
         $movie = Movies::find($id);
 
         if($movie->cover == 0){
@@ -156,12 +154,8 @@ class MoviesController extends Controller{
      */
     public function like($id, $action)
     {
-        // je recupère le film (objet MOvies)
         $movie = Movies::find($id);
 
-        // je recupère ma variable likes en session
-        // et je fixe un tableau par défaut
-        // si j'ai rien en sessions likes
         $likes = session("likes", []);
 
         // si l'action est "like"

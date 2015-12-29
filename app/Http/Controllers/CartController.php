@@ -6,6 +6,7 @@ use App\Http\Models\Administrators;
 use App\Http\Models\Movies;
 use App\Http\Requests\AdministratorsRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -23,11 +24,20 @@ class CartController extends Controller{
      */
     private $_apiContext;
 
+
+    /**
+     * @var $cart
+     */
+    private $cart;
+
     /**
      * Constructor for initialize Paypal
      */
     public function __construct()
     {
+        // Get Cart in Container
+        $this->cart = App::make('App\Http\Cart\Cart');
+
         $this->_apiContext = Paypal::ApiContext(
             config('services.paypal.client_id'),
             config('services.paypal.secret')

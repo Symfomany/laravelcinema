@@ -2,6 +2,7 @@
 
 namespace App\Http\Models;
 
+use App\Http\Cart\ItemInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\DB;
  * de ma table movies
  * Hérite de ma super classe Model
  */
-class Movies extends Model{
+class Movies extends Model implements ItemInterface{
 
 
 
@@ -99,9 +100,21 @@ class Movies extends Model{
         return $this->hasMany('App\Http\Models\Recommandations');
     }
 
+    /**
+     * @param ItemInterface $item
+     */
+    public function add(ItemInterface $item)
+    {
 
+    }
 
-
+    /**
+     * @param ItemInterface $item
+     */
+    public function remove(ItemInterface $item)
+    {
+        // TODO: Implement remove() method.
+    }
 
 
 }

@@ -10,6 +10,19 @@ Projet Pedagogique en Laravel 5 d'une plateforme cinématographique
 Développé par Julien Boyer  julien@meetserious.com
 
 
+## Install via Composer
+
+* Get composer: curl -sS https://getcomposer.org/installer | php
+* Install the vendo php compose.phar install
+* Deploy your database in mysql/...sql
+* Launch fixtures with php artisan db:seed
+* Run the test with Phpunit
+
+## Test
+
+* Run phpunit
+* Run phpspec
+
 Technologies
 ====
 
@@ -18,6 +31,7 @@ Technologies
 * Redis server with Predis
 * Envoy
 * Paypal Account
+* OOP Cart with Abstract, INterfacing Exception with IoC Container
 * OpenSSL
 * Task launch in schedule here * * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 * Faker && Seed
@@ -36,11 +50,40 @@ Technologies
 * Bootstrapp 3 based on Material Design
 
 
+Configuration
+====
+
+* Define .env file with
++ APP_ENV=local
++ APP_DEBUG=true
++ APP_KEY= ******
+
++ DB_HOST=localhost
++ DB_DATABASE=db
++ DB_USERNAME=root
++ DB_PASSWORD= ******
+
++ CACHE_DRIVER=file
++ SESSION_DRIVER=file
++ QUEUE_DRIVER=sync
+
++ MAIL_DRIVER=smtp
++ MAIL_HOST=mailtrap.io
++ MAIL_PORT=2525
++ MAIL_USERNAME=null
++ MAIL_PASSWORD=null
++ MAIL_ENCRYPTION=null
+
+
 Demo
 ====
 http://45.55.35.18/index.php/admin
 Login:
 Mdp: 
+
+Data Fixtures
+====
+php artisan db:seed
 
 Screenshots
 ====

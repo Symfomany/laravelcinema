@@ -17,7 +17,6 @@
                             <div class="scroller-content">
 
                                 <ol class="timeline-list">
-
                                    @forelse(session("likes", []) as $like)
                                         <li class="timeline-item">
                                         <div class="timeline-icon bg-dark light">

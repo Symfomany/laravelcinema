@@ -15,19 +15,5 @@ class MoviesTableSeeder extends Seeder
             $m->save();
         });
 
-//        \Illuminate\Support\Facades\DB::table('movies')->insert([
-//                'type' => "long-metrage",
-//                'note_presse' => 4,
-//                'title' => "Seed Movie Test",
-//                'categories_id' => 1,
-//                'trailer' => "<iframe></iframe>",
-//                'languages' => "fr",
-//                'distributeur' => "HBO",
-//                'annee' => 2015,
-//                'budget' => 6544548454,
-//                'duree' => 4,
-//                'synopsis' => str_repeat("blabla ",20),
-//                'description' => str_repeat("blabla ",50),
-//        ]);
     }
 }

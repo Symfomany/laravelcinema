@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Cart\Facades\Cart;
 use App\Http\Models\Actors;
 use App\Http\Models\Comments;
 use App\Http\Models\Movies;
@@ -32,9 +33,12 @@ class MainController extends Controller{
     }
 
 
+    /**
+     * Ajax Movies
+     * @param Request $request
+     * @return mixed
+     */
     public function ajaxmovies(Request $request){
-
-        $title = $request->title;
 
         $validator = Validator::make(
             $request->all(),  //request all : tous les elements de requetses
@@ -63,7 +67,11 @@ class MainController extends Controller{
     }
 
 
-
+    /**
+     * Done Payment
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function done(Request $request)
     {
         $id = $request->get('paymentId');
@@ -88,8 +96,6 @@ class MainController extends Controller{
     public function dashboard(){
 
 
-       // $redirectUrl = $response->links[1]->href;
-
         $nbacteurs = Actors::count();
         $nbcommentaires = Comments::count();
         $nbmovies = Movies::count();
@@ -108,11 +114,6 @@ class MainController extends Controller{
 
         $seances = $session->getNextSession();
         $users = $user->getLastUsers();
-
-        /*
-         $seances = Sessions::where("date_session",  ">", DB::raw("NOW()"))
-        ->take(15)->get();
-        */
 
         return view('Main/dashboard',[
             'avgnotecommentaire' => $avgnotecommentaire->avgnote,

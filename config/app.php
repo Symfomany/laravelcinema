@@ -144,11 +144,31 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Http\Cart\CartServiceProvider::class,
 
         /**
          * Provider By third librairie
          */
         Netshell\Paypal\PaypalServiceProvider::class,
+
+
+        /**
+         * Sluggable
+         */
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+
+
+        /**
+         * Twitter API
+         */
+        Thujohn\Twitter\TwitterServiceProvider::class,
+
+
+        /**
+         * Youtube API
+         */
+        Alaouy\Youtube\YoutubeServiceProvider::class,
+
 
         /**
          * Debug Toolbar
@@ -205,7 +225,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Paypal'    => Netshell\Paypal\Facades\Paypal::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class
+        'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
+
 
     ],
 
