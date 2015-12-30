@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98bd3504781944529ddabc5e8688f30b",
-    "content-hash": "497ff38a2643e953e882b8cdc5c68e2b",
+    "hash": "ac5af1aa5dfcbb5fb6e57f9d47c85512",
+    "content-hash": "98b14fa4e6924b781007abf9f01139b1",
     "packages": [
         {
             "name": "alaouy/youtube",

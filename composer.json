@@ -1,9 +1,21 @@
 {
-    "name": "laravel/laravel",
+    "name": "Symfomany/laravelcinema",
     "description": "Pedagogic Project",
     "keywords": ["framework", "laravel", "mongodb"],
     "license": "MIT",
     "type": "project",
+    "version": "1.0.0-dev",
+    "authors": [
+        {
+            "name": "Boyer Julien",
+            "email": "julien@meetserious.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "julien@meetserious.com",
+        "irc": "irc://irc.freenode.org/composer"
+    },
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
