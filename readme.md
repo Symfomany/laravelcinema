@@ -5,26 +5,32 @@
 [![Gitter](https://badges.gitter.im/Symfomany/laravelcinema.svg)](https://gitter.im/Symfomany/laravelcinema?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Coverage Status](https://coveralls.io/repos/Symfomany/laracinema/badge.svg?branch=master&service=github)](https://coveralls.io/github/Symfomany/laracinema?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff/mini.png)](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff)
+![Packagist](https://img.shields.io/github/issues/Symfomany/laravelcinema.svg)
+![Packagist](https://img.shields.io/packagist/v/symfomany/laravelcinema.svg)
+![Packagist](https://img.shields.io/github/forks/Symfomany/laravelcinema.svg)
+![Packagist](https://img.shields.io/github/stars/Symfomany/laravelcinema.svg)
+![Packagist](https://img.shields.io/twitter/url/https/github.com/Symfomany/laravelcinema.svg?style=social)
 
 ## Laravel PHP Project
 
-Projet Pedagogique en Laravel 5 d'une plateforme cinématographique
-Propulsed by Julien Boyer  julien@meetserious.com
+Pedagogic Project  en **Laravel 5** on CMS like *Allociné*
+Propulsed by *Julien Boyer*  julien@meetserious.com
 
 
 ## Install via Composer
 
-* Composer package: composer require symfomany/laravelcinema
-* Get composer: curl -sS https://getcomposer.org/installer | php
-* Install the vendo php compose.phar install
+* Composer package:   `composer create-project symfomany/laravelcinema`  or just vendor with `composer require symfomany/laravelcinema`
+* Manually, Get composer: `curl -sS https://getcomposer.org/installer | php`
+* Install the vendor `php compose.phar install`
 * Deploy your database in mysql/...sql
 * Launch fixtures with php artisan db:seed
 * Run the test with Phpunit
 
 ## Test
 
-* Run phpunit
-* Run phpspec
+* Run phpunit with `phpunit`
+* Run phpspec with `bin/phpspec run`
+
 
 Technologies
 ====
@@ -46,14 +52,12 @@ Technologies
 * Gulp
 * Bower
 * Notification in Suscribers
-* Twig
-* YAML configuration
 * Fixtures in seeks
 * Faker Objects
 * Bootstrapp 3 based on Material Design
 
 
-Configuration
+Configuration on *.env* file
 ====
 
 * Define .env file with
@@ -86,7 +90,8 @@ Mdp:
 
 Data Fixtures
 ====
-php artisan db:seed
+
+    php artisan db:seed
 
 Screenshots
 ====
@@ -100,4 +105,4 @@ Screenshots
 
 ### License
 
-The Laravel project is open-sourced software
+*The Laravel project is open-sourced software*
