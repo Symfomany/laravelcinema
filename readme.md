@@ -6,6 +6,8 @@
 
 ## Laravel PHP Project
 
+[![Join the chat at https://gitter.im/Symfomany/laravelcinema](https://badges.gitter.im/Symfomany/laravelcinema.svg)](https://gitter.im/Symfomany/laravelcinema?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Projet Pedagogique en Laravel 5 d'une plateforme cinématographique
 Développé par Julien Boyer  julien@meetserious.com
 
