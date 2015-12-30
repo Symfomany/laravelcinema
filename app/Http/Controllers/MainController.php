@@ -95,28 +95,6 @@ class MainController extends Controller{
      */
     public function dashboard(){
 
-//        $filter = array();
-//        $options = array(
-//            "projection" => array(
-//                "title" => 1,
-//            ),
-//            "sort" => array(
-//                "title" => -1,
-//            ),
-//        );
-//
-//
-//        $manager = new \MongoDB\Driver\Manager("mongodb://localhost:27017");
-//        $query = new \MongoDB\Driver\Query($filter, $options);
-//
-//        $readPreference = new \MongoDB\Driver\ReadPreference(\MongoDB\Driver\ReadPreference::RP_PRIMARY);
-//        $cursor = $manager->executeQuery("laravel.stats", $query, $readPreference);
-//        foreach($cursor as $document) {
-//            dump($document);
-//        }
-//
-//        exit('stop');
-
         $nbacteurs = Actors::count();
         $nbcommentaires = Comments::count();
         $nbmovies = Movies::count();

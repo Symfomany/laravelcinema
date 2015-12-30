@@ -4,7 +4,7 @@
     "keywords": ["framework", "laravel", "mongodb"],
     "license": "MIT",
     "type": "project",
-    "version": "1.0.0-dev",
+    "version": "1.0",
     "authors": [
         {
             "name": "Boyer Julien",
@@ -23,7 +23,6 @@
         "caouecs/laravel4-lang": "^2.0",
         "laravel/envoy": "~1.0",
         "laravelrus/localized-carbon": "*",
-        "netshell/paypal": "dev-master",
         "laravel/socialite": "^2.0",
         "symfony/dom-crawler": "^2.7",
         "guzzlehttp/guzzle": "^6.1",
@@ -32,7 +31,8 @@
         "alaouy/youtube": "^1.2",
         "thujohn/twitter": "^2.0",
         "cviebrock/eloquent-sluggable": "^3.0",
-        "barryvdh/laravel-debugbar": "^2.2@dev"
+        "barryvdh/laravel-debugbar": "^2.2@dev",
+        "netshell/paypal": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

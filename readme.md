@@ -9,11 +9,12 @@
 ## Laravel PHP Project
 
 Projet Pedagogique en Laravel 5 d'une plateforme cinématographique
-Développé par Julien Boyer  julien@meetserious.com
+Propulsed by Julien Boyer  julien@meetserious.com
 
 
 ## Install via Composer
 
+* Composer package: composer require symfomany/laravelcinema
 * Get composer: curl -sS https://getcomposer.org/installer | php
 * Install the vendo php compose.phar install
 * Deploy your database in mysql/...sql
