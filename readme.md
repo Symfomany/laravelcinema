@@ -2,6 +2,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff/big.png)](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff)
 [![Build Status](https://travis-ci.org/Symfomany/laravelcinema.svg?branch=master)](https://travis-ci.org/Symfomany/laravelcinema)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/?branch=master)
+[![Gitter](https://badges.gitter.im/Symfomany/laravelcinema.svg)](https://gitter.im/Symfomany/laravelcinema?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
 ## Laravel PHP Project

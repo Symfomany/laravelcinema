@@ -20,8 +20,7 @@
         "alaouy/youtube": "^1.2",
         "thujohn/twitter": "^2.0",
         "cviebrock/eloquent-sluggable": "^3.0",
-        "barryvdh/laravel-debugbar": "^2.2@dev",
-        "mongodb/mongodb": "^0.2.0"
+        "barryvdh/laravel-debugbar": "^2.2@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
