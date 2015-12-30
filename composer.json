@@ -3,8 +3,8 @@
     "description": "Pedagogic Project",
     "keywords": ["framework", "laravel", "mongodb"],
     "license": "MIT",
-    "type": "project",
     "version": "1.0",
+    "homepage": "https://github.com/Symfomany/laravelcinema",
     "authors": [
         {
             "name": "Boyer Julien",
