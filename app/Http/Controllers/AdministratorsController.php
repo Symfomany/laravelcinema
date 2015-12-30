@@ -1,11 +1,8 @@
 <?php
-// chemin relatif ou se trouve la classe
 namespace App\Http\Controllers;
 
 use App\Http\Models\Administrators;
 use App\Http\Requests\AdministratorsRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 

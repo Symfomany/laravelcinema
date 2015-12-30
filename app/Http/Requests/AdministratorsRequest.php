@@ -2,11 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Models\Administrators;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Request;
 
 /**
  * Class AdministratorsRequest

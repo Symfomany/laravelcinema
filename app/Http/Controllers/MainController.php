@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Cart\Facades\Cart;
 use App\Http\Models\Actors;
 use App\Http\Models\Comments;
 use App\Http\Models\Movies;

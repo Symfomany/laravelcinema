@@ -1,5 +1,4 @@
 <?php
-// chemin relatif ou se trouve la classe
 namespace App\Http\Controllers;
 
 use App\Http\Models\Categories;

@@ -85,8 +85,8 @@ Configuration on *.env* file
 Demo
 ====
 http://45.55.35.18/index.php/admin
-Login:
-Mdp: 
+Login: admin@test.com
+Mdp: 123456
 
 Data Fixtures
 ====

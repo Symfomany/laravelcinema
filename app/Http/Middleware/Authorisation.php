@@ -7,6 +7,10 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
+/**
+ * Class Authorisation
+ * @package App\Http\Middleware
+ */
 class Authorisation
 {
     /**
