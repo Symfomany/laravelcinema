@@ -9,6 +9,8 @@
 ![Packagist](https://img.shields.io/github/forks/Symfomany/laravelcinema.svg)
 ![Packagist](https://img.shields.io/github/stars/Symfomany/laravelcinema.svg)
 ![Packagist](https://img.shields.io/twitter/url/https/github.com/Symfomany/laravelcinema.svg?style=social)
+![Packagist](https://poser.pugx.org/symfomany/laravelcinema/license.svg)
+![Packagist](https://poser.pugx.org/symfomany/laravelcinema/downloads)
 
 ## Laravel PHP Project
 
@@ -100,6 +102,11 @@ Screenshots
 ![GitHub Logo](/screens/3.png)
 ![GitHub Logo](/screens/4.png)
 ![GitHub Logo](/screens/5.png)
+![GitHub Logo](/screens/6.png)
+![GitHub Logo](/screens/7.png)
+![GitHub Logo](/screens/8.png)
+![GitHub Logo](/screens/9.png)
+![GitHub Logo](/screens/10.png)
 
 
 ### License

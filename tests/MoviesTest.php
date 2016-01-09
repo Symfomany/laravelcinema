@@ -1,13 +1,12 @@
 <?php
 /**
  * Class MoviesTest
- * Test Movies CRUD
+ * Movies CRUD
  */
 class MoviesTest extends TestCase
 {
 
     use \Illuminate\Foundation\Testing\DatabaseTransactions;
-
 
     /**
      * Test Dashboard
@@ -27,7 +26,7 @@ class MoviesTest extends TestCase
     }
 
     /**
-     * Test Dashboard
+     * Test Create a movie
      */
     public function testCreateSuccess()
     {

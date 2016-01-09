@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
-
 /**
  * Class MainController
  * @package App\Http\Controllers
@@ -20,12 +19,10 @@ use Illuminate\Support\Facades\Session;
  */
 class MoviesController extends Controller{
 
-
     /**
      * Page Acceuil
      */
     public function index(){
-
         $movies = Movies::all();
 
         return view('Movies/index',[

@@ -71,14 +71,6 @@ class CategoriesController extends Controller{
      */
     public function store(Request $request){
 
-        //recupérer le titre de mon film en POST
-        //input(name de mon champ) permet de récupérer
-        // la données titre en POST de manière sécurisée
-        $input = $request->input(['title']);
-
-        //exit() => sortir de l'execution PHP
-        // dump() fonction de debogage
-
 
     }
 

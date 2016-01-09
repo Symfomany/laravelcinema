@@ -11,14 +11,13 @@ use Illuminate\Support\Facades\Request;
  */
 class AuthLoginEventHandler
 {
+
     /**
      * Create the event handler.
-     *
      * @return void
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -27,9 +26,8 @@ class AuthLoginEventHandler
      * @param  Events  $event
      * @return void
      */
-    public function handle(Administrators $user, $remember)
+    public function handle(Administrators $user)
     {
-
         $user->authentificated_at = new \DateTime;
         $user->ip = Request::getClientIp();
         $user->save();

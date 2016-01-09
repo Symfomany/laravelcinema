@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Http\Models\Administrators;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

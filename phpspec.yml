@@ -1,7 +1,14 @@
 formatter.name: pretty
+stop_on_failure: true
+code_generation: true
 suites:
-    main:
+    main_suite:
         namespace: App
         psr4_prefix: App
         src_path: app
         spec_prefix: spec
+    packages_suite:
+        namespace: Mongo
+        psr4_prefix: Mongo
+        src_path: packages/Vendor/Package/src
+        spec_prefix: specpackages

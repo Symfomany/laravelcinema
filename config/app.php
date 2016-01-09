@@ -176,6 +176,13 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
 
 
+        /**
+         * Debug Toolbar
+         */
+        \Mongo\Mongodb\MongodbServiceProvider::class,
+
+
+
     ],
 
     /*

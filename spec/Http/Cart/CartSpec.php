@@ -7,7 +7,6 @@ use App\Http\Cart\MoviesItem;
 use App\Http\Models\Movies;
 use Illuminate\Database\Eloquent\Collection;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 /**
  * Spec for Cart
@@ -20,22 +19,16 @@ class CartSpec extends ObjectBehavior
      */
     function let(MoviesItem $movieitem, MoviesItem $movieitem2)
     {
-
         $movie = new Movies();
         $movie->prix = 50;
         $movie2 = new Movies();
         $movie2->prix = 150;
-
         $movieitem->getMovie()->willReturn($movie);
         $movieitem2->getMovie()->willReturn($movie2);
-
-
         $this->beConstructedWith([$movieitem, $movieitem2]);
         $this->getTotal()->shouldReturn(0);
         $this->shouldReturnAnInstanceOf('App\Http\Cart\Cart');
     }
-
-
 
     function it_is_initializable()
     {
@@ -43,13 +36,10 @@ class CartSpec extends ObjectBehavior
         $this->getProducts()->shouldHaveCount(2);
         $this->getProducts()->shouldBeArray();
     }
-
-
     /**
      * @param \App\Http\Cart\MoviesItem $movieitem
      */
     function it_add_cart(MoviesItem $movieitem){
-
         $this->add($movieitem)->shouldReturn($this);
     }
 

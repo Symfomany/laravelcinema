@@ -116,14 +116,11 @@ class CartController extends Controller{
 
         //je recupere les informations de retour de Paypal
         $id = $request->get('paymentId');
-        $token = $request->get('token');
+//        $token = $request->get('token');
         $payer_id = $request->get('PayerID');
-
         $payment = PayPal::getById($id, $this->_apiContext);
 
-
         $paymentExecution = PayPal::PaymentExecution();
-
         //execution du paiment a partir du Payer
         //Requete à Paypal: débit du montant de a transaction au Payer
         $paymentExecution->setPayerId($payer_id);

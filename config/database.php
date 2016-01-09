@@ -64,6 +64,18 @@ return [
             'strict'    => false,
         ],
 
+//        'mongodb' => array(
+//            'driver'   => 'mongodb',
+//            'host'     =>  'localhost',
+//            'port'     => env('DB_MONGODB_PORT', 27017),
+//            'database' => env('DB_MONGODB_DATABASE', 'laravel'),
+//            'username' => env('DB_MONGODB_USERNAME', ''),
+//            'password' => env('DB_MONGODB_PASSWORD', ''),
+//            'options' => array(
+//                'db' => 'laravel' // sets the authentication database required by mongo 3
+//            )
+//        ),
+
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', 'localhost'),

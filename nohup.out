@@ -1,6 +1,0 @@
-PHP Warning:  Module 'mongodb' already loaded in Unknown on line 0
-PHP Warning:  Module 'mcrypt' already loaded in Unknown on line 0
-Laravel development server started on http://localhost:8000/
-[Mon Dec 28 12:54:07 2015] PHP Warning:  Module 'mongodb' already loaded in Unknown on line 0
-[Mon Dec 28 12:54:07 2015] PHP Warning:  Module 'mcrypt' already loaded in Unknown on line 0
-[Mon Dec 28 12:54:07 2015] Failed to listen on localhost:8000 (reason: Address already in use)

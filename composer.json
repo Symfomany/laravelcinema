@@ -33,25 +33,33 @@
         "thujohn/twitter": "^2.0",
         "cviebrock/eloquent-sluggable": "^3.0",
         "barryvdh/laravel-debugbar": "^2.2@dev",
-        "netshell/paypal": "dev-master"
+        "netshell/paypal": "dev-master",
+        "mongodb/mongodb": "^1.0.0@beta"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
-        "phpspec/phpspec": "~2.1"
+        "phpspec/phpspec": "~2.1",
+        "orchestra/testbench": "^3.1",
+        "benconstable/phpspec-laravel": "^2.0"
     },
     "autoload": {
         "classmap": [
             "database"
         ],
         "psr-4": {
+            "Mongo\\": "packages/Vendor/Package/src/Mongo",
             "App\\": "app/"
         }
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php"
+            "tests/TestCase.php",
+            "packages/Vendor/Package/tests/BaseTestCase.php",
+            "packages/Vendor/Package/tests/models",
+            "packages/Vendor/Package/seeds"
         ]
     },
     "scripts": {
@@ -72,7 +80,6 @@
             "php artisan key:generate"
         ]
     },
-    "prefer-dist": "dev",
     "minimum-stability": "dev",
     "config": {
         "preferred-install": "dist"

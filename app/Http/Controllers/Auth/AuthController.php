@@ -132,7 +132,7 @@ class AuthController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        $credentials = $this->getCredentials($request);
+        $this->getCredentials($request);
 
 
         //override AUth atempt() here...

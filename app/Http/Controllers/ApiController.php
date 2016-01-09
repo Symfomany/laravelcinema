@@ -3,11 +3,6 @@
 namespace App\Http\Controllers;
 use App\Http\Models\Actors;
 use App\Http\Models\Categories;
-use App\Http\Models\Comments;
-use App\Http\Models\Movies;
-use App\Http\Models\Sessions;
-use App\Http\Models\User;
-use Illuminate\Support\Facades\DB;
 
 
 /**

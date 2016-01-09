@@ -65,15 +65,6 @@ class DirectorsController extends Controller{
      */
     public function store(Request $request){
 
-        //recupérer le titre de mon film en POST
-        //input(name de mon champ) permet de récupérer
-        // la données titre en POST de manière sécurisée
-        $firstname = $request->input(['firstname']);
-        $lastname = $request->input(['lastname']);
-
-        //exit() => sortir de l'execution PHP
-        // dump() fonction de debogage
-
 
     }
 
