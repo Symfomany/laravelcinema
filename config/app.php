@@ -173,15 +173,7 @@ return [
         /**
          * Debug Toolbar
          */
-        Barryvdh\Debugbar\ServiceProvider::class,
-
-
-        /**
-         * Debug Toolbar
-         */
-        \Mongo\Mongodb\MongodbServiceProvider::class,
-
-
+        Barryvdh\Debugbar\ServiceProvider::class
 
     ],
 

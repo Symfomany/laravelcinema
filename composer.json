@@ -33,8 +33,7 @@
         "thujohn/twitter": "^2.0",
         "cviebrock/eloquent-sluggable": "^3.0",
         "barryvdh/laravel-debugbar": "^2.2@dev",
-        "netshell/paypal": "dev-master",
-        "mongodb/mongodb": "^1.0.0@beta"
+        "netshell/paypal": "dev-master"
 
     },
     "require-dev": {
@@ -50,17 +49,8 @@
             "database"
         ],
         "psr-4": {
-            "Mongo\\": "packages/Vendor/Package/src/Mongo",
             "App\\": "app/"
         }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php",
-            "packages/Vendor/Package/tests/BaseTestCase.php",
-            "packages/Vendor/Package/tests/models",
-            "packages/Vendor/Package/seeds"
-        ]
     },
     "scripts": {
         "post-install-cmd": [
