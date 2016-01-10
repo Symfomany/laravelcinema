@@ -30,8 +30,7 @@ class Email extends Command
         $email = $this->argument('email');
         $nom = $this->argument('nom');
         Mail::send('Emails/welcome', [], function ($m) use ($email, $nom) {
-            $m->from('julien@meetserious.com', 'Julien Boyer')
-                ->to($email, $nom)
+            $m->to($email, $nom)
                 ->subject('Welcome to the site ');
         });
 

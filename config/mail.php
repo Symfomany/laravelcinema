@@ -56,7 +56,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => env('MANDRILL_ADDRESS'), 'name' => env('MANDRILL_NAME')],
 
     /*
     |--------------------------------------------------------------------------
