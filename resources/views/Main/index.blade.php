@@ -40,29 +40,9 @@
                         </span>
                 </div>
                 
-                <h1 class="coming-soon-title"> We're Getting Ready To Launch!</h1>
-                <div class="panel panel-info bw10">
-
-                        <!-- end .form-header section -->
-                        <form method="post" action="/" id="contact">
-                                <div class="panel-menu">
-                                        <div class="row">
-                                                <div class="col-md-9">
-                                                        <label for="password" class="field prepend-icon">
-                                                                <input type="text" name="password" id="password" class="gui-input" placeholder="Your Email Address">
-                                                                <label for="password" class="field-icon">
-                                                                        <i class="fa fa-envelope-o"></i>
-                                                                </label>
-                                                        </label>
-                                                </div>
-                                                <div class="col-md-3">
-                                                        <button type="submit" class="button btn-info mr10 btn-block">Notify</button>
-                                                </div>
-                                        </div>
-                                </div>
-                                <!-- end .form-body section -->
-
-                        </form>
+                <h1 class="coming-soon-title"> We're Getting Ready To Learn Laravel 5!</h1>
+                <div class=" bw10">
+                        <img style="margin-left: 320px;" src="http://www.slagus.com/resources/platform_icons/laravel_logo.png">
                 </div>
         </div>
 @endsection
