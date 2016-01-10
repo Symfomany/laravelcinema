@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 
 class Email extends Command
 {
+    
     /**
      * The name and signature of the console command.
      *
@@ -20,16 +21,6 @@ class Email extends Command
      * @var string
      */
     protected $description = 'Send an email for an use';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     /**
      * Execute the console command.
