@@ -34,7 +34,7 @@ class Email extends Command
                 ->subject('Welcome to the site ');
         });
 
-        $this->info('Send a email');
+        $this->info('Finish: Send a email');
 
 
 
