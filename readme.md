@@ -93,10 +93,18 @@ Mdp: 123456
 Laravel Forge to Github
 ![GitHub Logo](/screens/12.png)
 
+
 Data Fixtures
 ====
 
     php artisan db:seed
+
+Issues
+====
+
+Use Waffle.io to sync all issues simply with Github Repository
+![GitHub Logo](/screens/13.png)
+* Link:  https://waffle.io/Symfomany/laravelcinema
 
 Screenshots
 ====
