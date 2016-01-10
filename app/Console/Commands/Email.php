@@ -13,7 +13,7 @@ class Email extends Command
      */
     protected $signature = 'email:send {email} {nom=Boyer}';
 
-    
+
     /**
      * The console command description.
      * @var string
@@ -30,7 +30,6 @@ class Email extends Command
         $email = $this->argument('email');
         $nom = $this->argument('nom');
         Mail::send('Emails/welcome', [], function ($m) use ($email, $nom) {
-
             $m->from('julien@meetserious.com', 'Julien Boyer')
                 ->to($email, $nom)
                 ->subject('Welcome to the site ');
