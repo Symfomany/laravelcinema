@@ -41,7 +41,7 @@
                                     <!-- Social Login Buttons -->
                             <div class="section row">
                                 <div class="col-md-6">
-                                    <a href="#" class="button btn-social facebook span-left btn-block">
+                                    <a href="{{ url('loginauth/facebook') }}" class="button btn-social facebook span-left btn-block">
                       <span>
                         <i class="fa fa-facebook"></i>
                       </span>Facebook</a>

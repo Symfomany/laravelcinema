@@ -33,5 +33,14 @@ return [
         'region' => 'us-east-1',
     ],
 
-
+    'github' => [
+        'client_id' => 'your-github-app-id',
+        'client_secret' => 'your-github-app-secret',
+        'redirect' => 'http://your-callback-url',
+    ],
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CONSUMER_KEY'),
+        'client_secret' => env('FACEBOOK_CONSUMER_SECRET'),
+        'redirect' => env('FACEBOOK_CLIENT_REDIRECT'),
+    ],
 ];

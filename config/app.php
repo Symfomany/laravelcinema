@@ -153,6 +153,12 @@ return [
 
 
         /**
+         * Provider Socialite
+         */
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
+
+        /**
          * Sluggable
          */
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
@@ -225,7 +231,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Paypal'    => Netshell\Paypal\Facades\Paypal::class,
         'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
-
+        'Socialize' => Laravel\Socialite\Facades\Socialite::class
 
     ],
 
