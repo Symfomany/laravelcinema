@@ -33,13 +33,14 @@ Propulsed by *Julien Boyer*  julien@meetserious.com
 * Run phpspec with `bin/phpspec run`
 
 
-Technologies
+Best Stacks & Technologies
 ====
 
 * Composer Require
 * PHP >= 5.5.9
 * Redis server with Predis
 * Envoy
+* Vue.js via Provider & Elixir
 * Paypal Account
 * OOP Cart with Abstract, INterfacing Exception with IoC Container
 * OpenSSL
@@ -139,6 +140,8 @@ Screenshots
 ![GitHub Logo](/screens/10.png)
 ![GitHub Logo](/screens/11.png)
 ![GitHub Logo](/screens/14.png)
+![GitHub Logo](/screens/15.png)
+![GitHub Logo](/screens/16.png)
 
 
 ### License
