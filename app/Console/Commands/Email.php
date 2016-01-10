@@ -7,18 +7,14 @@ use Illuminate\Support\Facades\Mail;
 
 class Email extends Command
 {
-
-    
     /**
      * The name and signature of the console command.
-     *
      * @var string
      */
     protected $signature = 'email:send {email} {nom=Boyer}';
 
     /**
      * The console command description.
-     *
      * @var string
      */
     protected $description = 'Send an email for an use';
