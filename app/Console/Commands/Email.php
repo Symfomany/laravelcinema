@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 
 class Email extends Command
 {
+
     
     /**
      * The name and signature of the console command.
