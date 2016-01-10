@@ -13,6 +13,7 @@ class Email extends Command
      */
     protected $signature = 'email:send {email} {nom=Boyer}';
 
+    
     /**
      * The console command description.
      * @var string
