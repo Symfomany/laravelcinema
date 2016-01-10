@@ -33,7 +33,7 @@
         "thujohn/twitter": "^2.0",
         "cviebrock/eloquent-sluggable": "^3.0",
         "barryvdh/laravel-debugbar": "^2.2@dev",
-        "netshell/paypal": "dev-master"
+        "netshell/paypal": "dev-master",
 
     },
     "require-dev": {
