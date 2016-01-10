@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\Email;
 use App\Console\Commands\LastMovies;
 use App\Console\Commands\Youtube;
 use Illuminate\Console\Scheduling\Schedule;
@@ -16,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         LastMovies::class,
-        Youtube::class
+        Youtube::class,
+        Email::class
     ];
 
     /**
@@ -27,7 +29,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('movies:newsletter')
-                 ->daily();
+        $schedule->command('email:send zuzu38080@gmail.com Boyer')
+                 ->everyMinute();
     }
 }
