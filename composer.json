@@ -17,6 +17,7 @@
         "email": "julien@meetserious.com",
         "irc": "irc://irc.freenode.org/composer"
     },
+
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
