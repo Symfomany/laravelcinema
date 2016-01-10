@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Models\Actors;
 use App\Http\Models\Categories;
 

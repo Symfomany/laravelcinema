@@ -85,6 +85,24 @@ Configuration on *.env* file
 
 Demo
 ====
+
+* Autoloading via Composer with PSR-4
+* Classes: attributes & getters/setters & constructor
+* Optional Arguments & Encapsulation's Argument
+* Magic Methods in class
+* Resolving attributes
+* Inheritance & Abstract & Final Class é Interfaces
+* Traits
+* Exceptions
+* Composer
+* SOLID Philosophy
+* Service Container Injection
+* Engine Template
+* API Reflexion with ReflectionObject && ReflectionClass for Plugins examples
+
+
+Demo
+====
 FO: http://46.101.34.74/index.php/admin
 Auth: http://46.101.34.74/auth/login
 Login: admin@test.com

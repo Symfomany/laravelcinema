@@ -1,6 +1,5 @@
 <?php
 
-use \Illuminate\Foundation\Testing\WithoutMiddleware;
 
 /**
  * Class AuthTest
