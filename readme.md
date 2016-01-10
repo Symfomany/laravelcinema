@@ -85,9 +85,13 @@ Configuration on *.env* file
 
 Demo
 ====
-http://45.55.35.18/index.php/admin
+FO: http://46.101.34.74/index.php/admin
+Auth: http://46.101.34.74/auth/login
 Login: admin@test.com
 Mdp: 123456
+
+Laravel Forge to Github
+![GitHub Logo](/screens/12.png)
 
 Data Fixtures
 ====
