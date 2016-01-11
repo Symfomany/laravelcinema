@@ -1,6 +1,7 @@
 [![Coverage Status](https://coveralls.io/repos/Symfomany/laravelcinema/badge.svg?branch=master&service=github)](https://coveralls.io/github/Symfomany/laravelcinema?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff/big.png)](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff)
 [![Build Status](https://travis-ci.org/Symfomany/laravelcinema.svg?branch=master)](https://travis-ci.org/Symfomany/laravelcinema)
+[![StyleCI](https://styleci.io/repos/47607199/shield)](https://styleci.io/repos/47607199)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Symfomany/laravelcinema/?branch=master)
 [![Gitter](https://badges.gitter.im/Symfomany/laravelcinema.svg)](https://gitter.im/Symfomany/laravelcinema?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff/mini.png)](https://insight.sensiolabs.com/projects/13d25ea9-d21c-46f6-8181-427e421844ff)
