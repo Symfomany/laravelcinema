@@ -53,7 +53,7 @@ class Sessions extends Model
                     ->join('movies', 'sessions.movies_id', '=', 'movies.id')
                     ->join('cinema', 'sessions.cinema_id', '=', 'cinema.id')
 
-                    ->where('date_session',  '>', DB::raw('NOW()'))
+                    ->where('date_session', '>', DB::raw('NOW()'))
                     ->orderBy('date_session', 'ASC')
                     ->take(15)
                     ->get();

@@ -1,14 +1,11 @@
 <?php
 
 
-
 /**
- * Class MoviesTest
- * @package Test\Models
+ * Class MoviesTest.
  */
-class MoviesTest extends TestCase {
-
-
+class MoviesTest extends TestCase
+{
     use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
     /**
@@ -19,12 +16,11 @@ class MoviesTest extends TestCase {
     public function testCreate()
     {
         $movie = new \App\Http\Models\Movies();
-        $movie->title= "Star Wars 3";
+        $movie->title = 'Star Wars 3';
 
         $this->assertInstanceOf(\App\Http\Models\Movies::class, $movie);
-        $this->assertEquals($movie->title, "Star Wars 3");
-        $this->assertClassHasAttribute("table", \App\Http\Models\Movies::class);
-
+        $this->assertEquals($movie->title, 'Star Wars 3');
+        $this->assertClassHasAttribute('table', \App\Http\Models\Movies::class);
     }
 
     /**
@@ -35,9 +31,9 @@ class MoviesTest extends TestCase {
     public function testCreateInDatabase()
     {
         $movie = new \App\Http\Models\Movies();
-        $movie->title= "Star Wars 3";
+        $movie->title = 'Star Wars 3';
         $movie->save();
-        $this->seeInDatabase('movies', ["title" => "Star Wars 3"]);
+        $this->seeInDatabase('movies', ['title' => 'Star Wars 3']);
     }
 
     /**
@@ -47,15 +43,15 @@ class MoviesTest extends TestCase {
      */
     public function testUpdateInDatabase()
     {
-        $movie = \App\Http\Models\Movies::where("title" , "=", "Star Wars 3")->first();
-        $this->seeInDatabase('movies', ["title" => "Star Wars 3"]);
+        $movie = \App\Http\Models\Movies::where('title', '=', 'Star Wars 3')->first();
+        $this->seeInDatabase('movies', ['title' => 'Star Wars 3']);
 
-        $movie->title =  "Star Wars 4";
-        $movie->categories_id =  1;
+        $movie->title = 'Star Wars 4';
+        $movie->categories_id = 1;
         $movie->save();
-        $this->seeInDatabase('movies', ["title" => "Star Wars 4"]);
-
+        $this->seeInDatabase('movies', ['title' => 'Star Wars 4']);
     }
+
 //
 //
 //    /**
@@ -134,12 +130,4 @@ class MoviesTest extends TestCase {
 ////        $this->assertEquals(1, count($movie->categories()));
 //
 //    }
-
 }
-
-
-
-
-
-
-

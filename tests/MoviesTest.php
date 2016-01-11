@@ -2,22 +2,21 @@
 
 /**
  * Class MoviesTest
- * Movies CRUD
+ * Movies CRUD.
  */
 class MoviesTest extends TestCase
 {
-
     use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
     /**
-     * Test Dashboard
+     * Test Dashboard.
      */
     public function testCreateFailure()
     {
         $this->authentification()
             ->visit('/admin/movies/create')
-            ->type('s','title')
-            ->type('bla','description')
+            ->type('s', 'title')
+            ->type('bla', 'description')
             ->press('Enregistrer ce film')
             ->followRedirects()
             ->seePageIs('/admin/movies/create')
@@ -27,40 +26,40 @@ class MoviesTest extends TestCase
     }
 
     /**
-     * Test Create a movie
+     * Test Create a movie.
      */
     public function testCreateSuccess()
     {
         $this->authentification()
             ->visit('/admin/movies/create')
-            ->type('Test de mon premier film!','title')
-            ->type(2012,'annee')
-            ->type("Warner Bros",'distributeur')
-            ->type(1515145.00,'budget')
-            ->type(4,'duree')
-            ->type(3,'note_presse')
-            ->type("<iframe src='//youtube.com'></iframe>",'trailer')
-            ->type(str_repeat("bla ", 50),'synopsis')
-            ->type(str_repeat("bla ", 20),'description')
-            ->type("16/03/2017",'date_release')
-            ->attach(asset("uploads/movies/"),'image')
-            ->select('long-metrage','type')
-            ->select('fr','lang')
-            ->select('vost','bo')
+            ->type('Test de mon premier film!', 'title')
+            ->type(2012, 'annee')
+            ->type('Warner Bros', 'distributeur')
+            ->type(1515145.00, 'budget')
+            ->type(4, 'duree')
+            ->type(3, 'note_presse')
+            ->type("<iframe src='//youtube.com'></iframe>", 'trailer')
+            ->type(str_repeat('bla ', 50), 'synopsis')
+            ->type(str_repeat('bla ', 20), 'description')
+            ->type('16/03/2017', 'date_release')
+            ->attach(asset('uploads/movies/'), 'image')
+            ->select('long-metrage', 'type')
+            ->select('fr', 'lang')
+            ->select('vost', 'bo')
             ->press('Enregistrer ce film')
             ->followRedirects()
             ->seePageIs('/admin/movies/index');
     }
 
     /**
-     * Test Dashboard
+     * Test Dashboard.
      */
     public function testEditFailure()
     {
         $this->authentification()
             ->visit('/admin/movies/edit/3')
-            ->type('Django Unchained','title')
-            ->type("16/03/2014",'date_release')
+            ->type('Django Unchained', 'title')
+            ->type('16/03/2014', 'date_release')
             ->press('Enregistrer ce film')
             ->followRedirects()
             ->see('La valeur du champ Titre est déjà utilisée.')
@@ -69,23 +68,24 @@ class MoviesTest extends TestCase
     }
 
     /**
-     * Test Dashboard
+     * Test Dashboard.
      */
     public function testEditSuccess()
     {
         $this->authentification()
             ->visit('/admin/movies/edit/3')
-            ->type('Godzilla 2015 Remake','title')
-            ->type("16/03/2020",'date_release')
+            ->type('Godzilla 2015 Remake', 'title')
+            ->type('16/03/2020', 'date_release')
             ->press('Enregistrer ce film')
             ->followRedirects()
             ->seePageIs('/admin/movies/index');
     }
 
     /**
-     * Test Remove Movies
+     * Test Remove Movies.
      */
-    public function testRemove(){
+    public function testRemove()
+    {
         //$this->markTestSkipped();
         $this
             ->authentification()
@@ -93,13 +93,14 @@ class MoviesTest extends TestCase
             ->get('http://localhost:8000/admin/movies/delete/3')
             ->followRedirects()
             ->notSeeInDatabase('movies', ['id' => 3])
-            ->see("Le film Godzilla a bien été supprimé");
+            ->see('Le film Godzilla a bien été supprimé');
     }
 
     /**
-     * Test Add in session Movies
+     * Test Add in session Movies.
      */
-    public function testAddCart(){
+    public function testAddCart()
+    {
         //$this->markTestSkipped();
         $this
             ->authentification()
@@ -107,7 +108,7 @@ class MoviesTest extends TestCase
             ->get('http://localhost:8000/admin/movies/like/3/like')
             ->followRedirects()
             ->withSession(['likes' => [3]])
-            ->see("Le film Godzilla a bien été liké")
+            ->see('Le film Godzilla a bien été liké')
             ->get('http://localhost:8000/admin/movies/like/3/dislike')
             ->followRedirects()
             ->withSession(['likes' => []])
@@ -121,14 +122,10 @@ class MoviesTest extends TestCase
             ->see('Récapitulatif de votre panier')
             ->see('Godzilla')
             ->see('31 €');
-
-
     }
 
-
-
     /**
-     * Test Dashboard
+     * Test Dashboard.
      */
     public function testActivateAndCover()
     {
@@ -148,7 +145,4 @@ class MoviesTest extends TestCase
             //->see("Le film Godzilla a bien été retiré de l'avant")
             ->seePageIs('/admin/movies/index');
     }
-
-
-
 }

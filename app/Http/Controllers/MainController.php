@@ -42,15 +42,15 @@ class MainController extends Controller
             'title' => 'required|min:10',
             ], [
             'title.required' => 'Votre titre est obligatoire',
-            'title.min' => 'Votre titre est trop court',
+            'title.min'      => 'Votre titre est trop court',
             ]);
 
         if ($validator->fails()) { // si mon validateur échoue
             return $validator->errors()->all();
         } else {
             Movies::create([
-                'title' => $request->title,
-                'description' => $request->description,
+                'title'         => $request->title,
+                'description'   => $request->description,
                 'categories_id' => $request->categories_id,
             ]);
 
@@ -109,15 +109,15 @@ class MainController extends Controller
 
         return view('Main/dashboard', [
             'avgnotecommentaire' => $avgnotecommentaire->avgnote,
-            'avgnotepresse' => $avgnotepresse->avgpress,
-            'avgacteurs' => $avgacteurs->age,
-            'avghour' => $avghour->avghour,
-            'nbacteurs' => $nbacteurs,
-            'nbcommentaires' => $nbcommentaires,
-            'nbmovies' => $nbmovies,
-            'nbseances' => $nbseances,
-            'seances' => $seances,
-            'users' => $users,
+            'avgnotepresse'      => $avgnotepresse->avgpress,
+            'avgacteurs'         => $avgacteurs->age,
+            'avghour'            => $avghour->avghour,
+            'nbacteurs'          => $nbacteurs,
+            'nbcommentaires'     => $nbcommentaires,
+            'nbmovies'           => $nbmovies,
+            'nbseances'          => $nbseances,
+            'seances'            => $seances,
+            'users'              => $users,
         ]);
     }
 }

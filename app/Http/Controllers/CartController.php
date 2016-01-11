@@ -1,5 +1,7 @@
 <?php
+
 // chemin relatif ou se trouve la classe
+
 namespace App\Http\Controllers;
 
 use App\Http\Models\Movies;
@@ -38,14 +40,14 @@ class CartController extends Controller
             config('services.paypal.secret')
         );
 
-        $this->_apiContext->setConfig(array(
-            'mode' => 'sandbox',
-            'service.EndPoint' => 'https://api.sandbox.paypal.com',
+        $this->_apiContext->setConfig([
+            'mode'                   => 'sandbox',
+            'service.EndPoint'       => 'https://api.sandbox.paypal.com',
             'http.ConnectionTimeOut' => 30,
-            'log.LogEnabled' => true,
-            'log.FileName' => storage_path('logs/paypal.log'),
-            'log.LogLevel' => 'FINE',
-        )
+            'log.LogEnabled'         => true,
+            'log.FileName'           => storage_path('logs/paypal.log'),
+            'log.LogLevel'           => 'FINE',
+        ]
         );
     }
 
@@ -81,7 +83,7 @@ class CartController extends Controller
         $payment->setIntent('sale');
         $payment->setPayer($payer);
         $payment->setRedirectUrls($redirectUrls);
-        $payment->setTransactions(array($transaction));
+        $payment->setTransactions([$transaction]);
 
         //response de Paypal
         $response = $payment->create($this->_apiContext);
