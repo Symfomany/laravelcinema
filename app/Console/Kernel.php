@@ -9,26 +9,25 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 /**
- * Class Kernel
- * @package App\Console
+ * Class Kernel.
  */
 class Kernel extends ConsoleKernel
 {
-
     /**
      * The Artisan commands provided by your application.
+     *
      * @var array
      */
     protected $commands = [
         LastMovies::class,
         Youtube::class,
-        Email::class
+        Email::class,
     ];
 
     /**
      * Define the application's command schedule.
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
+     *
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
      */
     protected function schedule(Schedule $schedule)
     {

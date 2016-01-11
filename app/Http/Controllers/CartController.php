@@ -11,24 +11,22 @@ use Netshell\Paypal\Facades\Paypal;
 
 /**
  * Class CartController
- * To handle checkout
+ * To handle checkout.
  */
-class CartController extends Controller{
-
-
+class CartController extends Controller
+{
     /**
      * @var Api Paypal
      */
     private $_apiContext;
 
-
     /**
-     * @var $cart
+     * @var
      */
     private $cart;
 
     /**
-     * Constructor for initialize Paypal
+     * Constructor for initialize Paypal.
      */
     public function __construct()
     {
@@ -46,22 +44,20 @@ class CartController extends Controller{
             'http.ConnectionTimeOut' => 30,
             'log.LogEnabled' => true,
             'log.FileName' => storage_path('logs/paypal.log'),
-            'log.LogLevel' => 'FINE'
+            'log.LogLevel' => 'FINE',
         )
         );
-
     }
 
-
     /**
-     * Payments
+     * Payments.
      */
-    public function checkout(){
-
+    public function checkout()
+    {
         $ids = session('likes', []);
 
         $total = 0;
-        foreach($ids as $id){
+        foreach ($ids as $id) {
             $movie = Movies::find($id);
             $total = $total + $movie->price;
         }
@@ -75,7 +71,7 @@ class CartController extends Controller{
 
         $transaction = PayPal::Transaction();
         $transaction->setAmount($amount);
-        $transaction->setDescription("Récapitulatif total des ".count($ids). " films commandés");
+        $transaction->setDescription('Récapitulatif total des '.count($ids).' films commandés');
 
         $redirectUrls = PayPal::RedirectUrls();
         $redirectUrls->setReturnUrl(route('cart_done'));
@@ -93,26 +89,22 @@ class CartController extends Controller{
         $redirectUrl = $response->links[1]->href;
 
         //redirect to Plateform Paypal
-        return Redirect::to( $redirectUrl);
-
-
-
-
-    }
-
-
-    /**
-     * Payments Récapitilatif
-     */
-    public function recapitulatif(){
-
-        return view("Cart/recapitulatif");
+        return Redirect::to($redirectUrl);
     }
 
     /**
-     * Done
+     * Payments Récapitilatif.
      */
-    public function done(Request $request){
+    public function recapitulatif()
+    {
+        return view('Cart/recapitulatif');
+    }
+
+    /**
+     * Done.
+     */
+    public function done(Request $request)
+    {
 
         //je recupere les informations de retour de Paypal
         $id = $request->get('paymentId');
@@ -130,44 +122,18 @@ class CartController extends Controller{
         $request->session()->pull('likes', []);
 
         //write log
-        Log::info("Un client vient de passer uen commande via Paypal" . $payer_id);
-
+        Log::info('Un client vient de passer uen commande via Paypal'.$payer_id);
 
         // Write database
 
-
-
-
         // Thank the user for the purchase
         return view('Cart/success');
-
     }
-
 
     /**
-     * Cancel
+     * Cancel.
      */
-    public function cancel(){
-
+    public function cancel()
+    {
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

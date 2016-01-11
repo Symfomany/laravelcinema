@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 /**
- * Class Authorisation
- * @package App\Http\Middleware
+ * Class Authorisation.
  */
 class Authorisation
 {
@@ -23,8 +22,7 @@ class Authorisation
     /**
      * Create a new filter instance.
      *
-     * @param  Guard  $auth
-     * @return void
+     * @param Guard $auth
      */
     public function __construct(Guard $auth)
     {
@@ -34,14 +32,14 @@ class Authorisation
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle(\Illuminate\Http\Request $request, Closure $next)
     {
         if (Auth::user()->cannot('isSuperAdmin', Auth::user())) {
-
             return Redirect::to('auth/login')->with('danger', "Vous n'etes pas authoriser a acéder à cette partie :(");
         }
 

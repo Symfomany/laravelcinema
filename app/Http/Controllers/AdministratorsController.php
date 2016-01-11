@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Models\Administrators;
@@ -7,61 +8,65 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class AdministratorsController
+ * Class AdministratorsController.
  */
-class AdministratorsController extends Controller{
-
+class AdministratorsController extends Controller
+{
     /**
-     * Page de liste des administrateurs
+     * Page de liste des administrateurs.
      */
-    public function index(){
+    public function index()
+    {
         $administrators = Administrators::all();
 
-        return view('Administrators/index',[
-            'administrators' => $administrators
+        return view('Administrators/index', [
+            'administrators' => $administrators,
         ]);
     }
 
-
     /**
-     * To remove an administrators
+     * To remove an administrators.
+     *
      * @param $id
+     *
      * @return mixed
      */
-    public function remove($id){
+    public function remove($id)
+    {
 
         // To load an administrator
         $administrator = Administrators::find($id);
 
-        if($administrator){
+        if ($administrator) {
             Session::flash('success', "L'administrateur {$administrator->email} a bien été supprimé");
             $administrator->delete();
         }
 
         return Redirect::route('administrators_index');
-
     }
 
-
     /**
-     * To remove an administrators
+     * To remove an administrators.
+     *
      * @param $id
+     *
      * @return mixed
      */
-    public function create(){
-
+    public function create()
+    {
         return view('Administrators/create');
     }
     /**
      * To store an administrators
-     * ARgument $id est facultatif: null est sa valeur par défaut
+     * ARgument $id est facultatif: null est sa valeur par défaut.
      */
-    public function store(AdministratorsRequest $request, $id = null){
+    public function store(AdministratorsRequest $request, $id = null)
+    {
 
         // creation: créer un nouvel administrateur
-        if($id === null){
+        if ($id === null) {
             $administrator = new Administrators();
-        }else{
+        } else {
             // edition: récupérer un administrateur
             $administrator = Administrators::find($id);
         }
@@ -73,68 +78,45 @@ class AdministratorsController extends Controller{
 
         // si l'utilisateur modifie
         // son mot de passe en mode edition
-        if(!empty($request->password)){
+        if (!empty($request->password)) {
             $administrator->password = bcrypt($request->password); //if en mode edit
         }
 
-        $administrator->super_admin =  $request->super_admin;
+        $administrator->super_admin = $request->super_admin;
         $administrator->expiration_date = new \DateTime('+1 year');
         $administrator->active = true;
 
         //upload
-        $filename = "";
-        if($request->hasFile('image')) {
+        $filename = '';
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = $file->getClientOriginalName(); // Récupère le nom original du fichier
-            $destinationPath = public_path() . '/uploads/administrators'; // Indique où stocker le fichier
+            $destinationPath = public_path().'/uploads/administrators'; // Indique où stocker le fichier
             $file->move($destinationPath, $filename); // Déplace le fichier
-            $administrator->photo = asset("uploads/administrators/". $filename);
+            $administrator->photo = asset('uploads/administrators/'.$filename);
         }
 
         $administrator->save();
 
        // Auth::login($administrator); => Autologin
         Session::flash('success', "L'administrateur {$administrator->email} a bien été crée");
-        return Redirect::route('administrators_index');
 
+        return Redirect::route('administrators_index');
     }
 
-
-
-
     /**
-     * To edit an administrator
+     * To edit an administrator.
+     *
      * @param $id
+     *
      * @return mixed
      */
-    public function edit($id){
-
+    public function edit($id)
+    {
         $administrator = Administrators::find($id);
 
         return view('Administrators/edit', [
-            'administrator' => $administrator
+            'administrator' => $administrator,
         ]);
     }
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

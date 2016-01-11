@@ -1,90 +1,68 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 /**
- * Class MainController
- * @package App\Http\Controllers
- * Sufficé par le mot clef Controller
- * et doit hérité de la super classe Controller
+ * Class MainController.
  */
-class DirectorsController extends Controller{
-
+class DirectorsController extends Controller
+{
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function index(){
+    public function index()
+    {
 
         // vue
         return view('Directors/index');
     }
 
-
-
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function create(){
+    public function create()
+    {
 
         // vue
         return view('Directors/create');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function edit($id){
+    public function edit($id)
+    {
 
         // vue
         return view('Directors/edit');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function read($id){
+    public function read($id)
+    {
 
         // vue
         return view('Directors/read');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function delete($id){
-
+    public function delete($id)
+    {
     }
-
 
     /**
      * Action d'enregistrement en base de données
      * depuis mon formulaire
      * Classe Request permet de réceptionner les données
-     * en POST de manières scurisés
+     * en POST de manières scurisés.
      */
-    public function store(Request $request){
-
-
+    public function store(Request $request)
+    {
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

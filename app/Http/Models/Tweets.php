@@ -2,11 +2,9 @@
 
 namespace App\Http\Models;
 
-
-
 /**
- * Class Tweets
- * @package App\Models\Model
+ * Class Tweets.
  */
-class Tweets {
+class Tweets
+{
 }

@@ -10,27 +10,26 @@ use Illuminate\Support\Facades\Log;
 use Alaouy\Youtube\Facades\Youtube as Yt;
 
 /**
- * Class Youtube
- * @package App\Console\Commands
+ * Class Youtube.
  */
 class Youtube extends Command
 {
-
     /**
      * The name and signature of the console command.
+     *
      * @var string
      */
     protected $signature = 'youtube:import {keyword}';
 
     /**
      * The console command description.
+     *
      * @var string
      */
     protected $description = 'Youtube import videos on Mongo';
 
     /**
      * Create a new command instance.
-     * @return void
      */
     public function __construct()
     {
@@ -48,30 +47,29 @@ class Youtube extends Command
 
         $channel = Yt::getChannelByName('allocine');
 
-        if(!empty($channel)) {
+        if (!empty($channel)) {
             DB::connection('mongodb')->collection('stats')
                 ->where(['origin' => 'Youtube', 'type' => 'infos'])->delete();
 
             $stat = new Stats();
-            $stat->origin = "Youtube";
-            $stat->type = "infos";
+            $stat->origin = 'Youtube';
+            $stat->type = 'infos';
             $stat->data = $channel;
             $stat->save();
         }
 
         $params = array(
-            'q'             => $keyword,
-            'type'          => 'video',
-            'part'          => 'id, snippet',
-            'maxResults'    => 30
+            'q' => $keyword,
+            'type' => 'video',
+            'part' => 'id, snippet',
+            'maxResults' => 30,
         );
 
         $videos = Yt::searchAdvanced($params, true)['results'];
 
-        if(!empty($videos)){
-
+        if (!empty($videos)) {
             DB::connection('mongodb')->collection('videos')->delete();
-            foreach($videos as $video){
+            foreach ($videos as $video) {
                 $vi = new Videos();
                 $vi->data = $video;
                 $vi->save();
@@ -79,7 +77,5 @@ class Youtube extends Command
         }
 
         Log::info("Import de l'API Youtube video done! ");
-
-
     }
 }

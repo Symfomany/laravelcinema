@@ -6,15 +6,12 @@ use App\Http\Models\Administrators;
 use Illuminate\Support\Facades\Request;
 
 /**
- * Class AuthLoginEventHandler
- * @package App\Handlers\Events
+ * Class AuthLoginEventHandler.
  */
 class AuthLoginEventHandler
 {
-
     /**
      * Create the event handler.
-     * @return void
      */
     public function __construct()
     {
@@ -23,12 +20,11 @@ class AuthLoginEventHandler
     /**
      * Handle the event.
      *
-     * @param  Events  $event
-     * @return void
+     * @param Events $event
      */
     public function handle(Administrators $user)
     {
-        $user->authentificated_at = new \DateTime;
+        $user->authentificated_at = new \DateTime();
         $user->ip = Request::getClientIp();
         $user->save();
     }

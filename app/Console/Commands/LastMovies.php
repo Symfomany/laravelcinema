@@ -25,8 +25,6 @@ class LastMovies extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -42,26 +40,22 @@ class LastMovies extends Command
     {
 
         // SQL query
-        $results = Movies::where('date_release','>=', new Carbon('-1 month'))
-                        ->where('date_release','<=', new Carbon('now'))
+        $results = Movies::where('date_release', '>=', new Carbon('-1 month'))
+                        ->where('date_release', '<=', new Carbon('now'))
                         ->get();
 
         // je parcours mes films
-        foreach($results as $movie){
-
+        foreach ($results as $movie) {
             $users = $movie->actors();
-            foreach($users as $user){
+            foreach ($users as $user) {
                 //send an email
                 Mail::send('Emails/newsletter', [], function ($m) {
 
                     $m->from('julien@meetserious.com', 'Florent Boyer');
-                    $m->to("zuzu38080@gmail.com", "Boyer Julien")
+                    $m->to('zuzu38080@gmail.com', 'Boyer Julien')
                         ->subject('Welcome to newsletter');
                 });
             }
-
         }
-
-
     }
 }

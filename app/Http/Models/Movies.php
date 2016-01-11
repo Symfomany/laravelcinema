@@ -6,56 +6,49 @@ use App\Http\Cart\ItemInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-
 /**
  * Classe qui va stocker mes requetes autoirs
  * de ma table movies
- * Hérite de ma super classe Model
+ * Hérite de ma super classe Model.
  */
-class Movies extends Model implements ItemInterface{
-
-
-
+class Movies extends Model implements ItemInterface
+{
     //protected $fillable = ['title', 'description', 'categories_id'];
-
 
     /**
      * Décrit le nom de la table
-     * que classe fait référence
+     * que classe fait référence.
      */
     protected $table = 'movies';
 
-
-
     /**
-     *  Retourne tous les films
+     *  Retourne tous les films.
      */
-    public function getAllMovies(){
+    public function getAllMovies()
+    {
 
         // retourne le resultat de ma requete SELECT * FROM movies
         return DB::table('movies')->get();
-
     }
 
-
     /**
-     * Return moyenne des notes de presse
+     * Return moyenne des notes de presse.
      */
-    public function getAvgNotePresse(){
+    public function getAvgNotePresse()
+    {
         $result = DB::table('movies')
-                ->select(DB::raw("ROUND(AVG(note_presse)) as avgpress"))
+                ->select(DB::raw('ROUND(AVG(note_presse)) as avgpress'))
                 ->first();
 
         return $result;
-
     }
 
     /***************************************************** Relationships ***********************************************************/
 
-
     /**
      * Retourne la catégorie à laquelle appartient un objet film
-     * Many To One : n..1
+     * Many To One : n..1.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function categories()
@@ -64,7 +57,7 @@ class Movies extends Model implements ItemInterface{
     }
 
     /**
-     * belongsToMany(): Many To Many
+     * belongsToMany(): Many To Many.
      */
     public function user()
     {
@@ -72,7 +65,8 @@ class Movies extends Model implements ItemInterface{
     }
 
     /**
-     * belongsToMany(): Many To Many
+     * belongsToMany(): Many To Many.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function actors()
@@ -105,7 +99,6 @@ class Movies extends Model implements ItemInterface{
      */
     public function add(ItemInterface $item)
     {
-
     }
 
     /**
@@ -115,9 +108,4 @@ class Movies extends Model implements ItemInterface{
     {
         // TODO: Implement remove() method.
     }
-
-
 }
-
-
-

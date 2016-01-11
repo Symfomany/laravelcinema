@@ -3,11 +3,10 @@
 namespace App\Http\Cart;
 
 /**
- * Interface ItemInterface
- * @package App\Http\Cart
+ * Interface ItemInterface.
  */
-interface ItemInterface{
-
+interface ItemInterface
+{
     /**
      * @return mixed
      */
@@ -17,8 +16,4 @@ interface ItemInterface{
      * @return mixed
      */
     public function remove(ItemInterface $item);
-
-
-
 }
-

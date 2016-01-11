@@ -1,98 +1,73 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Models\Categories;
 use Illuminate\Http\Request;
 
-
 /**
- * Class MainController
- * @package App\Http\Controllers
- * Sufficé par le mot clef Controller
- * et doit hérité de la super classe Controller
+ * Class MainController.
  */
-class CategoriesController extends Controller{
-
+class CategoriesController extends Controller
+{
     /**
-     * Page de liste des catégories
+     * Page de liste des catégories.
      */
-    public function index(){
+    public function index()
+    {
 
         // récupérer toutes mes catégories
         $categories = Categories::all();
 
         return view('Categories/index', [
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
-
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function create(){
+    public function create()
+    {
 
         // vue
         return view('Categories/create');
     }
 
-
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function edit(){
+    public function edit()
+    {
 
         // vue
         return view('Categories/edit');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function read($id){
+    public function read($id)
+    {
 
         // vue
         return view('Categories/read');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function delete(){
-
+    public function delete()
+    {
     }
-
 
     /**
      * Action d'enregistrement en base de données
      * depuis mon formulaire
      * Classe Request permet de réceptionner les données
-     * en POST de manières scurisés
+     * en POST de manières scurisés.
      */
-    public function store(Request $request){
-
-
+    public function store(Request $request)
+    {
     }
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

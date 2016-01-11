@@ -25,8 +25,6 @@ class Twitter extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -40,46 +38,42 @@ class Twitter extends Command
      */
     public function handle()
     {
+        $infos = \Thujohn\Twitter\Facades\Twitter::getUsersLookup(['screen_name' => 'Symfomany', 'format' => 'php']);
 
-        $infos = \Thujohn\Twitter\Facades\Twitter::getUsersLookup(['screen_name' => 'Symfomany','format' => 'php']);
-
-        if(!empty($infos)){
+        if (!empty($infos)) {
             DB::connection('mongodb')->collection('stats')
                 ->where(['origin' => 'Twitter', 'type' => 'infos'])->delete();
 
             $stat = new Stats();
-            $stat->origin = "Twitter";
-            $stat->type = "infos";
+            $stat->origin = 'Twitter';
+            $stat->type = 'infos';
             $stat->data = $infos;
             $stat->save();
         }
 
-
         $tweets = \Thujohn\Twitter\Facades\Twitter::getDmsOut(['format' => 'php']);
-        if(!empty($tweets)){
-
+        if (!empty($tweets)) {
             DB::connection('mongodb')->collection('tweets')
                 ->where(['origin' => 'Twitter', 'type' => 'dmsout'])
                 ->delete();
-            foreach($tweets as $tweet){
+            foreach ($tweets as $tweet) {
                 $vi = new Tweets();
-                $vi->origin = "Twitter";
-                $vi->type = "dmsout";
+                $vi->origin = 'Twitter';
+                $vi->type = 'dmsout';
                 $vi->data = $tweet;
                 $vi->save();
             }
         }
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getFavorites(['format' => 'php']);
-        if(!empty($tweets)){
-
+        if (!empty($tweets)) {
             DB::connection('mongodb')->collection('tweets')
                 ->where(['origin' => 'Twitter', 'type' => 'favorites'])
                 ->delete();
-            foreach($tweets as $tweet){
+            foreach ($tweets as $tweet) {
                 $vi = new Tweets();
-                $vi->origin = "Twitter";
-                $vi->type = "favorites";
+                $vi->origin = 'Twitter';
+                $vi->type = 'favorites';
                 $vi->data = $tweet;
                 $vi->save();
             }
@@ -88,17 +82,16 @@ class Twitter extends Command
         $tweets = \Thujohn\Twitter\Facades\Twitter::getMentionsTimeline(
             [
                 'count' => 15,
-                'format' => 'php']);
+                'format' => 'php', ]);
 
-        if(!empty($tweets)){
-
+        if (!empty($tweets)) {
             DB::connection('mongodb')->collection('tweets')
                 ->where(['origin' => 'Twitter', 'type' => 'mentionstimeline'])
                 ->delete();
-            foreach($tweets as $tweet){
+            foreach ($tweets as $tweet) {
                 $vi = new Tweets();
-                $vi->origin = "Twitter";
-                $vi->type = "mentionstimeline";
+                $vi->origin = 'Twitter';
+                $vi->type = 'mentionstimeline';
                 $vi->data = $tweet;
                 $vi->save();
             }
@@ -107,18 +100,17 @@ class Twitter extends Command
         $tweets = \Thujohn\Twitter\Facades\Twitter::getHomeTimeline(
             [
                 'count' => 15,
-                'format' => 'php']);
+                'format' => 'php', ]);
 
-        if(!empty($tweets)){
-
+        if (!empty($tweets)) {
             DB::connection('mongodb')->collection('tweets')
                 ->where(['origin' => 'Twitter', 'type' => 'hometimeline'])
                 ->delete();
-            foreach($tweets as $tweet){
+            foreach ($tweets as $tweet) {
                 $vi = new Tweets();
                 $vi->data = $tweet;
-                $vi->origin = "Twitter";
-                $vi->type = "hometimeline";
+                $vi->origin = 'Twitter';
+                $vi->type = 'hometimeline';
                 $vi->save();
             }
         }
@@ -127,18 +119,17 @@ class Twitter extends Command
             [
                 'screen_name' => 'allocine',
                 'count' => 15,
-                'format' => 'php']);
+                'format' => 'php', ]);
 
-        if(!empty($tweets)){
-
+        if (!empty($tweets)) {
             DB::connection('mongodb')->collection('tweets')
                 ->where(['origin' => 'Twitter', 'type' => 'usertimeline'])
                 ->delete();
-            foreach($tweets as $tweet){
+            foreach ($tweets as $tweet) {
                 $vi = new Tweets();
                 $vi->data = $tweet;
-                $vi->origin = "Twitter";
-                $vi->type = "usertimeline";
+                $vi->origin = 'Twitter';
+                $vi->type = 'usertimeline';
                 $vi->save();
             }
         }

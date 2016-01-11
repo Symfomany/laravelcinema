@@ -11,62 +11,58 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Netshell\Paypal\Facades\Paypal;
 
-
 /**
  * Class MainController
  * V2 Fin de promotion
  * texte pour exemple
- * 2eme modif
- * @package App\Http\Controllers
- * Sufficé par le mot clef Controller
- * et doit hérité de la super classe Controller
+ * 2eme modif.
  */
-class MainController extends Controller{
-
-
+class MainController extends Controller
+{
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function index(){
-
+    public function index()
+    {
         return view('Main/index');
     }
 
-
     /**
-     * Ajax Movies
+     * Ajax Movies.
+     *
      * @param Request $request
+     *
      * @return mixed
      */
-    public function ajaxmovies(Request $request){
-
+    public function ajaxmovies(Request $request)
+    {
         $validator = Validator::make(
             $request->all(),  //request all : tous les elements de requetses
             [
             'title' => 'required|min:10',
-            ],[
-            'title.required' => "Votre titre est obligatoire",
-            'title.min' => "Votre titre est trop court"
+            ], [
+            'title.required' => 'Votre titre est obligatoire',
+            'title.min' => 'Votre titre est trop court',
             ]);
 
         if ($validator->fails()) { // si mon validateur échoue
             return $validator->errors()->all();
-        }else{
+        } else {
             Movies::create([
                 'title' => $request->title,
                 'description' => $request->description,
-                'categories_id' => $request->categories_id
+                'categories_id' => $request->categories_id,
             ]);
 
             return $request->title;
         }
-
     }
 
-
     /**
-     * Done Payment
+     * Done Payment.
+     *
      * @param Request $request
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function done(Request $request)
@@ -88,10 +84,10 @@ class MainController extends Controller{
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function dashboard(){
-
+    public function dashboard()
+    {
         $nbacteurs = Actors::count();
         $nbcommentaires = Comments::count();
         $nbmovies = Movies::count();
@@ -111,7 +107,7 @@ class MainController extends Controller{
         $seances = $session->getNextSession();
         $users = $user->getLastUsers();
 
-        return view('Main/dashboard',[
+        return view('Main/dashboard', [
             'avgnotecommentaire' => $avgnotecommentaire->avgnote,
             'avgnotepresse' => $avgnotepresse->avgpress,
             'avgacteurs' => $avgacteurs->age,
@@ -124,24 +120,4 @@ class MainController extends Controller{
             'users' => $users,
         ]);
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

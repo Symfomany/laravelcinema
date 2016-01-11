@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Cart;
+
 use Illuminate\Database\Eloquent\Collection;
 
-
 /**
- * Class Cart
- * @package App\Http\Cart
+ * Class Cart.
  */
-class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \Countable{
-
+class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \Countable
+{
     /**
      * @var array
      */
@@ -26,19 +25,20 @@ class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \C
     protected $promotions;
 
     /**
-     * Constructor
+     * Constructor.
      */
-    public function __construct(Array $products = []){
+    public function __construct(array $products = [])
+    {
         $this->products = $products;
         $this->promotions = [];
         $this->total = 0;
     }
 
-
     /**
      * @param ItemInterface $item
      */
-    public function add(ItemInterface $item){
+    public function add(ItemInterface $item)
+    {
         $this->products[] = $item;
 
         return $this;
@@ -46,22 +46,24 @@ class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \C
     /**
      * @param ItemInterface $item
      */
-    public function addItems(Collection $collection){
-        foreach($collection as $item){
+    public function addItems(Collection $collection)
+    {
+        foreach ($collection as $item) {
             $this->products[] = $item;
         }
+
         return $this->products;
     }
 
     /**
      * @param ItemInterface $item
      */
-    public function remove(ItemInterface $item){
-        $this->products[array_search($item,$this->products)] = $item;
+    public function remove(ItemInterface $item)
+    {
+        $this->products[array_search($item, $this->products)] = $item;
 
         return $this;
     }
-
 
     /**
      * @return array
@@ -76,8 +78,8 @@ class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \C
     /**
      * @return array
      */
-    public function all(){
-
+    public function all()
+    {
         return $this->products;
     }
 
@@ -97,15 +99,16 @@ class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \C
         return count($this->products);
     }
 
-
     /**
-     * Total TTC
+     * Total TTC.
+     *
      * @param int $taxe
+     *
      * @return int
      */
     public function total($taxe = 1)
     {
-        foreach($this as $movie){
+        foreach ($this as $movie) {
             $this->total += $movie->getMovie()->prix;
         }
 
@@ -160,18 +163,11 @@ class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \C
         $this->promotions = $promotions;
     }
 
-
     /**
      * @param array $total
      */
     public function emptycart()
     {
         return empty($this->products) ? true : false;
-
     }
-
-
-
-
 }
-

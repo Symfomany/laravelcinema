@@ -6,27 +6,20 @@ use App\Http\Models\Comments;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
-
-
 /**
- * Class CategoriesController
- * @package App\Http\Controllers
+ * Class CategoriesController.
  */
 class CommentsController extends Controller
 {
-
-
     /* ##################### METHODES ##################### */
-
 
     /**
      * @return \Illuminate\View\View
      */
     public function index()
     {
-
         return view('Comments/index', [
-            'comments' => Comments::all()
+            'comments' => Comments::all(),
         ]);
     }
 
@@ -44,7 +37,6 @@ class CommentsController extends Controller
     public function read($id)
     {
         return view('Comments/read', ['id' => $id]);
-
     }
 
     /**
@@ -66,12 +58,12 @@ class CommentsController extends Controller
     /**
      * Pour la suppression, il n'y a pas de vue dédiée.
      * On redirige donc vers l'index.
+     *
      * @return \Illuminate\View\View
      */
     public function delete($id)
     {
         return redirect('/comments', ['id' => $id]);
-
     }
 
     public function search()
@@ -84,16 +76,14 @@ class CommentsController extends Controller
         $id = $request->input('id');
         $action = $request->input('action');
         // Récupération en session de l'item "favoris"
-        $liked = session("commentsFavoris", []);
+        $liked = session('commentsFavoris', []);
 
-        if ($action == "add") {
+        if ($action == 'add') {
 
             // Enregistrement en variable de l'id souhaité
             $liked[] = $id;
             // Stockage de cette variable de la session
-            Session::put("commentsFavoris", $liked);
-
-
+            Session::put('commentsFavoris', $liked);
         } else {
 
             // On cherche la position de l'id dans le tableau
@@ -102,12 +92,9 @@ class CommentsController extends Controller
             unset($liked[$position]);
 
             // Stockage de cette variable de la session
-            Session::put("commentsFavoris", $liked);
+            Session::put('commentsFavoris', $liked);
         }
 
-        (dump(session("commentsFavoris")));
-
+        (dump(session('commentsFavoris')));
     }
-
-
 }

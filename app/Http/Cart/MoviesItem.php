@@ -1,73 +1,83 @@
 <?php
 
 namespace App\Http\Cart;
+
 use App\Http\Cart\Exception\ItemException;
 use App\Http\Models\Movies;
 
 /**
- * Interface ItemInterface
- * @package App\Http\Cart
+ * Interface ItemInterface.
  */
-class MoviesItem implements ItemInterface{
-
+class MoviesItem implements ItemInterface
+{
     /**
-     * @var $id
+     * @var
      */
     protected $id;
 
     /**
-     * Constructor
+     * Constructor.
+     *
      * @param $id
      */
-    public function __construct($id){
-
+    public function __construct($id)
+    {
         $this->id = $id;
     }
 
     /**
      * @return mixed
      */
-    public function add(ItemInterface $item){}
+    public function add(ItemInterface $item)
+    {
+    }
 
     /**
      * @return mixed
      */
-    public function remove(ItemInterface $item){}
+    public function remove(ItemInterface $item)
+    {
+    }
 
     /**
      * @return mixed
      */
-    public function clear(){}
+    public function clear()
+    {
+    }
 
     /**
      * @return mixed
      */
-    public function all(){}
-
+    public function all()
+    {
+    }
 
     /**
      * @param $id
+     *
      * @return mixed
+     *
      * @throws ItemException
      */
-    public function getMovie(){
+    public function getMovie()
+    {
         $movie = Movies::find($this->id);
 
-        if($movie->price !== 0){
+        if ($movie->price !== 0) {
             throw new ItemException('Le produit a un prix à 0');
         }
 
         return $movie;
     }
 
-
     /**
      * @return mixed
+     *
      * @throws ItemException
      */
-    public function __toString(){
+    public function __toString()
+    {
         return $this->getMovie()->id;
     }
-
 }
-

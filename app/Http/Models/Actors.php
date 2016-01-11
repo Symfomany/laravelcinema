@@ -5,21 +5,18 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-
 /**
  * Classe qui va stocker mes requetes autoirs
  * de ma table movies
- * Hérite de ma super classe Model
+ * Hérite de ma super classe Model.
  */
-class Actors extends Model{
-
+class Actors extends Model
+{
     /**
      * Décrit le nom de la table
-     * que classe fait référence
+     * que classe fait référence.
      */
     protected $table = 'actors';
-
-
 
     public function movies()
     {
@@ -27,28 +24,27 @@ class Actors extends Model{
     }
 
     /**
-     * Get nb actors by city
+     * Get nb actors by city.
+     *
      * @return mixed
      */
-    public function getNbActorsByCity(){
-
+    public function getNbActorsByCity()
+    {
         $result = DB::table('actors')
-                    ->select(DB::raw("COUNT(id) as nb"), "city")
+                    ->select(DB::raw('COUNT(id) as nb'), 'city')
                     ->groupBy('city')
                     ->get();
 
         return $result;
-
-
     }
-
 
     /**
      * Retourne la moyenne d'age des acteurs
      * 1er mode de Laravel pour construire mes requetes
-     * Cela me permet de conserver une syntaxe pure en Mysql
+     * Cela me permet de conserver une syntaxe pure en Mysql.
      */
-    public function getAvgActors(){
+    public function getAvgActors()
+    {
 
         //1ere methode: Utilisation de MYSQL
         // marche mais n'est peu souple
@@ -58,8 +54,6 @@ class Actors extends Model{
             FROM actors
         ');
          */
-
-
 
         // 2nd méthode: PHP & MYSQL
         // Query Builder: Le constructeur de Requête en Laravel
@@ -91,18 +85,5 @@ class Actors extends Model{
 
         // je retourne le resultat de ma requete executé
         return $results;
-
     }
-
-
-
-
-
-
-
-
-
 }
-
-
-

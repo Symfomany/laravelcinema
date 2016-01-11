@@ -6,13 +6,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class MoviesRequest
- * Classe qui modélisera le formulaire de film
- * @package App\Http\Requests
+ * Classe qui modélisera le formulaire de film.
  */
 class MoviesRequest extends FormRequest
 {
     /**
-     * Retourne un tableau de validation par champ
+     * Retourne un tableau de validation par champ.
+     *
      * @return array
      */
     public function rules()
@@ -36,7 +36,8 @@ class MoviesRequest extends FormRequest
     }
 
     /**
-     * Customisation des messages par champs
+     * Customisation des messages par champs.
+     *
      * @return array
      */
     public function messages()
@@ -53,16 +54,14 @@ class MoviesRequest extends FormRequest
         ];
     }
 
-
     /**
      * Autoriser l'accès de mon formulaire
-     * pour tout utilisateur
+     * pour tout utilisateur.
+     *
      * @return bool
      */
     public function authorize()
     {
         return true;
     }
-
-
 }

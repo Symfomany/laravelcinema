@@ -2,7 +2,6 @@
 
 namespace App\Http\Models;
 
-
-
-class Stats {
+class Stats
+{
 }

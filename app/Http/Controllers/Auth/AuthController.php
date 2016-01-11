@@ -6,6 +6,8 @@ use App\Http\Models\Administrators;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Laravel\Socialite\Facades\Socialite;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -13,9 +15,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-
     /**
-     * Redirections (surcharge des valeurs par défaut de Laravel)
+     * Redirections (surcharge des valeurs par défaut de Laravel).
      */
 
     /**
@@ -37,7 +38,6 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/auth/login';
-
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +69,8 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -84,7 +85,8 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
@@ -97,7 +99,8 @@ class AuthController extends Controller
     }
 
     /**
-     * Get Page on login
+     * Get Page on login.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getLogin()
@@ -105,16 +108,11 @@ class AuthController extends Controller
         return view('Auth/login', ['errors' => []]);
     }
 
-
-
-
-
-
-
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function postLogin(Request $request)
@@ -134,19 +132,14 @@ class AuthController extends Controller
 
         $this->getCredentials($request);
 
-
         //override AUth atempt() here...
         if (Auth::attempt([
             'email' => $request->email,
-            'password' =>  $request->password,
-            'active' =>  1,
+            'password' => $request->password,
+            'active' => 1,
         ])) {
-
-
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
-
-
 
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
@@ -162,5 +155,54 @@ class AuthController extends Controller
             ]);
     }
 
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
 
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback()
+    {
+        try {
+            $user = Socialite::driver('facebook')->user();
+        } catch (\Exception $e) {
+            return Redirect::to('auth/facebook');
+        }
+
+        $authUser = $this->findOrCreateUser($user);
+
+        Auth::login($authUser, true);
+
+        return Redirect::to('home');
+    }
+
+    /**
+     * Return user if exists; create and return if doesn't.
+     *
+     * @param $githubUser
+     *
+     * @return User
+     */
+    private function findOrCreateUser($githubUser)
+    {
+        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+            return $authUser;
+        }
+
+        return User::create([
+            'name' => $githubUser->name,
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
+            'avatar' => $githubUser->avatar,
+        ]);
+    }
 }

@@ -6,15 +6,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class AdministratorsRequest
- * Classe qui modélisera le formulaire d'administrateurs
- * @package App\Http\Requests
+ * Classe qui modélisera le formulaire d'administrateurs.
  */
 class AdministratorsRequest extends FormRequest
 {
-
-
     /**
-     * Retourne un tableau de validation par champ
+     * Retourne un tableau de validation par champ.
+     *
      * @return array
      */
     public function rules()
@@ -24,7 +22,7 @@ class AdministratorsRequest extends FormRequest
         $id = $this->route('id');
 
         // Création d'administrateur
-        if($id === null) {
+        if ($id === null) {
             return [
                 'firstname' => 'required|max:255',
                 'lastname' => 'required|max:255',
@@ -35,12 +33,12 @@ class AdministratorsRequest extends FormRequest
             ];
         }
         // Edition administrateur
-        else{
+        else {
             return [
                 'firstname' => 'required|max:255',
                 'lastname' => 'required|max:255',
                 'description' => 'required|min:10',
-                'email' => 'required|email|max:255|unique:administrators,email,' . $id,
+                'email' => 'required|email|max:255|unique:administrators,email,'.$id,
                 'password' => 'confirmed|min:6',
                 'image' => 'image',
             ];
@@ -48,7 +46,8 @@ class AdministratorsRequest extends FormRequest
     }
 
     /**
-     * Customisation des messages par champs
+     * Customisation des messages par champs.
+     *
      * @return array
      */
     public function messages()
@@ -65,16 +64,14 @@ class AdministratorsRequest extends FormRequest
         ];
     }
 
-
     /**
      * Autoriser l'accès de mon formulaire
-     * pour tout utilisateur
+     * pour tout utilisateur.
+     *
      * @return bool
      */
     public function authorize()
     {
         return true;
     }
-
-
 }

@@ -1,97 +1,72 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Http\Models\Actors;
 use Illuminate\Http\Request;
 
-
 /**
- * Class ActorsController
- * @package App\Http\Controllers
- * Sufficé par le mot clef Controller
- * et doit hérité de la super classe Controller
+ * Class ActorsController.
  */
-class ActorsController extends Controller{
-
-
+class ActorsController extends Controller
+{
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function index(){
-
+    public function index()
+    {
         $actors = Actors::all();
         // vue
         return view('Actors/index', [
 
-            'actors' => $actors
+            'actors' => $actors,
         ]);
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function read($id){
+    public function read($id)
+    {
 
         // vue
         return view('Actors/read');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function create(){
+    public function create()
+    {
 
         // vue
         return view('Actors/create');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function edit($id){
+    public function edit($id)
+    {
 
         // vue
         return view('Actors/edit');
     }
 
     /**
-     * Page Acceuil
+     * Page Acceuil.
      */
-    public function delete($id){
-
+    public function delete($id)
+    {
     }
-
 
     /**
      * Action d'enregistrement en base de données
      * depuis mon formulaire
      * Classe Request permet de réceptionner les données
-     * en POST de manières scurisés
+     * en POST de manières scurisés.
      */
-    public function store(Request $request){
-
-
+    public function store(Request $request)
+    {
     }
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

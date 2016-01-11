@@ -3,23 +3,19 @@
 namespace App\Http\Cart;
 
 /**
- * Class Cart
- * @package App\Http\Cart
+ * Class Cart.
  */
-abstract class AbstractCart{
-
+abstract class AbstractCart
+{
+    /**
+     * @param ItemInterface $item
+     */
+    abstract public function add(ItemInterface $item);
 
     /**
      * @param ItemInterface $item
      */
-    abstract  function add(ItemInterface $item);
-
-
-    /**
-     * @param ItemInterface $item
-     */
-    abstract  function remove(ItemInterface $item);
-
+    abstract public function remove(ItemInterface $item);
 
     /**
      * @return array
@@ -40,9 +36,4 @@ abstract class AbstractCart{
      * @param array $total
      */
     abstract public function emptycart();
-
-
-
-
 }
-
