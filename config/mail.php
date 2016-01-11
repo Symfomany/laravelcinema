@@ -30,8 +30,6 @@ return [
 
     'host' => env('MAIL_HOST', 'smtp.mandrillapp.com'),
 
-
-
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port
@@ -120,7 +118,6 @@ return [
     | you may inspect the message. This is great for local development.
     |
     */
-
 
     'pretend' => false,
 

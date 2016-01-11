@@ -61,7 +61,7 @@ class Movies extends Model implements ItemInterface
      */
     public function user()
     {
-        return $this->belongsToMany('App\Http\Models\User', 'user_favoris',  'movies_id', 'user_id');
+        return $this->belongsToMany('App\Http\Models\User', 'user_favoris', 'movies_id', 'user_id');
     }
 
     /**

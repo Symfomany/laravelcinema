@@ -43,6 +43,7 @@ class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \C
 
         return $this;
     }
+
     /**
      * @param ItemInterface $item
      */

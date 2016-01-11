@@ -146,40 +146,35 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Http\Cart\CartServiceProvider::class,
 
-        /**
+        /*
          * Provider By third librairie
          */
         Netshell\Paypal\PaypalServiceProvider::class,
 
-
-        /**
+        /*
          * Provider Socialite
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
 
-
-        /**
+        /*
          * Sluggable
          */
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
 
-
-        /**
+        /*
          * Twitter API
          */
         Thujohn\Twitter\TwitterServiceProvider::class,
 
-
-        /**
+        /*
          * Youtube API
          */
         Alaouy\Youtube\YoutubeServiceProvider::class,
 
-
-        /**
+        /*
          * Debug Toolbar
          */
-        Barryvdh\Debugbar\ServiceProvider::class
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -231,7 +226,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Paypal'    => Netshell\Paypal\Facades\Paypal::class,
         'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
-        'Socialize' => Laravel\Socialite\Facades\Socialite::class
+        'Socialize' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

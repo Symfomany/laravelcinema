@@ -42,8 +42,8 @@ class MoviesController extends Controller
         return view('Movies/create',
         [
             'categories' => $categories,
-            'actors' => $actors,
-            'directors' => $directors,
+            'actors'     => $actors,
+            'directors'  => $directors,
         ]);
     }
 
@@ -54,6 +54,7 @@ class MoviesController extends Controller
     {
         return view('Movies/read');
     }
+
     /**
      * Page Read.
      */
@@ -66,10 +67,10 @@ class MoviesController extends Controller
         $movie = Movies::find($id);
 
         return view('Movies/edit', [
-            'movie' => $movie,
+            'movie'      => $movie,
             'categories' => $categories,
-            'actors' => $actors,
-            'directors' => $directors,
+            'actors'     => $actors,
+            'directors'  => $directors,
         ]);
     }
 
