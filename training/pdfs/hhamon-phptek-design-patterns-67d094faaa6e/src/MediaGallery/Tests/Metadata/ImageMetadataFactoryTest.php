@@ -3,8 +3,8 @@
 namespace MediaGallery\Tests\Metadata;
 
 use MediaGallery\Analyzer\ImageAnalyzer;
-use MediaGallery\Metadata\ImageMetadataFactory;
 use MediaGallery\Metadata\ImageMetadata;
+use MediaGallery\Metadata\ImageMetadataFactory;
 
 class ImageMetadataFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,4 +33,4 @@ class ImageMetadataFactoryTest extends \PHPUnit_Framework_TestCase
     {
         return new ImageMetadataFactory(new ImageAnalyzer());
     }
-} 
+}

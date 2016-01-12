@@ -36,13 +36,13 @@ class MinimumOrderedQuantityCouponTest extends CouponTest
     public function provideInvalidMininumQuantity()
     {
         return [
-            [ 0 ],
-            [ -10 ],
-            [ true ],
-            [ false ],
-            [ 0.50 ],
-            [ -0.30 ],
-            [ 1.20 ],
+            [0],
+            [-10],
+            [true],
+            [false],
+            [0.50],
+            [-0.30],
+            [1.20],
         ];
     }
 

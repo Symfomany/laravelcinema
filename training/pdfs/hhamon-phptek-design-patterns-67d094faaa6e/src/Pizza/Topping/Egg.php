@@ -16,4 +16,4 @@ class Egg extends ToppingDecorator
     {
         return 'egg';
     }
-} 
+}

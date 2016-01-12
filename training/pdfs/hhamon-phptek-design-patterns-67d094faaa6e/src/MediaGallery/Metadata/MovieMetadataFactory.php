@@ -7,7 +7,8 @@ class MovieMetadataFactory extends MediaMetadataFactory
     /**
      * Creates the specific MovieMetadata object.
      *
-     * @param  \SplFileInfo $file
+     * @param \SplFileInfo $file
+     *
      * @return MovieMetadata
      */
     protected function createMetadata(\SplFileInfo $file)

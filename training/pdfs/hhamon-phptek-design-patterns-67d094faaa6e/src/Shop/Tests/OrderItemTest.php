@@ -28,13 +28,13 @@ class OrderItemTest extends CouponTest
     public function provideInvalidQuantity()
     {
         return [
-            [ 0 ],
-            [ -10 ],
-            [ true ],
-            [ false ],
-            [ 0.50 ],
-            [ -0.30 ],
-            [ 1.20 ],
+            [0],
+            [-10],
+            [true],
+            [false],
+            [0.50],
+            [-0.30],
+            [1.20],
         ];
     }
 }

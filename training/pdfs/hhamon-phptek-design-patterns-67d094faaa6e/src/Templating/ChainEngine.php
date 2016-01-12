@@ -26,6 +26,7 @@ class ChainEngine implements EngineInterface
      * Returns the supported engine.
      *
      * @param string $template
+     *
      * @return EngineInterface
      */
     private function getEngine($template)

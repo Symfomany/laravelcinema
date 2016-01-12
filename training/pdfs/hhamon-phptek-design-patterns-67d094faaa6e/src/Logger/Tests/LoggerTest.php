@@ -15,7 +15,7 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
         $logger->log('Bar Foo');
 
         $logs = $logger->getLogs();
-        
+
         $this->assertCount(2, $logs);
         $this->assertRegExp('#^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\] \w+#i', $logs[0]);
         $this->assertRegExp('#^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\] \w+#i', $logs[1]);

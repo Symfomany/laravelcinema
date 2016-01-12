@@ -15,6 +15,7 @@ final class Weight
      * Constructor.
      *
      * @param int $weight The weight value expressed in gramms.
+     *
      * @throws \InvalidArgumentException
      */
     public function __construct($weight)

@@ -48,4 +48,4 @@ class LimitedLifetimeCoupon extends CouponDecorator
 
         return $this->coupon->applyDiscount($order);
     }
-} 
+}

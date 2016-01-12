@@ -76,9 +76,9 @@ class Comment
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -86,7 +86,7 @@ class Comment
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param string $user
      */
@@ -96,7 +96,7 @@ class Comment
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class Comment
     }
 
     /**
-     * Set comment
+     * Set comment.
      *
      * @param string $comment
      */
@@ -116,7 +116,7 @@ class Comment
     }
 
     /**
-     * Get comment
+     * Get comment.
      *
      * @return string
      */
@@ -126,9 +126,9 @@ class Comment
     }
 
     /**
-     * Set approved
+     * Set approved.
      *
-     * @param boolean $approved
+     * @param bool $approved
      */
     public function setApproved($approved)
     {
@@ -136,9 +136,9 @@ class Comment
     }
 
     /**
-     * Get approved
+     * Get approved.
      *
-     * @return boolean
+     * @return bool
      */
     public function getApproved()
     {
@@ -146,7 +146,7 @@ class Comment
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      */
@@ -156,7 +156,7 @@ class Comment
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -166,7 +166,7 @@ class Comment
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      */
@@ -176,7 +176,7 @@ class Comment
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -186,7 +186,7 @@ class Comment
     }
 
     /**
-     * Set blog
+     * Set blog.
      *
      * @param Blog $blog
      */
@@ -196,7 +196,7 @@ class Comment
     }
 
     /**
-     * Get blog
+     * Get blog.
      *
      * @return Blog
      */

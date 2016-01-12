@@ -17,10 +17,10 @@ class BlogControllerTest extends WebTestCase
         // Select based on button value, or id or name for buttons
         $form = $crawler->selectButton('Submit')->form();
 
-        $crawler = $client->submit($form, array(
+        $crawler = $client->submit($form, [
             'blogger_blogbundle_commenttype[user]'          => 'name',
             'blogger_blogbundle_commenttype[comment]'       => 'comment',
-        ));
+        ]);
 
         // Need to follow redirect
         $crawler = $client->followRedirect();

@@ -4,8 +4,8 @@ namespace MediaGallery\Metadata;
 
 class ImageMetadata extends MediaMetadata
 {
-    const SQUARE    = 'square';
-    const PORTRAIT  = 'portrait';
+    const SQUARE = 'square';
+    const PORTRAIT = 'portrait';
     const LANDSCAPE = 'landscape';
 
     private $width;
@@ -33,7 +33,7 @@ class ImageMetadata extends MediaMetadata
             ));
         }
 
-        $this->width  = $width;
+        $this->width = $width;
         $this->height = $height;
     }
 
@@ -55,4 +55,4 @@ class ImageMetadata extends MediaMetadata
 
         return $this->width > $this->height ? self::LANDSCAPE : self::PORTRAIT;
     }
-} 
+}

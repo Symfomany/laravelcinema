@@ -25,6 +25,7 @@ class Actors extends Model
 
     /**
      * Get nb actors by city.
+     *
      * @return mixed
      */
     public function getNbActorsByCity()

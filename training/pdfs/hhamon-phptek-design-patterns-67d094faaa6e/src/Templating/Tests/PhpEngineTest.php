@@ -22,15 +22,15 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
         $date = new \DateTime('2014-11-29');
 
         return [
-            [ 'foo', 'foo' ],
-            [ '<strong>foo</strong>', '&lt;strong&gt;foo&lt;/strong&gt;'],
-            [ '<strong class="qux">foo</strong>', '&lt;strong class=&quot;qux&quot;&gt;foo&lt;/strong&gt;' ],
-            [ 10, 10 ],
-            [ 35.10, 35.10 ],
-            [ true, true ],
-            [ false, false ],
-            [ null, null ],
-            [ $date, $date ],
+            ['foo', 'foo'],
+            ['<strong>foo</strong>', '&lt;strong&gt;foo&lt;/strong&gt;'],
+            ['<strong class="qux">foo</strong>', '&lt;strong class=&quot;qux&quot;&gt;foo&lt;/strong&gt;'],
+            [10, 10],
+            [35.10, 35.10],
+            [true, true],
+            [false, false],
+            [null, null],
+            [$date, $date],
         ];
     }
 
@@ -58,7 +58,7 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(isset($this->engine['escape']));
         $this->assertTrue(isset($this->engine['date']));
         $this->assertFalse(isset($this->engine['session']));
-        
+
         $this->assertSame('text', $this->engine['text']->getName());
         $this->assertSame('escape', $this->engine['escape']->getName());
         $this->assertSame('date', $this->engine['date']->getName());
@@ -73,9 +73,9 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
     public function provideTemplate()
     {
         return [
-            [ 'index.php' ],
-            [ '//index.php' ],
-            [ 'blog/blog.php' ],
+            ['index.php'],
+            ['//index.php'],
+            ['blog/blog.php'],
         ];
     }
 
@@ -96,7 +96,7 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
 
     public function testEvaluateTemplate()
     {
-        $output = $this->engine->evaluate('index.php', [ 'name' => 'Hugo' ]);
+        $output = $this->engine->evaluate('index.php', ['name' => 'Hugo']);
 
         $this->assertSame('<p>Hello Hugo</p>', trim($output));
     }
@@ -104,19 +104,19 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
     /** @expectedException \Templating\Exception\ReservedKeywordException */
     public function testRejectViewVariableName()
     {
-        $this->engine->evaluate('index.php', [ 'view' => 'foo' ]);
+        $this->engine->evaluate('index.php', ['view' => 'foo']);
     }
 
     /** @expectedException \Templating\Exception\UnsupportedTemplateException */
     public function testCantLoadTemplateIfNotSupported()
     {
-        $this->engine->evaluate('index.twig', [ 'name' => 'Hugo' ]);
+        $this->engine->evaluate('index.twig', ['name' => 'Hugo']);
     }
 
     /** @expectedException \Templating\Exception\TemplateNotFoundException */
     public function testCantLoadTemplateIfNotFound()
     {
-        $this->engine->evaluate('not-found.php', [ 'name' => 'Hugo' ]);
+        $this->engine->evaluate('not-found.php', ['name' => 'Hugo']);
     }
 
     protected function setUp()

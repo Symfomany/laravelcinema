@@ -31,4 +31,4 @@ abstract class Product implements ProductInterface
     {
         return $this->weight;
     }
-} 
+}

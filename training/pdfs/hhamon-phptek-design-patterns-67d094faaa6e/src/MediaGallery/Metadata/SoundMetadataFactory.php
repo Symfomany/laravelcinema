@@ -7,7 +7,8 @@ class SoundMetadataFactory extends MediaMetadataFactory
     /**
      * Creates the specific SoundMetadata object.
      *
-     * @param  \SplFileInfo $file
+     * @param \SplFileInfo $file
+     *
      * @return SoundMetadata
      */
     protected function createMetadata(\SplFileInfo $file)

@@ -15,4 +15,4 @@ class CustomerFirstOrderCoupon extends CouponDecorator
 
         return $this->coupon->applyDiscount($order);
     }
-} 
+}

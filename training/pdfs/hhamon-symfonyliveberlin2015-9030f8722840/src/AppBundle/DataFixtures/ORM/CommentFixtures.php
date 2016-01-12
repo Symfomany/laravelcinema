@@ -2,9 +2,9 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Comment;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use AppBundle\Entity\Comment;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
@@ -33,63 +33,63 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
         $comment->setUser('Kate');
         $comment->setComment('Etiam eget diam pretium, auctor neque sit amet, pulvinar nibh?');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:15:20"));
+        $comment->setCreated(new \DateTime('2011-07-23 06:15:20'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Dade');
         $comment->setComment('Name your stakes.');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:18:35"));
+        $comment->setCreated(new \DateTime('2011-07-23 06:18:35'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Kate');
         $comment->setComment('If I win, you give me ice cream.');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:22:53"));
+        $comment->setCreated(new \DateTime('2011-07-23 06:22:53'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Dade');
         $comment->setComment('Ice Cream?');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:25:15"));
+        $comment->setCreated(new \DateTime('2011-07-23 06:25:15'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Kate');
         $comment->setComment('Yes! Chocolate, with sprinkles, and whip cream...');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:46:08"));
+        $comment->setCreated(new \DateTime('2011-07-23 06:46:08'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Dade');
         $comment->setComment('And if I win?');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-23 10:22:46"));
+        $comment->setCreated(new \DateTime('2011-07-23 10:22:46'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Kate');
         $comment->setComment('I still get ice cream!');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-23 11:08:08"));
+        $comment->setCreated(new \DateTime('2011-07-23 11:08:08'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Dade');
         $comment->setComment('Everyone wins!');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-24 18:56:01"));
+        $comment->setCreated(new \DateTime('2011-07-24 18:56:01'));
         $manager->persist($comment);
 
         $comment = new Comment();
         $comment->setUser('Kate');
         $comment->setComment('Deal!');
         $comment->setBlog($manager->merge($this->getReference('blog-3')));
-        $comment->setCreated(new \DateTime("2011-07-25 22:28:42"));
+        $comment->setCreated(new \DateTime('2011-07-25 22:28:42'));
         $manager->persist($comment);
 
         $comment = new Comment();

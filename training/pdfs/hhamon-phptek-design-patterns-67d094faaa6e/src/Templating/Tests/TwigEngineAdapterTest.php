@@ -18,9 +18,9 @@ class TwigEngineAdapterTest extends \PHPUnit_Framework_TestCase
     public function provideTemplate()
     {
         return [
-            [ 'index.php' ],
-            [ '//index.php' ],
-            [ 'blog/blog.php' ],
+            ['index.php'],
+            ['//index.php'],
+            ['blog/blog.php'],
         ];
     }
 
@@ -47,7 +47,7 @@ class TwigEngineAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testEvaluateTemplate()
     {
-        $output = $this->engine->evaluate('index.twig', [ 'name' => 'Hugo' ]);
+        $output = $this->engine->evaluate('index.twig', ['name' => 'Hugo']);
 
         $this->assertSame('<p>Hello Hugo</p>', trim($output));
     }
@@ -55,13 +55,13 @@ class TwigEngineAdapterTest extends \PHPUnit_Framework_TestCase
     /** @expectedException \Templating\Exception\UnsupportedTemplateException */
     public function testCantEvaluateTemplateIfNotSupported()
     {
-        $this->engine->evaluate('index.php', [ 'name' => 'Hugo' ]);
+        $this->engine->evaluate('index.php', ['name' => 'Hugo']);
     }
 
     /** @expectedException \Templating\Exception\TemplateNotFoundException */
     public function testCantEvaluateTemplateIfNotFound()
     {
-        $this->engine->evaluate('not-found.twig', [ 'name' => 'Hugo' ]);
+        $this->engine->evaluate('not-found.twig', ['name' => 'Hugo']);
     }
 
     protected function setUp()

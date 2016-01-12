@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class MoviesController
- * @package App\Http\Controllers
+ * Class MoviesController.
  */
 class MoviesController extends Controller
 {
     /**
-     * Page Index
+     * Page Index.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -31,8 +31,10 @@ class MoviesController extends Controller
             ]
         );
     }
+
     /**
-     * Page create
+     * Page create.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()

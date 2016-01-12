@@ -28,9 +28,9 @@ class BlogRepository extends EntityRepository
             ->getQuery()
             ->getResult();
 
-        $tags = array();
+        $tags = [];
         foreach ($blogTags as $blogTag) {
-            $tags = array_merge(explode(",", $blogTag['tags']), $tags);
+            $tags = array_merge(explode(',', $blogTag['tags']), $tags);
         }
 
         foreach ($tags as $key => $tag) {
@@ -42,7 +42,7 @@ class BlogRepository extends EntityRepository
 
     public function getTagWeights($tags)
     {
-        $tagWeights = array();
+        $tagWeights = [];
         if (empty($tags)) {
             return $tagWeights;
         }

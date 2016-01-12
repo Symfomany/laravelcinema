@@ -11,7 +11,7 @@ class SoundMetadata extends MediaMetadata
     public function __construct($bitrate, $duration, $lossless)
     {
         $this->lossless = (bool) $lossless;
-        $this->bitrate  = (int) $bitrate;
+        $this->bitrate = (int) $bitrate;
         $this->duration = (int) $duration;
     }
 

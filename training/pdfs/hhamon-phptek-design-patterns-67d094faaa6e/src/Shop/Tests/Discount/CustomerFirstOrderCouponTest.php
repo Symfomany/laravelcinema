@@ -14,7 +14,7 @@ class CustomerFirstOrderCouponTest extends CouponTest
         $order->expects($this->once())->method('getTotalAmount')->willReturn(self::money(10000));
 
         $coupon = $this->createCoupon();
-        
+
         $this->assertSame('ABCDE', $coupon->getCode());
         $this->assertEquals(self::money(9000), $coupon->applyDiscount($order));
     }

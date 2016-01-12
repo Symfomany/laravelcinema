@@ -16,4 +16,4 @@ class Mushrooms extends ToppingDecorator
     {
         return 'mushrooms';
     }
-} 
+}

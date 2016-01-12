@@ -27,4 +27,4 @@ class ValueCoupon implements CouponInterface
 
         return $amount->subtract($this->discount);
     }
-} 
+}
