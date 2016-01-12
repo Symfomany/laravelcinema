@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'css/fonts.css'
+        'css/blog.css'
+        'css/sidebar.css'
+        'css/screen.css'
+        output='assets/compiled/blogger.css'
+    %}
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sidebar %}
+    {{ render(controller('AppBundle:Page:sidebar')) }}
+{% endblock %}

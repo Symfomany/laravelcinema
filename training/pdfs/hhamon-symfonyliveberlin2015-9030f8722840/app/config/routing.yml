@@ -1,0 +1,15 @@
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
+app:
+    resource: "@AppBundle/Controller"
+    prefix:   /{_locale}
+    type:     annotation
+    requirements: { _locale: en|fr }
+
+app_security:
+    resource: "@AppBundle/Controller/SecurityController.php"
+    prefix:   /
+    type:     annotation

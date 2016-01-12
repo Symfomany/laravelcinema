@@ -15,11 +15,25 @@
 
 ## Laravel PHP Project
 
-Pedagogic Project  en **Laravel 5** on CMS like *Allociné*
+Pedagogic Project  in **Laravel 5** on Back-Office to handle Movies, Categories, Actors, Directors, Comments...like *Allociné*
 Propulsed by *Julien Boyer*  julien@meetserious.com
 
 
-## Install via Composer
+## Why Laravel 5?
+
+For that:
+![GitHub Logo](/screens/17.png)
+![GitHub Logo](/screens/18.png)
+http://fr.slideshare.net/alahaxe/laravel-yet-another-framework-44869051?qid=a8138a25-3bcd-493d-ab4f-a772a8a36f83&v=default&b=&from_search=2
+http://fr.slideshare.net/AoSiX/laravel-blade?qid=9c7b88aa-89a5-42ee-bf3a-e8dc7ab7d489&v=default&b=&from_search=2
+
+
+## PDFs of Training in Laravel - Symfony 2 - OOP - PHP
+
+Directory /training for pdf in free white books
+
+
+## Installing via Composer
 
 * Composer package:   `composer create-project symfomany/laravelcinema`  or just vendor with `composer require symfomany/laravelcinema`
 * Manually, Get composer: `curl -sS https://getcomposer.org/installer | php`
@@ -37,14 +51,13 @@ Propulsed by *Julien Boyer*  julien@meetserious.com
 Best Stacks & Technologies
 ====
 
-
 * Composer Require
 * PHP >= 5.5.9
 * Redis server with Predis
 * Envoy
 * Vue.js via Provider & Elixir
 * Paypal Account
-* OOP Cart with Abstract, INterfacing Exception with IoC Container
+* OOP Cart with Abstract, Interfacing Exception with IoC Container
 * OpenSSL
 * Task launch in schedule here * * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 * Faker && Seed
@@ -59,6 +72,7 @@ Best Stacks & Technologies
 * Fixtures in seeks
 * Faker Objects
 * Bootstrapp 3 based on Material Design
+* Engine Template: Blade
 
 
 Configuration on *.env* file
@@ -68,16 +82,13 @@ Configuration on *.env* file
 + APP_ENV=local
 + APP_DEBUG=true
 + APP_KEY= ******
-
 + DB_HOST=localhost
 + DB_DATABASE=db
 + DB_USERNAME=root
 + DB_PASSWORD= ******
-
 + CACHE_DRIVER=file
 + SESSION_DRIVER=file
 + QUEUE_DRIVER=sync
-
 + MAIL_DRIVER=smtp
 + MAIL_HOST=mailtrap.io
 + MAIL_PORT=2525
@@ -89,10 +100,10 @@ Configuration on *.env* file
 Demo
 ====
 
-* Autoloading via Composer with PSR-4
+* Autoloading via Composer with PSR-4 - ClassMap
 * Classes: attributes & getters/setters & constructor
 * Optional Arguments & Encapsulation's Argument
-* Magic Methods in class
+* Magic Methods in Classes
 * Resolving attributes
 * Inheritance & Abstract & Final Class é Interfaces
 * Traits
@@ -100,12 +111,12 @@ Demo
 * Composer
 * SOLID Philosophy
 * Service Container Injection
-* Engine Template
 * API Reflexion with ReflectionObject && ReflectionClass for Plugins examples
 
 
 Demo
 ====
+
 FO: http://46.101.34.74/index.php/admin
 Auth: http://46.101.34.74/auth/login
 Login: admin@test.com
@@ -117,7 +128,6 @@ Laravel Forge to Github
 
 Data Fixtures
 ====
-
     php artisan db:seed
 
 Issues

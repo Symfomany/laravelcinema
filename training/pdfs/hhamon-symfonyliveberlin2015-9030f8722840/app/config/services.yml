@@ -1,0 +1,27 @@
+services:
+    app.blog_voter:
+        class: AppBundle\Security\BlogVoter
+        tags:
+            - { name: security.voter }
+
+    app.form.comment:
+        class: AppBundle\Form\CommentType
+        tags:
+            - { name: form.type, alias: app_comment }
+
+    app.blog_extension:
+        class: AppBundle\Twig\Extensions\BloggerBlogExtension
+        tags:
+            - { name: twig.extension }
+
+    app.contact_mailer:
+        class: AppBundle\Mailer\ContactMailer
+        arguments:
+            - "@mailer"
+            - "@templating"
+            - "%blogger_blog.emails.contact_email%"
+
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }

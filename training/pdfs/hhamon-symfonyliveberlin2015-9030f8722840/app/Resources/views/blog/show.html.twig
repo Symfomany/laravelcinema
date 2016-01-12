@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% trans_default_domain 'blog' %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block body %}
+    <article class="blog">
+        <header>
+            <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
+            <h2>{{ blog.title }}</h2>
+        </header>
+        <img src="{{ asset('images/'~blog.image) }}" alt="{{ blog.title }}" class="large" />
+        <div>
+            <p>{{ blog.content }}</p>
+        </div>
+    </article>
+
+    <section class="comments" id="comments">
+        <section class="previous-comments">
+            <h3>{{ 'blog.comments_count'|transchoice(comments|length, { '%foo%': 'bar' }) }}</h3>
+            {{ include('comment/_comments.html.twig', { 'comments': comments }) }}
+        </section>
+
+        <h3>{{ 'blog.add_comment'|trans }}</h3>
+        {{  render(controller('AppBundle:Comment:createCommentForm', { 'blog': blog })) }}
+    </section>
+{% endblock %}

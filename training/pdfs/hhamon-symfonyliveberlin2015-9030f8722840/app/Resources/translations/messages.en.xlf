@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="170ebfa198986e2b77913834c0b4c5c3" resname="menu.homepage">
+        <source>menu.homepage</source>
+        <target>Homepage</target>
+        <note from="SensioLabs">
+          efojwrhfr;hge
+        </note>
+        <note from="Translator">
+          efojwrhfr;hge
+        </note>
+      </trans-unit>
+      <trans-unit id="36ec60c3de74c5393fcf393c6eb3b4f3" resname="menu.about_us">
+        <source>menu.about_us</source>
+        <target>About us</target>
+      </trans-unit>
+      <trans-unit id="eb83f09c882d38d0215f5461a364224a" resname="menu.contact_us">
+        <source>menu.contact_us</source>
+        <target>Contact us</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
