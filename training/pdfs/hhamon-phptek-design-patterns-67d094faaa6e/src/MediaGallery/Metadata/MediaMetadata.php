@@ -12,8 +12,8 @@ abstract class MediaMetadata implements MediaMetadataInterface
 
     public function initialize(\SplFileInfo $file)
     {
-        $this->size      = $file->getSize();
-        $this->realPath  = $file->getRealPath();
+        $this->size = $file->getSize();
+        $this->realPath = $file->getRealPath();
         $this->createdAt = $file->getMTime();
     }
 

@@ -19,4 +19,4 @@ class ImageAnalyzer implements MediaAnalyzerInterface
             'height' => $metadata[1],
         ];
     }
-} 
+}

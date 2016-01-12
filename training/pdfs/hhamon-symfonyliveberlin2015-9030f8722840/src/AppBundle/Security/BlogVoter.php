@@ -2,20 +2,20 @@
 
 namespace AppBundle\Security;
 
+use AppBundle\Entity\Blog;
 use Symfony\Component\Security\Core\Authorization\Voter\AbstractVoter;
 use Symfony\Component\Security\Core\User\UserInterface;
-use AppBundle\Entity\Blog;
 
 class BlogVoter extends AbstractVoter
 {
     protected function getSupportedClasses()
     {
-        return [ Blog::class ];
+        return [Blog::class];
     }
 
     protected function getSupportedAttributes()
     {
-        return [ 'DELETE_POST' ];
+        return ['DELETE_POST'];
     }
 
     protected function isGranted($attribute, $object, $user = null)

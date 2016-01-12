@@ -4,5 +4,4 @@ namespace DI;
 
 class Logger
 {
-    
 }

@@ -2,8 +2,8 @@
 
 namespace AppBundle\Mailer;
 
-use Symfony\Component\Templating\EngineInterface;
 use AppBundle\Entity\Enquiry;
+use Symfony\Component\Templating\EngineInterface;
 
 class ContactMailer
 {
@@ -23,7 +23,7 @@ class ContactMailer
     public function sendContactNotification(Enquiry $enquiry)
     {
         $body = $this->templating
-            ->render('page/contactEmail.txt.twig', [ 'enquiry' => $enquiry ]);
+            ->render('page/contactEmail.txt.twig', ['enquiry' => $enquiry]);
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Contact enquiry from symblog')

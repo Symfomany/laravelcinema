@@ -14,9 +14,9 @@ class MovieMetadata extends MediaMetadata
     {
         $this->xResolution = (int) $xResolution;
         $this->yResolution = (int) $yResolution;
-        $this->frameRate   = (int) round($frameRate);
-        $this->frameCount  = (int) $frameCount;
-        $this->duration    = (int) round($duration);
+        $this->frameRate = (int) round($frameRate);
+        $this->frameCount = (int) $frameCount;
+        $this->duration = (int) round($duration);
     }
 
     public function getDuration()
@@ -43,4 +43,4 @@ class MovieMetadata extends MediaMetadata
     {
         return $this->yResolution;
     }
-} 
+}

@@ -26,4 +26,4 @@ interface OrderableInterface
      * @return Money
      */
     public function getTotalAmount();
-} 
+}

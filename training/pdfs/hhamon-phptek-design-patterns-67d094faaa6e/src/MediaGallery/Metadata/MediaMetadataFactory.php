@@ -26,8 +26,9 @@ abstract class MediaMetadataFactory implements MediaMetadataFactoryInterface
      *
      * @param string $path The multimedia file path
      *
-     * @return MediaMetadataInterface $metadata The metadata instance
      * @throws MediaNotFoundException
+     *
+     * @return MediaMetadataInterface $metadata The metadata instance
      */
     public function loadMetadata($path)
     {
@@ -53,6 +54,7 @@ abstract class MediaMetadataFactory implements MediaMetadataFactoryInterface
      * each concrete MediaMetadadaFactory class.
      *
      * @param \SplFileInfo $file
+     *
      * @return MediaMetadataInterface
      */
     abstract protected function createMetadata(\SplFileInfo $file);
@@ -61,7 +63,8 @@ abstract class MediaMetadataFactory implements MediaMetadataFactoryInterface
      * Analyzes the metadata of a multimedia file.
      *
      * @param \SplFileInfo $file The multimedia file
-     * @return array             The analysis report
+     *
+     * @return array The analysis report
      */
     protected function analyze(\SplFileInfo $file)
     {

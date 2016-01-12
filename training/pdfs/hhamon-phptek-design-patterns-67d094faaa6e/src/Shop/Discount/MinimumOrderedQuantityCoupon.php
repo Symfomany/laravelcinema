@@ -11,7 +11,7 @@ class MinimumOrderedQuantityCoupon extends CouponDecorator
         if (!is_int($minimumQuantity)) {
             throw new \InvalidArgumentException('$quantity must be a valid integer.');
         }
- 
+
         if ($minimumQuantity < 1) {
             throw new \InvalidArgumentException('$quantity must be at least one.');
         }
@@ -33,4 +33,4 @@ class MinimumOrderedQuantityCoupon extends CouponDecorator
 
         return $this->coupon->applyDiscount($order);
     }
-} 
+}

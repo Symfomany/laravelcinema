@@ -50,6 +50,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      * Returns a single helper instance.
      *
      * @param string $name The helper name
+     *
      * @return HelperInterface
      */
     private function getHelper($name)
@@ -96,7 +97,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
     {
         $ext = strtolower(pathinfo($template, PATHINFO_EXTENSION));
 
-        return in_array($ext, [ 'php', 'tpl' ]);
+        return in_array($ext, ['php', 'tpl']);
     }
 
     /**

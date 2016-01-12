@@ -32,7 +32,7 @@ class BlogRepositoryTest extends WebTestCase
     public function testGetTagWeights()
     {
         $tagsWeight = $this->blogRepository->getTagWeights(
-            array('php', 'code', 'code', 'symblog', 'blog')
+            ['php', 'code', 'code', 'symblog', 'blog']
         );
 
         $this->assertTrue(count($tagsWeight) > 1);
@@ -54,7 +54,7 @@ class BlogRepositoryTest extends WebTestCase
         $this->assertEquals(1, $tagsWeight['html']);
 
         // Test empty case
-        $tagsWeight = $this->blogRepository->getTagWeights(array());
+        $tagsWeight = $this->blogRepository->getTagWeights([]);
 
         $this->assertEmpty($tagsWeight);
     }

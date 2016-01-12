@@ -34,4 +34,4 @@ class MovieMetadataFactoryTest extends \PHPUnit_Framework_TestCase
     {
         return new MovieMetadataFactory(new VideoAnalyzer());
     }
-} 
+}

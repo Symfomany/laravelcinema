@@ -15,4 +15,4 @@ class LoyaltyProgramCustomerCoupon extends CouponDecorator
 
         return $this->coupon->applyDiscount($order);
     }
-} 
+}

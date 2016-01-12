@@ -32,7 +32,8 @@ abstract class ToppingDecorator implements IngredientInterface
     /**
      * Creates a Money instance.
      *
-     * @param  int $price The price in cents
+     * @param int $price The price in cents
+     *
      * @return Money
      */
     protected static function createPrice($price)
@@ -57,9 +58,9 @@ abstract class ToppingDecorator implements IngredientInterface
      */
     public function getToppings()
     {
-        $toppings   = $this->ingredient->getToppings();
+        $toppings = $this->ingredient->getToppings();
         $toppings[] = $this->getName();
 
         return $toppings;
     }
-} 
+}

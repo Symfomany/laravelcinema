@@ -19,9 +19,9 @@ class PlatesEngineAdapterTest extends \PHPUnit_Framework_TestCase
     public function provideTemplate()
     {
         return [
-            [ 'index.tpl' ],
-            [ '//index.tpl' ],
-            [ 'blog/blog.tpl' ],
+            ['index.tpl'],
+            ['//index.tpl'],
+            ['blog/blog.tpl'],
         ];
     }
 
@@ -42,7 +42,7 @@ class PlatesEngineAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testEvaluateTemplate()
     {
-        $output = $this->engine->evaluate('index.tpl', [ 'name' => 'Hugo' ]);
+        $output = $this->engine->evaluate('index.tpl', ['name' => 'Hugo']);
 
         $this->assertSame('<p>Hello Hugo</p>', trim($output));
     }
@@ -50,20 +50,20 @@ class PlatesEngineAdapterTest extends \PHPUnit_Framework_TestCase
     /** @expectedException \Templating\Exception\UnsupportedTemplateException */
     public function testCantEvaluateTemplateIfNotSupported()
     {
-        $this->engine->evaluate('index.php', [ 'name' => 'Hugo' ]);
+        $this->engine->evaluate('index.php', ['name' => 'Hugo']);
     }
 
     /** @expectedException \Templating\Exception\TemplateNotFoundException */
     public function testCantEvaluateTemplateIfNotFound()
     {
-        $this->engine->evaluate('not-found.tpl', [ 'name' => 'Hugo' ]);
+        $this->engine->evaluate('not-found.tpl', ['name' => 'Hugo']);
     }
 
     protected function setUp()
     {
         $plates = new Engine(__DIR__.'/Resources/views');
         $plates->setFileExtension(null);
-        $plates->addData([ 'foo' => 'bar' ]);
+        $plates->addData(['foo' => 'bar']);
 
         $this->engine = new PlatesEngineAdapter($plates);
     }

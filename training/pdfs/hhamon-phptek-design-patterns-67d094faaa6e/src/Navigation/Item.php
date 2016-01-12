@@ -63,11 +63,10 @@ class Item implements ItemInterface
     /**
      * Returns whether or not there are nested items.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasItems()
     {
         return count($this->items) > 0;
     }
-
 }

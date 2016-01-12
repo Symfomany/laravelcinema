@@ -8,4 +8,4 @@ class UppercaseWriter extends WriterDecorator
     {
         return strtoupper($this->writer->write($text));
     }
-} 
+}

@@ -20,9 +20,9 @@ class BlogController extends Controller
             ->getRepository('AppBundle:Comment')
             ->getCommentsForBlog($blog->getId());
 
-        return $this->render('blog/show.html.twig', array(
+        return $this->render('blog/show.html.twig', [
             'blog'      => $blog,
-            'comments'  => $comments
-        ));
+            'comments'  => $comments,
+        ]);
     }
 }

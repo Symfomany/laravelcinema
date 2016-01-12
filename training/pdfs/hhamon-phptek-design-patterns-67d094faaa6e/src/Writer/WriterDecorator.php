@@ -10,4 +10,4 @@ abstract class WriterDecorator implements WriterInterface
     {
         $this->writer = $writer;
     }
-} 
+}

@@ -19,17 +19,16 @@ class ImageMetadataTest extends \PHPUnit_Framework_TestCase
     public function provideImageDimensions()
     {
         return [
-            [ 'landscape', 500, 100 ],
-            [ 'landscape', 500, 499 ],
-            [ 'portrait', 100, 500 ],
-            [ 'portrait', 99, 100 ],
-            [ 'square', 100, 100 ],
+            ['landscape', 500, 100],
+            ['landscape', 500, 499],
+            ['portrait', 100, 500],
+            ['portrait', 99, 100],
+            ['square', 100, 100],
         ];
     }
 
     public function testCreateMetadataForSquareOrientedImage()
     {
-
     }
 
     /**
@@ -44,11 +43,11 @@ class ImageMetadataTest extends \PHPUnit_Framework_TestCase
     public function provideInvalidDimensions()
     {
         return [
-            [ 0, 100 ],
-            [ 100, 0 ],
-            [ 0, 0 ],
-            [ -10, 100 ],
-            [ 100, -100 ],
+            [0, 100],
+            [100, 0],
+            [0, 0],
+            [-10, 100],
+            [100, -100],
         ];
     }
 }

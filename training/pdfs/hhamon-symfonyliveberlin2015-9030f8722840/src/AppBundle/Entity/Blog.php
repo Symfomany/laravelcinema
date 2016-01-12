@@ -2,8 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogRepository")
@@ -86,7 +86,7 @@ class Blog
      */
     public function setUpdatedValue()
     {
-       $this->setUpdated(new \DateTime());
+        $this->setUpdated(new \DateTime());
     }
 
     public function __toString()
@@ -121,9 +121,9 @@ class Blog
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -131,7 +131,7 @@ class Blog
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      */
@@ -143,7 +143,7 @@ class Blog
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -153,7 +153,7 @@ class Blog
     }
 
     /**
-     * Set author
+     * Set author.
      *
      * @param string $author
      */
@@ -163,7 +163,7 @@ class Blog
     }
 
     /**
-     * Get author
+     * Get author.
      *
      * @return string
      */
@@ -173,7 +173,7 @@ class Blog
     }
 
     /**
-     * Set blog
+     * Set blog.
      *
      * @param string $blog
      */
@@ -183,7 +183,7 @@ class Blog
     }
 
     /**
-     * Get blog
+     * Get blog.
      *
      * @return string
      */
@@ -193,7 +193,7 @@ class Blog
     }
 
     /**
-     * Set image
+     * Set image.
      *
      * @param string $image
      */
@@ -203,7 +203,7 @@ class Blog
     }
 
     /**
-     * Get image
+     * Get image.
      *
      * @return string
      */
@@ -213,7 +213,7 @@ class Blog
     }
 
     /**
-     * Set tags
+     * Set tags.
      *
      * @param string $tags
      */
@@ -223,7 +223,7 @@ class Blog
     }
 
     /**
-     * Get tags
+     * Get tags.
      *
      * @return string
      */
@@ -233,7 +233,7 @@ class Blog
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      */
@@ -243,7 +243,7 @@ class Blog
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -253,7 +253,7 @@ class Blog
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      */
@@ -263,7 +263,7 @@ class Blog
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -273,7 +273,7 @@ class Blog
     }
 
     /**
-     * Get comments
+     * Get comments.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -283,7 +283,7 @@ class Blog
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      */
@@ -293,7 +293,7 @@ class Blog
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -303,7 +303,7 @@ class Blog
     }
 
     /**
-     * Add comment
+     * Add comment.
      *
      * @param Comment $comments
      */

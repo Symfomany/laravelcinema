@@ -28,7 +28,7 @@ interface ItemInterface
     /**
      * Returns whether or not there are nested items.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasItems();
 }

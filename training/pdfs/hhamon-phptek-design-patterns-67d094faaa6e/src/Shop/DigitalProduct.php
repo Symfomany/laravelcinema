@@ -10,4 +10,4 @@ class DigitalProduct extends Product
     {
         parent::__construct($name, $price, new Weight(0));
     }
-} 
+}

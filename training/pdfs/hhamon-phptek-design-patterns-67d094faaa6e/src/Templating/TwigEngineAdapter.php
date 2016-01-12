@@ -44,7 +44,7 @@ class TwigEngineAdapter implements EngineInterface
     {
         $extension = strtolower(pathinfo($template, PATHINFO_EXTENSION));
 
-        return in_array($extension, [ 'twig', 'tpl' ]);
+        return in_array($extension, ['twig', 'tpl']);
     }
 
     /**
@@ -53,10 +53,10 @@ class TwigEngineAdapter implements EngineInterface
      * @param string $template The template relative path
      * @param array  $vars     The template variables
      *
-     * @return TemplateInterface
-     *
      * @throws TemplateNotFoundException    When template does not exist
      * @throws UnsupportedTemplateException When template format is not supported
+     *
+     * @return TemplateInterface
      */
     public function loadTemplate($template, array $vars = [])
     {
