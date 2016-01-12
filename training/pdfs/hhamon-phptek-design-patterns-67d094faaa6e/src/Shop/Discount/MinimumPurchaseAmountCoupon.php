@@ -28,4 +28,4 @@ class MinimumPurchaseAmountCoupon extends CouponDecorator
 
         return $this->coupon->applyDiscount($order);
     }
-} 
+}

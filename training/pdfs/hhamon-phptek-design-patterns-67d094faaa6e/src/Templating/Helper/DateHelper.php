@@ -24,7 +24,7 @@ class DateHelper implements HelperInterface
 
         if ($datetime instanceof \DateTimeImmutable) {
             $dt = new \DateTime($datetime->format('Y-m-d H:i:s'), $tz);
-        } else if (!$datetime instanceof \DateTime) {
+        } elseif (!$datetime instanceof \DateTime) {
             $dt = new \DateTime($datetime, $tz);
         } else {
             $dt = clone $datetime;

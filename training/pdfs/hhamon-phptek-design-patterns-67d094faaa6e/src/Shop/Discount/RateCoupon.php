@@ -34,4 +34,4 @@ class RateCoupon implements CouponInterface
 
         return $amount->subtract($amount->multiply($this->rate));
     }
-} 
+}

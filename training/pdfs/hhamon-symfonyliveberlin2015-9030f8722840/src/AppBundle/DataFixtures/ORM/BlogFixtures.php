@@ -2,9 +2,9 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Blog;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use AppBundle\Entity\Blog;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
@@ -27,7 +27,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog2->setImage('pool_leak.jpg');
         $blog2->setAuthor('Zero Cool');
         $blog2->setTags('pool, leaky, hacked, movie, hacking, symblog');
-        $blog2->setCreated(new \DateTime("2011-07-23 06:12:33"));
+        $blog2->setCreated(new \DateTime('2011-07-23 06:12:33'));
         $blog2->setUpdated($blog2->getCreated());
         $manager->persist($blog2);
 
@@ -37,7 +37,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog3->setImage('icecream.jpg');
         $blog3->setAuthor('Gabriel');
         $blog3->setTags('ice cream, magic, movie, hacking, symblog');
-        $blog3->setCreated(new \DateTime("2011-07-16 16:14:06"));
+        $blog3->setCreated(new \DateTime('2011-07-16 16:14:06'));
         $blog3->setUpdated($blog3->getCreated());
         $manager->persist($blog3);
 
@@ -47,7 +47,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog4->setImage('the_grid.jpg');
         $blog4->setAuthor('Kevin Flynn');
         $blog4->setTags('grid, daftpunk, movie, symblog');
-        $blog4->setCreated(new \DateTime("2011-06-02 18:54:12"));
+        $blog4->setCreated(new \DateTime('2011-06-02 18:54:12'));
         $blog4->setUpdated($blog4->getCreated());
         $manager->persist($blog4);
 
@@ -57,7 +57,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog5->setImage('one_or_zero.jpg');
         $blog5->setAuthor('Gary Winston');
         $blog5->setTags('ice cream, symblog');
-        $blog5->setCreated(new \DateTime("2011-04-25 15:34:18"));
+        $blog5->setCreated(new \DateTime('2011-04-25 15:34:18'));
         $blog5->setUpdated($blog5->getCreated());
         $manager->persist($blog5);
 

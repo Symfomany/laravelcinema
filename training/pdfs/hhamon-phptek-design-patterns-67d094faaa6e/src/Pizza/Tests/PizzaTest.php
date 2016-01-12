@@ -16,7 +16,7 @@ class PizzaTest extends \PHPUnit_Framework_TestCase
     {
         $pizza = new Pizza(Pizza::TOMATO);
 
-        $this->assertSame([ Pizza::TOMATO ], $pizza->getToppings());
+        $this->assertSame([Pizza::TOMATO], $pizza->getToppings());
         $this->assertEquals(self::price(200), $pizza->getPrice());
     }
 
@@ -25,7 +25,7 @@ class PizzaTest extends \PHPUnit_Framework_TestCase
     {
         $pizza = new Egg(new Egg(new Mushrooms(new Mozzarella(new Ham(new Pizza($base))))));
 
-        $toppings = [ $base, 'ham', 'mozzarella', 'mushrooms', 'egg', 'egg' ];
+        $toppings = [$base, 'ham', 'mozzarella', 'mushrooms', 'egg', 'egg'];
 
         $this->assertSame($toppings, $pizza->getToppings());
         $this->assertEquals(self::price(555), $pizza->getPrice());
@@ -34,9 +34,9 @@ class PizzaTest extends \PHPUnit_Framework_TestCase
     public function provideBaseTopping()
     {
         return [
-            [ Pizza::TOMATO ],
-            [ Pizza::CREAM ],
-            [ 'chocolate' ],
+            [Pizza::TOMATO],
+            [Pizza::CREAM],
+            ['chocolate'],
         ];
     }
 

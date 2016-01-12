@@ -4,7 +4,7 @@ namespace DI;
 
 class ServiceContainer
 {
-    private $services   = [];
+    private $services = [];
     private $methodsMap = [];
 
     public function __construct()
@@ -16,7 +16,7 @@ class ServiceContainer
             // ...
         ];
     }
-    
+
     public function get($id)
     {
         $id = strtolower($id);
@@ -30,13 +30,13 @@ class ServiceContainer
 
         $method = $this->methodsMap[$id];
 
-        return call_user_func([ $this, $method ]);
+        return call_user_func([$this, $method]);
     }
 
     private function getLoggerService()
     {
         $this->services['logger'] = $instance = new Logger();
-        
+
         return $instance;
     }
 }

@@ -18,12 +18,13 @@ class TextHelperTest extends \PHPUnit_Framework_TestCase
     public function provideTextToFormatToParagraphs()
     {
         return [
-            [ 'A simple text', '<p>A simple text</p>' ],
-            [ "One\n\nTwo\n\n\nThree\n", '<p>One</p><p>Two</p><p>Three</p>' ],
-            [ "One\n\nTwo\n\n\nThree\nFour", "<p>One</p><p>Two</p><p>Three<br />Four</p>" ],
-            
+            ['A simple text', '<p>A simple text</p>'],
+            ["One\n\nTwo\n\n\nThree\n", '<p>One</p><p>Two</p><p>Three</p>'],
+            ["One\n\nTwo\n\n\nThree\nFour", '<p>One</p><p>Two</p><p>Three<br />Four</p>'],
+
         ];
     }
+
     protected function setUp()
     {
         $this->helper = new TextHelper();

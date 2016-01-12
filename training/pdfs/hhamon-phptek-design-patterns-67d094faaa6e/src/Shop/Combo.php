@@ -14,7 +14,6 @@ class Combo extends Product
     private $products;
 
     /**
-     * 
      * @param       $name
      * @param array $products
      * @param Money $price
@@ -23,7 +22,7 @@ class Combo extends Product
     {
         $this->setProducts($products);
 
-        parent::__construct($name, $price ?: $this->totalPrice(), $this->totalWeight()); 
+        parent::__construct($name, $price ?: $this->totalPrice(), $this->totalWeight());
     }
 
     /**
@@ -45,7 +44,7 @@ class Combo extends Product
     {
         return $this->get($index)->getWeight();
     }
-    
+
     /**
      * Returns the combo's total price.
      *
@@ -86,4 +85,4 @@ class Combo extends Product
     {
         $this->products[] = $product;
     }
-} 
+}

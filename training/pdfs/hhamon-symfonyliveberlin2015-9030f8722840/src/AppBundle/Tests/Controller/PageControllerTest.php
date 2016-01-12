@@ -25,12 +25,12 @@ class PageControllerTest extends WebTestCase
         $this->assertTrue($crawler->filter('article.blog')->count() > 0);
 
         // Find the first link, get the title, ensure this is loaded on the next page
-        $blogLink   = $crawler->filter('article.blog h2 a')->first();
-        $blogTitle  = $blogLink->text();
-        $crawler    = $client->click($blogLink->link());
+        $blogLink = $crawler->filter('article.blog h2 a')->first();
+        $blogTitle = $blogLink->text();
+        $crawler = $client->click($blogLink->link());
 
         // Check the h2 has the blog title in it
-        $this->assertEquals(1, $crawler->filter('h2:contains("' . $blogTitle .'")')->count());
+        $this->assertEquals(1, $crawler->filter('h2:contains("'.$blogTitle.'")')->count());
     }
 
     public function testContact()
@@ -44,10 +44,10 @@ class PageControllerTest extends WebTestCase
         // Select based on button value, or id or name for buttons
         $form = $crawler->selectButton('Submit')->form();
 
-        $form['blogger_blogbundle_enquirytype[name]']       = 'name';
-        $form['blogger_blogbundle_enquirytype[email]']      = 'email@email.com';
-        $form['blogger_blogbundle_enquirytype[subject]']    = 'Subject';
-        $form['blogger_blogbundle_enquirytype[body]']       = 'The comment body must be at least 50 characters long as there is a validation constrain on the Enquiry entity';
+        $form['blogger_blogbundle_enquirytype[name]'] = 'name';
+        $form['blogger_blogbundle_enquirytype[email]'] = 'email@email.com';
+        $form['blogger_blogbundle_enquirytype[subject]'] = 'Subject';
+        $form['blogger_blogbundle_enquirytype[body]'] = 'The comment body must be at least 50 characters long as there is a validation constrain on the Enquiry entity';
 
         $crawler = $client->submit($form);
 
@@ -60,7 +60,7 @@ class PageControllerTest extends WebTestCase
 
             // Get the first message
             $messages = $swiftMailerProfiler->getMessages();
-            $message  = array_shift($messages);
+            $message = array_shift($messages);
 
             $symblogEmail = $client->getContainer()->getParameter('blogger_blog.emails.contact_email');
             // Check message is being sent to correct address
@@ -72,5 +72,4 @@ class PageControllerTest extends WebTestCase
 
         $this->assertTrue($crawler->filter('.blogger-notice:contains("Your contact enquiry was successfully sent. Thank you!")')->count() > 0);
     }
-
 }

@@ -16,4 +16,4 @@ class Ham extends ToppingDecorator
     {
         return 'ham';
     }
-} 
+}

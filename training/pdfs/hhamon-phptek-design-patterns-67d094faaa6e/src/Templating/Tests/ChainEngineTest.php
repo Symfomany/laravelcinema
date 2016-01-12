@@ -22,9 +22,9 @@ class ChainEngineTest extends \PHPUnit_Framework_TestCase
     public function provideNotFoundTemplate()
     {
         return [
-            [ 'foobar.php' ],
-            [ 'foobar.tpl' ],
-            [ 'foobar.twig' ],
+            ['foobar.php'],
+            ['foobar.tpl'],
+            ['foobar.twig'],
         ];
     }
 
@@ -48,7 +48,7 @@ class ChainEngineTest extends \PHPUnit_Framework_TestCase
     /** @dataProvider provideSupportedTemplate */
     public function testEvaluateTemplate($template)
     {
-        $output = $this->engine->evaluate($template, [ 'name' => 'Hugo' ]);
+        $output = $this->engine->evaluate($template, ['name' => 'Hugo']);
 
         $this->assertSame('<p>Hello Hugo</p>', trim($output));
     }
@@ -58,16 +58,16 @@ class ChainEngineTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(
             'Templating\Template',
-            $this->engine->loadTemplate($template, [ 'name' => 'Hugo' ])
+            $this->engine->loadTemplate($template, ['name' => 'Hugo'])
         );
     }
 
     public function provideSupportedTemplate()
     {
         return [
-            [ 'index.php' ],
-            [ 'index.tpl' ],
-            [ 'index.twig' ],
+            ['index.php'],
+            ['index.tpl'],
+            ['index.twig'],
         ];
     }
 

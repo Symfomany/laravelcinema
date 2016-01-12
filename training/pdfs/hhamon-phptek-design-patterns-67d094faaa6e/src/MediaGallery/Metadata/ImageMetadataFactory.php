@@ -7,7 +7,8 @@ class ImageMetadataFactory extends MediaMetadataFactory
     /**
      * Creates the specific ImageMetadata object.
      *
-     * @param  \SplFileInfo $file
+     * @param \SplFileInfo $file
+     *
      * @return ImageMetadata
      */
     protected function createMetadata(\SplFileInfo $file)

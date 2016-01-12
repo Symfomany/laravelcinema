@@ -23,39 +23,32 @@ class Order implements OrderableInterface
     /** @return Invoice */
     public function getInvoice()
     {
-        
     }
 
     /** @return Tickets */
     public function getTickets()
     {
-        
     }
 
     /** @return string */
     public function getReference()
     {
-        
     }
 
     public function paid($transaction)
     {
-        
     }
-    
+
     public function processed()
     {
-        
     }
 
     public function cancelled()
     {
-
     }
 
     public function refunded()
     {
-
     }
 
     public function attachInvoice(Invoice $invoice)
@@ -64,7 +57,6 @@ class Order implements OrderableInterface
 
     public function attachTickets(Tickets $tickets)
     {
-        
     }
 
     private function addItems(array $items)
@@ -113,4 +105,4 @@ class Order implements OrderableInterface
     {
         return $this->customer;
     }
-} 
+}

@@ -8,4 +8,4 @@ class TemplateNotFoundException extends \RuntimeException
     {
         parent::__construct($message, 0, $previous);
     }
-} 
+}

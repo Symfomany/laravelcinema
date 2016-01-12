@@ -16,4 +16,4 @@ class Mozzarella extends ToppingDecorator
     {
         return 'mozzarella';
     }
-} 
+}

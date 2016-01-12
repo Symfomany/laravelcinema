@@ -29,9 +29,8 @@ abstract class AudioVideoAnalyzer implements MediaAnalyzerInterface
         $analyzer
             ->setOptionMD5Data(true)
             ->setOptionMD5DataSource(true)
-            ->setEncoding('UTF-8')
-        ;
+            ->setEncoding('UTF-8');
 
         return $analyzer;
     }
-} 
+}

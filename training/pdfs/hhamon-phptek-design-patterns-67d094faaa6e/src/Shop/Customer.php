@@ -34,4 +34,4 @@ class Customer
     {
         return $this->loyaltyCard->getCashbackBalance();
     }
-} 
+}

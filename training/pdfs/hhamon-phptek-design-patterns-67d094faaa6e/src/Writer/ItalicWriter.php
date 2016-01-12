@@ -8,4 +8,4 @@ class ItalicWriter extends WriterDecorator
     {
         return sprintf('<em>%s</em>', $this->writer->write($text));
     }
-} 
+}

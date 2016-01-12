@@ -4,9 +4,9 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Blog;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 class SecurityController extends Controller
@@ -39,10 +39,10 @@ class SecurityController extends Controller
         $error = $authUtils->getLastAuthenticationError();
         $lastUsername = $authUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', array(
-            'error' => $error,
-            'last_username' => $lastUsername
-        ));
+        return $this->render('security/login.html.twig', [
+            'error'         => $error,
+            'last_username' => $lastUsername,
+        ]);
     }
 
     /**

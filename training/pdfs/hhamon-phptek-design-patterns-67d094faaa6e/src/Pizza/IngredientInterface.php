@@ -17,4 +17,4 @@ interface IngredientInterface
      * @return \SebastianBergmann\Money\Money
      */
     public function getPrice();
-} 
+}

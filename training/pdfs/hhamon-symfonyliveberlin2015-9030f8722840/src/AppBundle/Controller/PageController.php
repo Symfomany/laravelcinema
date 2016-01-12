@@ -3,11 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Comment;
+use AppBundle\Entity\Enquiry;
+use AppBundle\Form\EnquiryType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AppBundle\Entity\Enquiry;
-use AppBundle\Form\EnquiryType;
 use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends Controller
@@ -24,9 +24,9 @@ class PageController extends Controller
         $blogs = $em->getRepository('AppBundle:Blog')
                     ->getLatestBlogs();
 
-        return $this->render('page/index.html.twig', array(
-            'blogs' => $blogs
-        ));
+        return $this->render('page/index.html.twig', [
+            'blogs' => $blogs,
+        ]);
     }
 
     /**
@@ -62,7 +62,7 @@ class PageController extends Controller
         }
 
         return $this->render('page/contact.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 
@@ -80,10 +80,9 @@ class PageController extends Controller
         $latestComments = $em->getRepository('AppBundle:Comment')
                              ->getLatestComments(Comment::MAX_LIMIT);
 
-        return $this->render('page/_sidebar.html.twig', array(
+        return $this->render('page/_sidebar.html.twig', [
             'latestComments'    => $latestComments,
-            'tags'              => $tagWeights
-        ));
+            'tags'              => $tagWeights,
+        ]);
     }
-
 }

@@ -31,4 +31,4 @@ class LoyaltyCard
     {
         return $this->status;
     }
-} 
+}

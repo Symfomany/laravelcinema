@@ -23,14 +23,14 @@ class FormTest extends \PHPUnit_Framework_TestCase
     {
         $form = new Form('product');
         $form->submit(
-            [ 'foo' => 'bar' ],
-            [ 'tmp' => '/foo.png' ]
+            ['foo' => 'bar'],
+            ['tmp' => '/foo.png']
         );
 
         $this->assertSame('product', $form->getName());
         $this->assertNull($form->getParent());
-        $this->assertSame([ 'foo' => 'bar' ], $form->getData());
-        $this->assertSame([ 'tmp' => '/foo.png' ], $form->getFiles());
+        $this->assertSame(['foo' => 'bar'], $form->getData());
+        $this->assertSame(['tmp' => '/foo.png'], $form->getFiles());
         $this->assertTrue($form->isRoot());
         $this->assertTrue($form->isSubmitted());
     }
@@ -38,13 +38,13 @@ class FormTest extends \PHPUnit_Framework_TestCase
     public function testSubmitAdvancedForm()
     {
         $submittedData = [
-            'title' => 'The title',
-            'description' => 'The description'
+            'title'       => 'The title',
+            'description' => 'The description',
         ];
-        
+
         $title = new Form('title');
         $description = new Form('description');
-        
+
         $form = new Form('product');
         $form->add($title);
         $form->add($description);
@@ -91,22 +91,22 @@ class FormTest extends \PHPUnit_Framework_TestCase
         $form->get('picture')->add(new Form('file'));
 
         $data = [
-            'title' => 'The title',
+            'title'       => 'The title',
             'description' => 'The description',
-            'picture' => [
+            'picture'     => [
                 'caption' => 'Some caption',
             ],
         ];
-        
+
         $files = [
             'picture' => [
                 'file' => [
                     'tmp_name' => 'foo',
-                    'error' => 0,
-                ]
+                    'error'    => 0,
+                ],
             ],
         ];
-        
+
         $form->submit($data, $files);
 
         // Check root data
@@ -132,7 +132,6 @@ class FormTest extends \PHPUnit_Framework_TestCase
         // Check file data
         $this->assertNull($form->get('picture')->get('file')->getData());
         $this->assertSame($files['picture']['file'], $form->get('picture')->get('file')->getFiles());
-        
     }
 
     /** @expectedException \Form\FormException */
