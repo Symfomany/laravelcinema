@@ -6,7 +6,8 @@ use App\Http\Models\Actors;
 use Illuminate\Http\Request;
 
 /**
- * Class ActorsController.
+ * Class ActorsController
+ * @package App\Http\Controllers
  */
 class ActorsController extends Controller
 {
@@ -24,7 +25,9 @@ class ActorsController extends Controller
     }
 
     /**
-     * Page Acceuil.
+     * Page Read
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function read($id)
     {
@@ -38,8 +41,6 @@ class ActorsController extends Controller
      */
     public function create()
     {
-
-        // vue
         return view('Actors/create');
     }
 
@@ -48,8 +49,6 @@ class ActorsController extends Controller
      */
     public function edit($id)
     {
-
-        // vue
         return view('Actors/edit');
     }
 

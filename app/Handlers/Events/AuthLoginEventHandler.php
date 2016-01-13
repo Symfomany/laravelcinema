@@ -6,7 +6,9 @@ use App\Http\Models\Administrators;
 use Illuminate\Support\Facades\Request;
 
 /**
- * Class AuthLoginEventHandler.
+ * Auth Login Listener
+ * Class AuthLoginEventHandler
+ * @package App\Handlers\Events
  */
 class AuthLoginEventHandler
 {

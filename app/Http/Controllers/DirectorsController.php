@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 /**
- * Class MainController.
+ * Class DirectorsController
+ * @package App\Http\Controllers
  */
 class DirectorsController extends Controller
 {
@@ -15,12 +16,11 @@ class DirectorsController extends Controller
     public function index()
     {
 
-        // vue
         return view('Directors/index');
     }
 
     /**
-     * Page Acceuil.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
@@ -30,7 +30,8 @@ class DirectorsController extends Controller
     }
 
     /**
-     * Page Acceuil.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
@@ -40,12 +41,12 @@ class DirectorsController extends Controller
     }
 
     /**
-     * Page Acceuil.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function read($id)
     {
 
-        // vue
         return view('Directors/read');
     }
 

@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class Youtube.
+ * Task to register Youtube API Videos
+ * Class Youtube
+ * @package App\Console\Commands
  */
 class Youtube extends Command
 {

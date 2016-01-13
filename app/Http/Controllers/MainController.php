@@ -13,14 +13,13 @@ use Netshell\Paypal\Facades\Paypal;
 
 /**
  * Class MainController
- * V2 Fin de promotion
- * texte pour exemple
- * 2eme modif.
+ * @package App\Http\Controllers
  */
 class MainController extends Controller
 {
     /**
-     * Page Acceuil.
+     * Fo Page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -29,9 +28,7 @@ class MainController extends Controller
 
     /**
      * Ajax Movies.
-     *
      * @param Request $request
-     *
      * @return mixed
      */
     public function ajaxmovies(Request $request)
@@ -60,9 +57,7 @@ class MainController extends Controller
 
     /**
      * Done Payment.
-     *
      * @param Request $request
-     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function done(Request $request)
@@ -84,7 +79,7 @@ class MainController extends Controller
     }
 
     /**
-     * Page Acceuil.
+     * Page Dashboard
      */
     public function dashboard()
     {

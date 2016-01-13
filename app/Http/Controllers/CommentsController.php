@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class CategoriesController.
+ * Class CommentsController
+ * @package App\Http\Controllers
  */
 class CommentsController extends Controller
 {
-    /* ##################### METHODES ##################### */
 
     /**
      * @return \Illuminate\View\View
@@ -45,14 +45,13 @@ class CommentsController extends Controller
     public function update(Request $request)
     {
         $field = 'content';
-
         $id = $request->id;
         $value = $request->value;
 
         $comment = Comments::find($id);
         $comment->update([$field => $value]);
-//        Session::flash('success', "Le commentaire a bien été mis à jour");
-//        return Redirect::route('comments.index');
+        Session::flash('success', "Le commentaire a bien été mis à jour");
+        return Redirect::route('comments.index');
     }
 
     /**
@@ -95,6 +94,5 @@ class CommentsController extends Controller
             Session::put('commentsFavoris', $liked);
         }
 
-        (dump(session('commentsFavoris')));
     }
 }
