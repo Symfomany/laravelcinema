@@ -5,7 +5,9 @@ namespace App\Http\Cart;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class CartServiceProvider.
+ * To provide a Cart Solution in Laravel
+ * Class CartServiceProvider
+ * @package App\Http\Cart
  */
 class CartServiceProvider extends ServiceProvider
 {

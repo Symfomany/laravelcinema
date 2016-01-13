@@ -6,7 +6,8 @@ use App\Http\Models\Actors;
 use App\Http\Models\Categories;
 
 /**
- * Class ApiController.
+ * Class ApiController
+ * @package App\Http\Controllers
  */
 class ApiController extends Controller
 {
@@ -30,7 +31,8 @@ class ApiController extends Controller
     }
 
     /**
-     * [{.
+     * Get Actors
+     * @return array
      */
     public function actors()
     {

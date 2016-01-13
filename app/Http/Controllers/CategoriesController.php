@@ -6,7 +6,8 @@ use App\Http\Models\Categories;
 use Illuminate\Http\Request;
 
 /**
- * Class MainController.
+ * Class CategoriesController
+ * @package App\Http\Controllers
  */
 class CategoriesController extends Controller
 {
@@ -15,8 +16,6 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-
-        // récupérer toutes mes catégories
         $categories = Categories::all();
 
         return view('Categories/index', [
@@ -30,7 +29,6 @@ class CategoriesController extends Controller
     public function create()
     {
 
-        // vue
         return view('Categories/create');
     }
 
@@ -40,7 +38,6 @@ class CategoriesController extends Controller
     public function edit()
     {
 
-        // vue
         return view('Categories/edit');
     }
 
@@ -54,9 +51,6 @@ class CategoriesController extends Controller
         return view('Categories/read');
     }
 
-    /**
-     * Page Acceuil.
-     */
     public function delete()
     {
     }

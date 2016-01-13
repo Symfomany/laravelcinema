@@ -50,6 +50,12 @@ Directory /training for pdf in free white books
 * Run phpunit with `phpunit`
 * Run phpspec with `bin/phpspec run`
 
+## Documentation
+
+* Use PHPDocumentor
+* Available here: http://46.101.34.74/doc/index.html
+![GitHub Logo](/screens/19.png)
+![GitHub Logo](/screens/20.png)
 
 Best Stacks & Technologies
 ====
@@ -61,6 +67,7 @@ Best Stacks & Technologies
 * Vue.js via Provider & Elixir
 * Paypal Account
 * OOP Cart with Abstract, Interfacing Exception with IoC Container
+* PHPDocumentor
 * OpenSSL
 * Task launch in schedule here * * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 * Faker && Seed

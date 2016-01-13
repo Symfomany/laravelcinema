@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class AdministratorsController.
+ * Class AdministratorsController
+ * @package App\Http\Controllers
  */
 class AdministratorsController extends Controller
 {
@@ -26,9 +27,7 @@ class AdministratorsController extends Controller
 
     /**
      * To remove an administrators.
-     *
      * @param $id
-     *
      * @return mixed
      */
     public function remove($id)
@@ -107,9 +106,7 @@ class AdministratorsController extends Controller
 
     /**
      * To edit an administrator.
-     *
      * @param $id
-     *
      * @return mixed
      */
     public function edit($id)

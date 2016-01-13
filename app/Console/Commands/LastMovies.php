@@ -7,8 +7,14 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * Task to send an email to user favoris
+ * Class LastMovies
+ * @package App\Console\Commands
+ */
 class LastMovies extends Command
 {
+
     /**
      * The name and signature of the console command.
      *
@@ -38,7 +44,6 @@ class LastMovies extends Command
      */
     public function handle()
     {
-
         // SQL query
         $results = Movies::where('date_release', '>=', new Carbon('-1 month'))
                         ->where('date_release', '<=', new Carbon('now'))

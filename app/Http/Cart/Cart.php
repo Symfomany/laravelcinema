@@ -5,7 +5,8 @@ namespace App\Http\Cart;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class Cart.
+ * Class Cart
+ * @package App\Http\Cart
  */
 class Cart extends AbstractCart implements ItemInterface, \IteratorAggregate, \Countable
 {

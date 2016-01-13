@@ -5,6 +5,11 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * Task to send an email
+ * Class Email
+ * @package App\Console\Commands
+ */
 class Email extends Command
 {
     /**
