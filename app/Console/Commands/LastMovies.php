@@ -9,12 +9,10 @@ use Illuminate\Support\Facades\Mail;
 
 /**
  * Task to send an email to user favoris
- * Class LastMovies
- * @package App\Console\Commands
+ * Class LastMovies.
  */
 class LastMovies extends Command
 {
-
     /**
      * The name and signature of the console command.
      *

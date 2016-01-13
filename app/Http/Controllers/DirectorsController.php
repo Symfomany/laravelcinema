@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 /**
- * Class DirectorsController
- * @package App\Http\Controllers
+ * Class DirectorsController.
  */
 class DirectorsController extends Controller
 {
@@ -15,7 +14,6 @@ class DirectorsController extends Controller
      */
     public function index()
     {
-
         return view('Directors/index');
     }
 
@@ -31,6 +29,7 @@ class DirectorsController extends Controller
 
     /**
      * @param $id
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
@@ -42,11 +41,11 @@ class DirectorsController extends Controller
 
     /**
      * @param $id
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function read($id)
     {
-
         return view('Directors/read');
     }
 

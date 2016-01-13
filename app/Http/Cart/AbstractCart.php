@@ -4,8 +4,7 @@ namespace App\Http\Cart;
 
 /**
  * Abstract class to store datas in sessions
- * Class AbstractCart
- * @package App\Http\Cart
+ * Class AbstractCart.
  */
 abstract class AbstractCart
 {

@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Validator;
 use Netshell\Paypal\Facades\Paypal;
 
 /**
- * Class MainController
- * @package App\Http\Controllers
+ * Class MainController.
  */
 class MainController extends Controller
 {
     /**
-     * Fo Page
+     * Fo Page.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -28,7 +28,9 @@ class MainController extends Controller
 
     /**
      * Ajax Movies.
+     *
      * @param Request $request
+     *
      * @return mixed
      */
     public function ajaxmovies(Request $request)
@@ -57,7 +59,9 @@ class MainController extends Controller
 
     /**
      * Done Payment.
+     *
      * @param Request $request
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function done(Request $request)
@@ -79,7 +83,7 @@ class MainController extends Controller
     }
 
     /**
-     * Page Dashboard
+     * Page Dashboard.
      */
     public function dashboard()
     {

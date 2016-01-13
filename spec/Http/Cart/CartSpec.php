@@ -1,4 +1,5 @@
 <?php
+
 namespace spec\App\Http\Cart;
 
 use App\Http\Cart\ItemInterface;
@@ -21,21 +22,25 @@ class CartSpec extends ObjectBehavior
         $this->getTotal()->shouldReturn(10);
         $this->shouldReturnAnInstanceOf('App\Http\Cart\Cart');
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('App\Http\Cart\Cart');
         $this->getProducts()->shouldHaveCount(2);
         $this->getProducts()->shouldBeArray();
     }
+
     public function it_add_cart(MoviesItem $movieitem)
     {
         $this->add($movieitem)->shouldReturn($this);
     }
+
     public function it_remove_cart()
     {
         $item = new MoviesItem(3);
         $this->remove($item)->shouldReturn($this);
     }
+
     public function it_all_cart(MoviesItem $movieitem, MoviesItem $movieitem2)
     {
         $item = new MoviesItem(3);

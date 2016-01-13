@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Task to register Youtube API Videos
- * Class Youtube
- * @package App\Console\Commands
+ * Class Youtube.
  */
 class Youtube extends Command
 {

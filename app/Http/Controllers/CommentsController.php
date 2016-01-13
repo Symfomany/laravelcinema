@@ -8,12 +8,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class CommentsController
- * @package App\Http\Controllers
+ * Class CommentsController.
  */
 class CommentsController extends Controller
 {
-
     /**
      * @return \Illuminate\View\View
      */
@@ -51,7 +49,8 @@ class CommentsController extends Controller
 
         $comment = Comments::find($id);
         $comment->update([$field => $value]);
-        Session::flash('success', "Le commentaire a bien été mis à jour");
+        Session::flash('success', 'Le commentaire a bien été mis à jour');
+
         return Redirect::route('comments.index');
     }
 
@@ -94,6 +93,5 @@ class CommentsController extends Controller
             // Stockage de cette variable de la session
             Session::put('commentsFavoris', $liked);
         }
-
     }
 }

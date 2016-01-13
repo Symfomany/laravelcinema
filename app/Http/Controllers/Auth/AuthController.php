@@ -14,13 +14,12 @@ use Laravel\Socialite\Facades\Socialite;
 use Validator;
 
 /**
- * Class AuthController
- * @package App\Http\Controllers\Auth
+ * Class AuthController.
  */
 class AuthController extends Controller
 {
     /**
-     ******************************************************* Redirections (surcharge des valeurs par défaut de Laravel). ******************************************************
+     ******************************************************* Redirections (surcharge des valeurs par défaut de Laravel). ******************************************************.
      */
 
     /**
@@ -114,6 +113,7 @@ class AuthController extends Controller
      * Handle a login request to the application.
      *
      * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function postLogin(Request $request)

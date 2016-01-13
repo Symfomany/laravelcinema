@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Request;
 
 /**
  * Auth Login Listener
- * Class AuthLoginEventHandler
- * @package App\Handlers\Events
+ * Class AuthLoginEventHandler.
  */
 class AuthLoginEventHandler
 {

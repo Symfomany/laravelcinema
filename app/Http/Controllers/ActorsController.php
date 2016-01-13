@@ -6,8 +6,7 @@ use App\Http\Models\Actors;
 use Illuminate\Http\Request;
 
 /**
- * Class ActorsController
- * @package App\Http\Controllers
+ * Class ActorsController.
  */
 class ActorsController extends Controller
 {
@@ -25,8 +24,10 @@ class ActorsController extends Controller
     }
 
     /**
-     * Page Read
+     * Page Read.
+     *
      * @param $id
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function read($id)

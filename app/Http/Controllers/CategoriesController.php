@@ -6,8 +6,7 @@ use App\Http\Models\Categories;
 use Illuminate\Http\Request;
 
 /**
- * Class CategoriesController
- * @package App\Http\Controllers
+ * Class CategoriesController.
  */
 class CategoriesController extends Controller
 {
@@ -28,7 +27,6 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-
         return view('Categories/create');
     }
 
@@ -37,7 +35,6 @@ class CategoriesController extends Controller
      */
     public function edit()
     {
-
         return view('Categories/edit');
     }
 
