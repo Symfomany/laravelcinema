@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="8fa03cf9504e74937521c96e67a29b41" resname="blog.add_comment">
+        <source>blog.add_comment</source>
+        <target>Ajouter un commentaire</target>
+      </trans-unit>
+      <trans-unit id="1dc464dd4c0527f90553f3fd2a47ecb7" resname="blog.comments_count">
+        <source>blog.comments_count</source>
+        <target>
+          ]-Inf, 0] Il n'y a pas encore de commentaire ! Soyez le premier à commenter !
+          |{1} Il y a un seul commentaire !
+          |[2, +Inf[ Il y a %count% commentaires pour ce billet (%foo%)!
+        </target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -56,9 +56,9 @@ class MoviesItem implements ItemInterface
     /**
      * @param $id
      *
-     * @return mixed
-     *
      * @throws ItemException
+     *
+     * @return mixed
      */
     public function getMovie()
     {
@@ -72,9 +72,9 @@ class MoviesItem implements ItemInterface
     }
 
     /**
-     * @return mixed
-     *
      * @throws ItemException
+     *
+     * @return mixed
      */
     public function __toString()
     {

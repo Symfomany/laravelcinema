@@ -11,9 +11,8 @@ class MoviesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Http\Models\Movies::class, 25)->create()->each(function($m) {
+        factory(\App\Http\Models\Movies::class, 25)->create()->each(function ($m) {
             $m->save();
         });
-
     }
 }

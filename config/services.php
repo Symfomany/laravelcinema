@@ -15,7 +15,7 @@ return [
     */
     'paypal' => [
         'client_id' => 'AbHIGTH8L_dLYNFNUaV7CYZXdOt4O_d0y2RocHEA-hUl_MF1P3OJF8BaAbxuSeGJ6vPJGdEHexTcBIr0',
-        'secret' => 'EJQJRJpai4uLw9LADmSdRxn4PClqznzFgrFVWFKEmxA4dNWCFpSIpUEsYiEO1sZFNrV6U_zLOU6bHCY5'
+        'secret'    => 'EJQJRJpai4uLw9LADmSdRxn4PClqznzFgrFVWFKEmxA4dNWCFpSIpUEsYiEO1sZFNrV6U_zLOU6bHCY5',
     ],
 
     'mailgun' => [
@@ -34,13 +34,13 @@ return [
     ],
 
     'github' => [
-        'client_id' => 'your-github-app-id',
+        'client_id'     => 'your-github-app-id',
         'client_secret' => 'your-github-app-secret',
-        'redirect' => 'http://your-callback-url',
+        'redirect'      => 'http://your-callback-url',
     ],
     'facebook' => [
-        'client_id' => env('FACEBOOK_CONSUMER_KEY'),
+        'client_id'     => env('FACEBOOK_CONSUMER_KEY'),
         'client_secret' => env('FACEBOOK_CONSUMER_SECRET'),
-        'redirect' => env('FACEBOOK_CLIENT_REDIRECT'),
+        'redirect'      => env('FACEBOOK_CLIENT_REDIRECT'),
     ],
 ];

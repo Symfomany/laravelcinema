@@ -3,17 +3,17 @@
 
 /**
  * Class AuthTest
- * Test AUthentification mecanisme
+ * Test AUthentification mecanisme.
  */
 class AuthTest extends TestCase
 {
-
     //use WithoutMiddleware;
 
     /**
-     * Test Login Page
+     * Test Login Page.
      */
-    public function testAuthPage(){
+    public function testAuthPage()
+    {
         // visit test si la page est OKAY
         // et si je me trouve dans l'uri auth/ogin
         $this->visit('/auth/login')
@@ -23,14 +23,14 @@ class AuthTest extends TestCase
     }
 
     /**
-     * Test si mécanisme de login échoue
+     * Test si mécanisme de login échoue.
      */
     public function testLoginFailure()
     {
         $this->visit('/auth/login')
             // type() permet de remplir un champs
-             ->type('toto@free.fr','email')
-             ->type('tata','password')
+             ->type('toto@free.fr', 'email')
+             ->type('tata', 'password')
             // press() permey de cliquer sur un boutton
              ->press('Connexion')
 
@@ -51,19 +51,18 @@ class AuthTest extends TestCase
             // pour que la sécurité ne prenne pas
             // en compte le CSRF lors de l'authentification
             //
-            ->type('julien2@meetserious.com','email')
-            ->type('123456','password')
+            ->type('julien2@meetserious.com', 'email')
+            ->type('123456', 'password')
             ->check('remember')
             ->press('Connexion')
             // suivre la redirection
             ->followRedirects()
             ->seePageIs('/admin')
             ->dontsee('Password');
-
     }
 
     /**
-     * Test Dashboard
+     * Test Dashboard.
      */
     public function testDashboard()
     {
@@ -73,8 +72,4 @@ class AuthTest extends TestCase
         $this->see('Répartition des films par catégories');
         $this->see('50 ans');
     }
-
-
-
-
 }

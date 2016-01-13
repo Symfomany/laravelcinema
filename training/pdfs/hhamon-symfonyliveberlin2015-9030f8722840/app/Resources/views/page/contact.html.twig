@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Contact{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Contact symblog</h1>
+    </header>
+
+    {% if app.session.flashbag.peek('blogger-notice') %}
+        <div class="blogger-notice">
+            {% for msg in app.session.flashbag.get('blogger-notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <p>Want to contact symblog?</p>
+
+    <form action="{{ path('app_contact') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_widget(form) }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

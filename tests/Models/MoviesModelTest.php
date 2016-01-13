@@ -1,65 +1,44 @@
 <?php
 
-
-
 /**
- * Class MoviesTest
- * @package Test\Models
+ * Class MoviesModelTest
  */
-class MoviesModelTest extends TestCase {
-
+class MoviesModelTest extends TestCase
+{
 
     use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testCreate()
+    public function testTable()
     {
         $movie = new \App\Http\Models\Movies();
-        $movie->title= "Star Wars 3";
-
+        $movie->title = 'Star Wars 3';
         $this->assertInstanceOf(\App\Http\Models\Movies::class, $movie);
-        $this->assertEquals($movie->title, "Star Wars 3");
-        $this->assertClassHasAttribute("table", \App\Http\Models\Movies::class);
-
+        $this->assertEquals($movie->title, 'Star Wars 3');
+        $this->assertClassHasAttribute('table', \App\Http\Models\Movies::class);
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
     public function testCreateInDatabase()
     {
         $movie = new \App\Http\Models\Movies();
-        $movie->title= "Star Wars 3";
+        $movie->title = 'Star Wars 3';
         $movie->save();
-        $this->seeInDatabase('movies', ["title" => "Star Wars 3"]);
+        $this->seeInDatabase('movies', ['title' => 'Star Wars 3']);
     }
-
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+    
     public function testUpdateInDatabase()
     {
         $movie = new \App\Http\Models\Movies();
-        $movie->title= "Star Wars 3";
+        $movie->title = 'Star Wars 3';
         $movie->save();
+        $movie = \App\Http\Models\Movies::where('title', '=', 'Star Wars 3')->first();
+        $this->seeInDatabase('movies', ['title' => 'Star Wars 3']);
 
-        $movie = \App\Http\Models\Movies::where("title" , "=", "Star Wars 3")->first();
-        $this->seeInDatabase('movies', ["title" => "Star Wars 3"]);
-
-        $movie->title =  "Star Wars 4";
-        $movie->categories_id =  1;
+        $movie->title = 'Star Wars 4';
+        $movie->categories_id = 1;
         $movie->save();
-        $this->seeInDatabase('movies', ["title" => "Star Wars 4"]);
-
+        $this->seeInDatabase('movies', ['title' => 'Star Wars 4']);
     }
+
     /**
      * A basic test example.
      *
@@ -67,15 +46,14 @@ class MoviesModelTest extends TestCase {
      */
     public function testRemoveInDatabase()
     {
-
         $movie = new \App\Http\Models\Movies();
-        $movie->title= "Star Wars 3";
+        $movie->title = 'Star Wars 3';
         $movie->save();
 
-        $movie = \App\Http\Models\Movies::where("title" , "=", "Star Wars 3")->first();
+        $movie = \App\Http\Models\Movies::where('title', '=', 'Star Wars 3')->first();
         $movie->delete();
 
-        $this->dontSeeInDatabase('movies', ["title" => "Star Wars 3"]);
+        $this->dontSeeInDatabase('movies', ['title' => 'Star Wars 3']);
     }
 
     /**
@@ -87,7 +65,7 @@ class MoviesModelTest extends TestCase {
     {
         $movie = new \App\Http\Models\Movies();
         $movies = $movie->getAllMovies();
-        $this->assertInternalType("array", $movies);
+        $this->assertInternalType('array', $movies);
     }
 
     /**
@@ -99,17 +77,8 @@ class MoviesModelTest extends TestCase {
     {
         $movie = new \App\Http\Models\Movies();
         $avg = $movie->getAvgNotePresse();
-        $this->assertInternalType("object", $avg);
-        $this->assertEquals(1,count($avg));
-        $this->assertInstanceOf("stdClass",$avg);
-
+        $this->assertInternalType('object', $avg);
+        $this->assertEquals(1, count($avg));
+        $this->assertInstanceOf('stdClass', $avg);
     }
-
 }
-
-
-
-
-
-
-

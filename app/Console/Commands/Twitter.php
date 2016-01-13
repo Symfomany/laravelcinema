@@ -81,7 +81,7 @@ class Twitter extends Command
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getMentionsTimeline(
             [
-                'count' => 15,
+                'count'  => 15,
                 'format' => 'php', ]);
 
         if (!empty($tweets)) {
@@ -99,7 +99,7 @@ class Twitter extends Command
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getHomeTimeline(
             [
-                'count' => 15,
+                'count'  => 15,
                 'format' => 'php', ]);
 
         if (!empty($tweets)) {
@@ -118,8 +118,8 @@ class Twitter extends Command
         $tweets = \Thujohn\Twitter\Facades\Twitter::getUserTimeline(
             [
                 'screen_name' => 'allocine',
-                'count' => 15,
-                'format' => 'php', ]);
+                'count'       => 15,
+                'format'      => 'php', ]);
 
         if (!empty($tweets)) {
             DB::connection('mongodb')->collection('tweets')

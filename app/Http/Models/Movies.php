@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
  */
 class Movies extends Model implements ItemInterface
 {
-    //protected $fillable = ['title', 'description', 'categories_id'];
+    protected $fillable = ['title', 'description', 'categories_id'];
 
     /**
      * Décrit le nom de la table
@@ -26,8 +26,6 @@ class Movies extends Model implements ItemInterface
      */
     public function getAllMovies()
     {
-
-        // retourne le resultat de ma requete SELECT * FROM movies
         return DB::table('movies')->get();
     }
 
@@ -61,7 +59,7 @@ class Movies extends Model implements ItemInterface
      */
     public function user()
     {
-        return $this->belongsToMany('App\Http\Models\User', 'user_favoris',  'movies_id', 'user_id');
+        return $this->belongsToMany('App\Http\Models\User', 'user_favoris', 'movies_id', 'user_id');
     }
 
     /**

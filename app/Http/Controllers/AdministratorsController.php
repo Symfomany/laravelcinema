@@ -56,6 +56,7 @@ class AdministratorsController extends Controller
     {
         return view('Administrators/create');
     }
+
     /**
      * To store an administrators
      * ARgument $id est facultatif: null est sa valeur par défaut.

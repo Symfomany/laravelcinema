@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class MainController.
+ * Class MoviesController.
  */
 class MoviesController extends Controller
 {
     /**
-     * Page Acceuil.
+     * Page Index.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -31,7 +33,9 @@ class MoviesController extends Controller
     }
 
     /**
-     * Page Create.
+     * Page create.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
@@ -42,8 +46,8 @@ class MoviesController extends Controller
         return view('Movies/create',
         [
             'categories' => $categories,
-            'actors' => $actors,
-            'directors' => $directors,
+            'actors'     => $actors,
+            'directors'  => $directors,
         ]);
     }
 
@@ -54,6 +58,7 @@ class MoviesController extends Controller
     {
         return view('Movies/read');
     }
+
     /**
      * Page Read.
      */
@@ -66,10 +71,10 @@ class MoviesController extends Controller
         $movie = Movies::find($id);
 
         return view('Movies/edit', [
-            'movie' => $movie,
+            'movie'      => $movie,
             'categories' => $categories,
-            'actors' => $actors,
-            'directors' => $directors,
+            'actors'     => $actors,
+            'directors'  => $directors,
         ]);
     }
 

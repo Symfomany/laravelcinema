@@ -2,12 +2,12 @@
 
 namespace App\Console\Commands;
 
+use Alaouy\Youtube\Facades\Youtube as Yt;
 use App\Http\Models\Stats;
 use App\Http\Models\Videos;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Alaouy\Youtube\Facades\Youtube as Yt;
 
 /**
  * Class Youtube.
@@ -58,12 +58,12 @@ class Youtube extends Command
             $stat->save();
         }
 
-        $params = array(
-            'q' => $keyword,
-            'type' => 'video',
-            'part' => 'id, snippet',
+        $params = [
+            'q'          => $keyword,
+            'type'       => 'video',
+            'part'       => 'id, snippet',
             'maxResults' => 30,
-        );
+        ];
 
         $videos = Yt::searchAdvanced($params, true)['results'];
 
