@@ -18,11 +18,13 @@
 Pedagogic Project  in **Laravel 5** on Back-Office to handle Movies, Categories, Actors, Directors, Comments...like *Allociné*
 Propulsed by *Julien Boyer*  julien@meetserious.com
 
+----------
 
-## Why Laravel 5?
+## Why Laravel 5?![GitHub Logo](/screens/laravel.png)
 
 In first, my presentation about that available here:
-http://slides.com/julienboyer/deck-5
+**http://slides.com/julienboyer/deck-5**
+
 
 And for that:
 ![GitHub Logo](/screens/17.png)
@@ -129,8 +131,8 @@ Demo
 
 FO: http://46.101.34.74/index.php/admin
 Auth: http://46.101.34.74/auth/login
-Login: admin@test.com
-Mdp: 123456
+*Login: admin@test.com 
+Mdp: 123456*
 
 Laravel Forge to Github
 ![GitHub Logo](/screens/12.png)
