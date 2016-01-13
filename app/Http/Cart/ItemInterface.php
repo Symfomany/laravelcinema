@@ -4,8 +4,7 @@ namespace App\Http\Cart;
 
 /**
  * To Interfacing with concretes classes
- * Interface ItemInterface
- * @package App\Http\Cart
+ * Interface ItemInterface.
  */
 interface ItemInterface
 {

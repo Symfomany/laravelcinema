@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Mail;
 
 /**
  * Task to send an email
- * Class Email
- * @package App\Console\Commands
+ * Class Email.
  */
 class Email extends Command
 {

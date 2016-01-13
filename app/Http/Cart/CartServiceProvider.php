@@ -6,8 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * To provide a Cart Solution in Laravel
- * Class CartServiceProvider
- * @package App\Http\Cart
+ * Class CartServiceProvider.
  */
 class CartServiceProvider extends ServiceProvider
 {
