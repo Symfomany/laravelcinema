@@ -1,5 +1,4 @@
 <?php
-
 namespace spec\App\Http\Cart;
 
 use App\Http\Cart\ItemInterface;
@@ -8,14 +7,8 @@ use App\Http\Models\Movies;
 use Illuminate\Database\Eloquent\Collection;
 use PhpSpec\ObjectBehavior;
 
-/**
- * Spec for Cart.
- */
 class CartSpec extends ObjectBehavior
 {
-    /**
-     * @param \App\Http\Cart\MoviesItem $movieitem
-     */
     public function let(MoviesItem $movieitem, MoviesItem $movieitem2)
     {
         $movie = new Movies();
@@ -25,37 +18,24 @@ class CartSpec extends ObjectBehavior
         $movieitem->getMovie()->willReturn($movie);
         $movieitem2->getMovie()->willReturn($movie2);
         $this->beConstructedWith([$movieitem, $movieitem2]);
-        $this->getTotal()->shouldReturn(0);
+        $this->getTotal()->shouldReturn(10);
         $this->shouldReturnAnInstanceOf('App\Http\Cart\Cart');
     }
-
     public function it_is_initializable()
     {
         $this->shouldHaveType('App\Http\Cart\Cart');
         $this->getProducts()->shouldHaveCount(2);
         $this->getProducts()->shouldBeArray();
     }
-
-    /**
-     * @param \App\Http\Cart\MoviesItem $movieitem
-     */
     public function it_add_cart(MoviesItem $movieitem)
     {
         $this->add($movieitem)->shouldReturn($this);
     }
-
-    /**
-     * Add in cart.
-     */
     public function it_remove_cart()
     {
         $item = new MoviesItem(3);
         $this->remove($item)->shouldReturn($this);
     }
-
-    /**
-     * @param \App\Http\Cart\MoviesItem $movieitem
-     */
     public function it_all_cart(MoviesItem $movieitem, MoviesItem $movieitem2)
     {
         $item = new MoviesItem(3);

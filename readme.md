@@ -21,7 +21,10 @@ Propulsed by *Julien Boyer*  julien@meetserious.com
 
 ## Why Laravel 5?
 
-For that:
+In first, my presentation about that available here:
+http://slides.com/julienboyer/deck-5
+
+And for that:
 ![GitHub Logo](/screens/17.png)
 ![GitHub Logo](/screens/18.png)
 http://fr.slideshare.net/alahaxe/laravel-yet-another-framework-44869051?qid=a8138a25-3bcd-493d-ab4f-a772a8a36f83&v=default&b=&from_search=2
