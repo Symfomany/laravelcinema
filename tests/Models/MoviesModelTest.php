@@ -1,11 +1,10 @@
 <?php
 
 /**
- * Class MoviesModelTest
+ * Class MoviesModelTest.
  */
 class MoviesModelTest extends TestCase
 {
-
     use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
     public function testTable()
@@ -24,7 +23,7 @@ class MoviesModelTest extends TestCase
         $movie->save();
         $this->seeInDatabase('movies', ['title' => 'Star Wars 3']);
     }
-    
+
     public function testUpdateInDatabase()
     {
         $movie = new \App\Http\Models\Movies();

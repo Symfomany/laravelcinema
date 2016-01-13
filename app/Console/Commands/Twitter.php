@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Task to register all tweets
- * Class Twitter
- * @package App\Console\Commands
+ * Class Twitter.
  */
 class Twitter extends Command
 {

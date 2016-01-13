@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 /**
- * Class Authorisation
- * @package App\Http\Middleware
+ * Class Authorisation.
  */
 class Authorisation
 {

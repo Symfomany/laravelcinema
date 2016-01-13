@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class MoviesController
- * @package App\Http\Controllers
+ * Class MoviesController.
  */
 class MoviesController extends Controller
 {
     /**
      * Page Index.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -60,8 +60,10 @@ class MoviesController extends Controller
     }
 
     /**
-     * Page edit
+     * Page edit.
+     *
      * @param $id
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
@@ -82,6 +84,7 @@ class MoviesController extends Controller
 
     /**
      * Action qui va me permettre d'activer un film.
+     *
      * @param $id
      */
     public function activate($id)
@@ -124,8 +127,10 @@ class MoviesController extends Controller
     }
 
     /**
-     * Action of suppression
+     * Action of suppression.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -144,6 +149,7 @@ class MoviesController extends Controller
      * Fonction de like des films, enregistré en session
      * Session : mécanisme de stockage temporelle
      * BDD: mécanisme de stockage atemporelle.
+     *
      * @param Request $request
      */
     public function like($id, $action)
@@ -175,8 +181,10 @@ class MoviesController extends Controller
     }
 
     /**
-     * Storing in database
+     * Storing in database.
+     *
      * @param MoviesRequest $request
+     *
      * @return mixed
      */
     public function store(MoviesRequest $request)
