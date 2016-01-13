@@ -78,7 +78,7 @@
 
                             <!-- Password Input -->
                             <div class="section">
-                                <label for="password" class="field-label text-muted fs18 mb10">Password</label>
+                                <label for="password" class="field-label text-muted fs18 mb10">Mot de passe</label>
                                 <label for="password" class="field prepend-icon">
                                     <input type="password" name="password" id="password" class="gui-input" placeholder="Mot de passe">
                                     <label for="password" class="field-icon">
