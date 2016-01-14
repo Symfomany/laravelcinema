@@ -5,6 +5,7 @@
     @parent
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/plugins/magnific/magnific-popup.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/plugins/fullcalendar/fullcalendar.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/plugins/slick/slick.css') }}" />
 @endsection
 
 
@@ -18,9 +19,40 @@
     <script src="{{ asset('vendor/plugins/fullcalendar/lib/moment.min.js') }}"></script>
     <script src="{{ asset('vendor/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('vendor/plugins/magnific/jquery.magnific-popup.js') }}"></script>
+    <script src="{{ asset('vendor/plugins/slick/slick.js') }}"></script>
+
+    <script>
+
+    </script>
     <script>
         $(document).ready(function(){
 
+
+
+            $('.center-mode').slick({
+                dots: true,
+                centerMode: false,
+                autoplay: true,
+                centerPadding: '60px',
+                slidesToShow: 7,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }]
+            });
 
                 // Init FullCalendar external events
                 $('#external-events .fc-event').each(function() {
@@ -479,7 +511,7 @@
 
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="panel">
                 <form id="create_movie" action="{{ route('ajax_movies') }}" method="post" >
 
@@ -529,7 +561,7 @@
 
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="panel stat-panel widget-support-tickets" id="dashboard-support-tickets">
                 <div class="stat-row panel-heading">
                     <!-- Dark gray background, small padding, extra small text, semibold text -->
@@ -546,9 +578,83 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div class="col-md-4">
+            <div class="panel listgroup-widget">
+                <div class="panel-heading">
+                    <span class="panel-icon">
+                      <i class="fa fa-youtube"></i>
+                    </span>
+                    <span class="panel-title">Statistiques de Youtube</span>
+                    <sub>Mis à jour   {{ \Carbon\Carbon::createFromTimeStamp(strtotime($youtubeinfodateupdated))->diffForHumans() }}
+                    </sub>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
 
+                        <h3><span class="fa fa-youtube-play"></span><b> {{ $youtubeinfo['snippet']['title']  }}</b></h3>
+                    </li>
+                    <li class="list-group-item">
+                        <p class="row">
+                            <img class="pull-right" src="{{ $youtubeinfo['snippet']['thumbnails']['default']['url']  }}" />
+                            {{ $youtubeinfo['snippet']['description']  }}
+                        </p>
+                    </li>
+
+                    <li class="list-group-item">
+                                            <span class="badge badge-primary">
+                                                {{ $youtubeinfo['statistics']['viewCount']  }}
+                                            </span>
+                        Nombre de vues
+
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-success">{{ $youtubeinfo['statistics']['commentCount']  }}</span>
+                        Nombre de commentaires
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-info">{{ $youtubeinfo['statistics']['subscriberCount']  }}</span>
+                        Nombre de membres
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-warning">{{ $youtubeinfo['statistics']['videoCount']  }}</span>
+                        Nombre de vidéo
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="panel">
+            <div class="stat-row panel-heading">
+                <!-- Dark gray background, small padding, extra small text, semibold text -->
+                <div class="stat-cell bg-dark-gray padding-sm text-xs text-semibold text-info">
+                    <i class="fa fa-bar-chart"></i>&nbsp;&nbsp;Films de @Allocine
+                </div>
+            </div>
+        <div class="panel-body">
+
+
+            <div class="slider-demo7">
+                <div class="center-mode">
+                    @foreach($videos as $video)
+                        <div class="slick-slide">
+                            <a href="https://www.youtube.com/watch?v={{ $video['data']['id']['videoId'] }}" target="_blank">
+                                <img src="{{ $video['data']['snippet']['thumbnails']['default']['url'] }}" />
+                            </a>
+
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+    <hr class="clear" />
+
+
     <div class="row">
 
         <div class="col-md-6">
@@ -670,12 +776,12 @@
 
     <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-4">
             <div class="panel listgroup-widget">
                 <div class="panel-heading text-info">
-    <span class="panel-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
+                <span class="panel-icon">
+                  <i class="fa fa-area-chart"></i>
+                </span>
                     Nombres</span>
                 </div>
                 <ul class="list-group">
@@ -706,6 +812,20 @@
                 </ul>
             </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title text-info"><i class="fa fa-film"></i> Film aléatoire: <b>{{ str_limit($video['data']['snippet']['title'],100,'...') }}</b></span>
+                </div>
+                <div class="panel-body border">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="https://www.youtube.com/embed/{{ str_replace('"', "", $video['data']['id']['videoId']) }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
         <div class="col-md-4">

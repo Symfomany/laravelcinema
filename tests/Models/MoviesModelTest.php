@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class MoviesModelTest.
+ * Class MoviesModelTest
  */
 class MoviesModelTest extends TestCase
 {
