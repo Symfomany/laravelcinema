@@ -925,7 +925,7 @@
 
         <div class="col-md-6">
 
-            
+
             <div class="bs-component">
                 <div class="panel">
                     <div class="panel-heading">

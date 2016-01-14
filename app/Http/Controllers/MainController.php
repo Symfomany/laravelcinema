@@ -93,7 +93,6 @@ class MainController extends Controller
         $nbmovies = Movies::count();
         $nbseances = Sessions::count();
 
-
         $manager = new \MongoDB\Driver\Manager("mongodb://localhost:27017");
         $collection = new \MongoDB\Collection($manager, "laravel.videos");
         $videos = collect($collection->find()->toArray())->shuffle();
