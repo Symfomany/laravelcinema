@@ -86,7 +86,6 @@ class MoviesTest extends TestCase
      */
     public function testRemove()
     {
-        //$this->markTestSkipped();
         $this
             ->authentification()
             ->visit('/admin/movies/index')
@@ -101,7 +100,6 @@ class MoviesTest extends TestCase
      */
     public function testAddCart()
     {
-        //$this->markTestSkipped();
         $this
             ->authentification()
             ->visit('/admin/movies/index')
@@ -129,7 +127,6 @@ class MoviesTest extends TestCase
      */
     public function testActivateAndCover()
     {
-        //$this->markTestSkipped();
 
         $this->authentification()
             ->visit('/admin/movies/index')

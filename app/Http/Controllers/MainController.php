@@ -8,6 +8,7 @@ use App\Http\Models\Movies;
 use App\Http\Models\Sessions;
 use App\Http\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Netshell\Paypal\Facades\Paypal;
 
@@ -41,15 +42,15 @@ class MainController extends Controller
             'title' => 'required|min:10',
             ], [
             'title.required' => 'Votre titre est obligatoire',
-            'title.min'      => 'Votre titre est trop court',
+            'title.min' => 'Votre titre est trop court',
             ]);
 
         if ($validator->fails()) { // si mon validateur échoue
             return $validator->errors()->all();
         } else {
             Movies::create([
-                'title'         => $request->title,
-                'description'   => $request->description,
+                'title' => $request->title,
+                'description' => $request->description,
                 'categories_id' => $request->categories_id,
             ]);
 
@@ -92,6 +93,12 @@ class MainController extends Controller
         $nbmovies = Movies::count();
         $nbseances = Sessions::count();
 
+        $videos =  collect(DB::connection('mongodb')->collection('videos')->get())->shuffle();
+        $youtubeinfo =  DB::connection('mongodb')->collection('stats')
+            ->where(['origin' => 'Youtube', 'type' => 'infos'])
+            ->first();
+
+
         $actor = new Actors(); // Je récpere mon modèle
         $comment = new Comments(); // Je récpere mon modèle
         $movie = new Movies(); // Je récpere mon modèle
@@ -108,15 +115,19 @@ class MainController extends Controller
 
         return view('Main/dashboard', [
             'avgnotecommentaire' => $avgnotecommentaire->avgnote,
-            'avgnotepresse'      => $avgnotepresse->avgpress,
-            'avgacteurs'         => $avgacteurs->age,
-            'avghour'            => $avghour->avghour,
-            'nbacteurs'          => $nbacteurs,
-            'nbcommentaires'     => $nbcommentaires,
-            'nbmovies'           => $nbmovies,
-            'nbseances'          => $nbseances,
-            'seances'            => $seances,
-            'users'              => $users,
+            'avgnotepresse' => $avgnotepresse->avgpress,
+            'avgacteurs' => $avgacteurs->age,
+            'avghour' => $avghour->avghour,
+            'nbacteurs' => $nbacteurs,
+            'youtubeinfo' => $youtubeinfo['data'],
+            'youtubeinfodateupdated' => $youtubeinfo['created_at']->sec,
+            'videos' => $videos,
+            'video' => $videos[0],
+            'nbcommentaires' => $nbcommentaires,
+            'nbmovies' => $nbmovies,
+            'nbseances' => $nbseances,
+            'seances' => $seances,
+            'users' => $users,
         ]);
     }
 }

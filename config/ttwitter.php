@@ -14,10 +14,10 @@ return [
     'USE_SSL'             => true,
 
     //AUthentification via protocole OAuth
-    'CONSUMER_KEY'        => 'm5lpaSAOQt1Nfs342voFOTLz6',
-    'CONSUMER_SECRET'     => 'bs7jhFZtrgqKgHiFp7eXQFSRzU5q91cg0ENFREvfyJ6X2B940S',
+    'CONSUMER_KEY'        => 'ZvCjlkrytP0A0tj6hjX5GiksN',
+    'CONSUMER_SECRET'     => '2L5VXzN5A8ZZH4T0kDeJlEIDTc2G4ypHTO1NSwKxXmHmm9AYjw',
 
     //Authorisation via protocole OAuth
-    'ACCESS_TOKEN'        => '28117848-wAZqUupUj83NxxGgYQdztUjS1dyUFJRQc10Dyo1F4',
-    'ACCESS_TOKEN_SECRET' => 'BbiZfGjMexcqcLWyCDYDEHXyJ3sQtmJmlAMVVW2DUm0xi',
+    'ACCESS_TOKEN'        => '28117848-8FCbS0ndLiqK4BD0OtQTDnIC6bnuPmscPX0fmxeAj',
+    'ACCESS_TOKEN_SECRET' => '1NX6IsVxkvDMLURCwizxHC4Ke6OyWyuWoGcbH3ampFybI',
 ];

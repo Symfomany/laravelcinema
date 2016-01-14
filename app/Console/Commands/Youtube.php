@@ -60,9 +60,9 @@ class Youtube extends Command
         }
 
         $params = [
-            'q'          => $keyword,
-            'type'       => 'video',
-            'part'       => 'id, snippet',
+            'q' => $keyword,
+            'type' => 'video',
+            'part' => 'id, snippet',
             'maxResults' => 30,
         ];
 

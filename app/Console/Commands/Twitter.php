@@ -2,8 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Model\Stats;
-use App\Model\Tweets;
+use App\Http\Models\Stats;
+use App\Http\Models\Tweets;
+
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -48,7 +49,7 @@ class Twitter extends Command
             DB::connection('mongodb')->collection('stats')
                 ->where(['origin' => 'Twitter', 'type' => 'infos'])->delete();
 
-            $stat = new Stats();
+            $stat = new \App\Http\Models\Stats();
             $stat->origin = 'Twitter';
             $stat->type = 'infos';
             $stat->data = $infos;
@@ -61,7 +62,7 @@ class Twitter extends Command
                 ->where(['origin' => 'Twitter', 'type' => 'dmsout'])
                 ->delete();
             foreach ($tweets as $tweet) {
-                $vi = new Tweets();
+                $vi = new \App\Http\Models\Tweets();
                 $vi->origin = 'Twitter';
                 $vi->type = 'dmsout';
                 $vi->data = $tweet;
@@ -75,7 +76,7 @@ class Twitter extends Command
                 ->where(['origin' => 'Twitter', 'type' => 'favorites'])
                 ->delete();
             foreach ($tweets as $tweet) {
-                $vi = new Tweets();
+                $vi = new \App\Http\Models\Tweets();
                 $vi->origin = 'Twitter';
                 $vi->type = 'favorites';
                 $vi->data = $tweet;
@@ -85,7 +86,7 @@ class Twitter extends Command
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getMentionsTimeline(
             [
-                'count'  => 15,
+                'count' => 15,
                 'format' => 'php', ]);
 
         if (!empty($tweets)) {
@@ -103,7 +104,7 @@ class Twitter extends Command
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getHomeTimeline(
             [
-                'count'  => 15,
+                'count' => 15,
                 'format' => 'php', ]);
 
         if (!empty($tweets)) {
@@ -122,8 +123,8 @@ class Twitter extends Command
         $tweets = \Thujohn\Twitter\Facades\Twitter::getUserTimeline(
             [
                 'screen_name' => 'allocine',
-                'count'       => 15,
-                'format'      => 'php', ]);
+                'count' => 15,
+                'format' => 'php', ]);
 
         if (!empty($tweets)) {
             DB::connection('mongodb')->collection('tweets')

@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\Email;
 use App\Console\Commands\LastMovies;
+use App\Console\Commands\Twitter;
 use App\Console\Commands\Youtube;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -21,6 +22,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         LastMovies::class,
         Youtube::class,
+        Twitter::class,
         Email::class,
     ];
 
