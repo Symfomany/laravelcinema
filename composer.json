@@ -35,8 +35,8 @@
         "cviebrock/eloquent-sluggable": "^3.0",
         "barryvdh/laravel-debugbar": "^2.2@dev",
         "netshell/paypal": "dev-master",
-        "jenssegers/mongodb": "^2.2",
-        "phpdocumentor/phpdocumentor": "^2.8"
+        "phpdocumentor/phpdocumentor": "^2.8",
+        "Symfomany/laravel-mongo": "dev-master"
 
     },
     "require-dev": {

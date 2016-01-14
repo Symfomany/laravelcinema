@@ -52,7 +52,7 @@ class MoviesTest extends TestCase
     }
 
     /**
-     * Test Dashboard.
+     * Test Edit Movie Failed.
      */
     public function testEditFailure()
     {
@@ -66,10 +66,6 @@ class MoviesTest extends TestCase
             ->see('Le champ date release doit être une date postérieure au now.')
             ->seePageIs('/admin/movies/edit/3');
     }
-
-    /**
-     * Test Dashboard.
-     */
     public function testEditSuccess()
     {
         $this->authentification()
@@ -80,10 +76,6 @@ class MoviesTest extends TestCase
             ->followRedirects()
             ->seePageIs('/admin/movies/index');
     }
-
-    /**
-     * Test Remove Movies.
-     */
     public function testRemove()
     {
         $this
@@ -94,10 +86,6 @@ class MoviesTest extends TestCase
             ->notSeeInDatabase('movies', ['id' => 3])
             ->see('Le film Godzilla a bien été supprimé');
     }
-
-    /**
-     * Test Add in session Movies.
-     */
     public function testAddCart()
     {
         $this
