@@ -1,12 +1,7 @@
 <?php
-
 namespace App\Console\Commands;
 
-use App\Http\Models\Stats;
-use App\Http\Models\Tweets;
-
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Task to register all tweets
@@ -14,19 +9,18 @@ use Illuminate\Support\Facades\DB;
  */
 class Twitter extends Command
 {
+
     /**
      * The name and signature of the console command.
-     *
      * @var string
      */
     protected $signature = 'twitter:import';
 
     /**
      * The console command description.
-     *
      * @var string
      */
-    protected $description = 'Youtube import tweets on Mongo';
+    protected $description = 'Twitter import tweets on Mongo';
 
     /**
      * Create a new command instance.
@@ -38,49 +32,57 @@ class Twitter extends Command
 
     /**
      * Execute the console command.
-     *
      * @return mixed
      */
     public function handle()
     {
         $infos = \Thujohn\Twitter\Facades\Twitter::getUsersLookup(['screen_name' => 'Symfomany', 'format' => 'php']);
+        $manager = new \MongoDB\Driver\Manager("mongodb://localhost:27017");
+        $collection = new \MongoDB\Collection($manager, "laravel.tweets");
 
         if (!empty($infos)) {
-            DB::connection('mongodb')->collection('stats')
-                ->where(['origin' => 'Twitter', 'type' => 'infos'])->delete();
 
-            $stat = new \App\Http\Models\Stats();
-            $stat->origin = 'Twitter';
-            $stat->type = 'infos';
-            $stat->data = $infos;
-            $stat->save();
+            $collection->deleteMany(['origin' => 'Twitter', 'type' => 'infos']);
+
+            $stat = [
+                "origin"    => "Twitter",
+                "type"    => "infos",
+                "data" => $infos,
+                "created" => new  \MongoDB\BSON\UTCDatetime(time()),
+            ];
+            $collection->insertOne($stat);
+
         }
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getDmsOut(['format' => 'php']);
         if (!empty($tweets)) {
-            DB::connection('mongodb')->collection('tweets')
-                ->where(['origin' => 'Twitter', 'type' => 'dmsout'])
-                ->delete();
+            $collection->deleteMany(['origin' => 'Twitter', 'type' => 'dmsout']);
+
             foreach ($tweets as $tweet) {
-                $vi = new \App\Http\Models\Tweets();
-                $vi->origin = 'Twitter';
-                $vi->type = 'dmsout';
-                $vi->data = $tweet;
-                $vi->save();
+                $stat = [
+                    "origin"    => "Twitter",
+                    "type"    => "dmsout",
+                    "data" => $tweet,
+                    "created" => new  \MongoDB\BSON\UTCDatetime(time()),
+                ];
+                $collection->insertOne($stat);
             }
         }
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getFavorites(['format' => 'php']);
         if (!empty($tweets)) {
-            DB::connection('mongodb')->collection('tweets')
-                ->where(['origin' => 'Twitter', 'type' => 'favorites'])
-                ->delete();
+            $collection->deleteMany(['origin' => 'Twitter', 'type' => 'favorites']);
+
             foreach ($tweets as $tweet) {
-                $vi = new \App\Http\Models\Tweets();
-                $vi->origin = 'Twitter';
-                $vi->type = 'favorites';
-                $vi->data = $tweet;
-                $vi->save();
+
+                $stat = [
+                    "origin"    => "Twitter",
+                    "type"    => "favorites",
+                    "data" => $tweet,
+                    "created" => new  \MongoDB\BSON\UTCDatetime(time()),
+                ];
+                $collection->insertOne($stat);
+
             }
         }
 
@@ -90,52 +92,62 @@ class Twitter extends Command
                 'format' => 'php', ]);
 
         if (!empty($tweets)) {
-            DB::connection('mongodb')->collection('tweets')
-                ->where(['origin' => 'Twitter', 'type' => 'mentionstimeline'])
-                ->delete();
+            $collection->deleteMany(['origin' => 'Twitter', 'type' => 'mentionstimeline']);
+
+
             foreach ($tweets as $tweet) {
-                $vi = new Tweets();
-                $vi->origin = 'Twitter';
-                $vi->type = 'mentionstimeline';
-                $vi->data = $tweet;
-                $vi->save();
+
+                $stat = [
+                    "origin"    => "Twitter",
+                    "type"    => "mentionstimeline",
+                    "data" => $tweet,
+                    "created" => new  \MongoDB\BSON\UTCDatetime(time()),
+                ];
+                $collection->insertOne($stat);
+
             }
         }
 
-        $tweets = \Thujohn\Twitter\Facades\Twitter::getHomeTimeline(
-            [
+        $tweets = \Thujohn\Twitter\Facades\Twitter::getHomeTimeline([
                 'count' => 15,
-                'format' => 'php', ]);
+                'format' => 'php'
+            ]);
 
         if (!empty($tweets)) {
-            DB::connection('mongodb')->collection('tweets')
-                ->where(['origin' => 'Twitter', 'type' => 'hometimeline'])
-                ->delete();
+            $collection->deleteMany(['origin' => 'Twitter', 'type' => 'hometimeline']);
+
             foreach ($tweets as $tweet) {
-                $vi = new Tweets();
-                $vi->data = $tweet;
-                $vi->origin = 'Twitter';
-                $vi->type = 'hometimeline';
-                $vi->save();
+
+                $stat = [
+                    "origin"    => "Twitter",
+                    "type"    => "hometimeline",
+                    "data" => $tweet,
+                    "created" => new  \MongoDB\BSON\UTCDatetime(time()),
+                ];
+                $collection->insertOne($stat);
+
             }
         }
 
-        $tweets = \Thujohn\Twitter\Facades\Twitter::getUserTimeline(
-            [
+        $tweets = \Thujohn\Twitter\Facades\Twitter::getUserTimeline([
                 'screen_name' => 'allocine',
                 'count' => 15,
-                'format' => 'php', ]);
+                'format' => 'php'
+            ]);
 
         if (!empty($tweets)) {
-            DB::connection('mongodb')->collection('tweets')
-                ->where(['origin' => 'Twitter', 'type' => 'usertimeline'])
-                ->delete();
+            $collection->deleteMany(['origin' => 'Twitter', 'type' => 'usertimeline']);
+
             foreach ($tweets as $tweet) {
-                $vi = new Tweets();
-                $vi->data = $tweet;
-                $vi->origin = 'Twitter';
-                $vi->type = 'usertimeline';
-                $vi->save();
+
+                $stat = [
+                    "origin"    => "Twitter",
+                    "type"    => "usertimeline",
+                    "data" => $tweet,
+                    "created" => new  \MongoDB\BSON\UTCDatetime(time()),
+                ];
+                $collection->insertOne($stat);
+
             }
         }
     }

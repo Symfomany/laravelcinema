@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "81442a733fb103997be79e5f58c9a00a",
-    "content-hash": "8d267ca6f48b53fdf675f3139c630aa7",
+    "hash": "ade0ce3e228001f5f032b1aaf459aaa9",
+    "content-hash": "9c8458a88ad44970c65bca43149652e8",
     "packages": [
         {
             "name": "alaouy/youtube",
@@ -109,16 +109,16 @@
         },
         {
             "name": "caouecs/laravel4-lang",
-            "version": "2.0.28",
+            "version": "2.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "46e4754a0ff40c0d7ebd9bf7dc1d23cb407f440d"
+                "reference": "b4bf844b3f78cc6be63f35c8aeeaaa075cb17bc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/46e4754a0ff40c0d7ebd9bf7dc1d23cb407f440d",
-                "reference": "46e4754a0ff40c0d7ebd9bf7dc1d23cb407f440d",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/b4bf844b3f78cc6be63f35c8aeeaaa075cb17bc7",
+                "reference": "b4bf844b3f78cc6be63f35c8aeeaaa075cb17bc7",
                 "shasum": ""
             },
             "require-dev": {
@@ -145,7 +145,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2015-11-27 13:53:54"
+            "time": "2016-01-11 07:08:20"
         },
         {
             "name": "cilex/cilex",
@@ -1671,12 +1671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d90649816ab0a348b01eb15e8eb4447d827c62e2"
+                "reference": "f07ddf648a19d1c1c397b774b9d367bef121d1cb"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/f07ddf648a19d1c1c397b774b9d367bef121d1cb",
-                "reference": "d90649816ab0a348b01eb15e8eb4447d827c62e2",
+                "reference": "f07ddf648a19d1c1c397b774b9d367bef121d1cb",
                 "shasum": ""
             },
             "require": {
@@ -1791,7 +1791,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-01-07 19:47:04"
+            "time": "2016-01-10 17:53:24"
         },
         {
             "name": "laravel/socialite",
@@ -1799,12 +1799,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "ef398fe98b0c40f5edcb9f59e56bbf0b90e47111"
+                "reference": "9240d9f498457f8d27db6865c3dc9f8e22c0ba9c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/socialite/zipball/9240d9f498457f8d27db6865c3dc9f8e22c0ba9c",
-                "reference": "ef398fe98b0c40f5edcb9f59e56bbf0b90e47111",
+                "reference": "9240d9f498457f8d27db6865c3dc9f8e22c0ba9c",
                 "shasum": ""
             },
             "require": {
@@ -1845,7 +1845,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-01-06 14:40:36"
+            "time": "2016-01-13 14:18:59"
         },
         {
             "name": "laravelrus/localized-carbon",
@@ -1897,12 +1897,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "3130ff9232cef15883516a8d382af7f149677e0d"
+                "reference": "2b0691b96bd5edd366cfb905bd9b5334d71b5f96"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/2b0691b96bd5edd366cfb905bd9b5334d71b5f96",
-                "reference": "3130ff9232cef15883516a8d382af7f149677e0d",
+                "reference": "2b0691b96bd5edd366cfb905bd9b5334d71b5f96",
                 "shasum": ""
             },
             "require": {
@@ -1915,8 +1915,7 @@
                 "ext-fileinfo": "*",
                 "mockery/mockery": "~0.9",
                 "phpspec/phpspec": "^2.2",
-                "phpspec/prophecy-phpunit": "~1.0",
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "~4.8 || ~5.0"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -1973,7 +1972,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-01-02 01:11:39"
+            "time": "2016-01-14 08:30:14"
         },
         {
             "name": "league/oauth1-client",
@@ -2101,16 +2100,16 @@
         },
         {
             "name": "mongodb/mongodb",
-            "version": "dev-master",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "54b9605b080405d9efae26de6e2eafea38c02acc"
+                "reference": "e8177e87efe74437b812915887d416f5b68b4e30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/54b9605b080405d9efae26de6e2eafea38c02acc",
-                "reference": "54b9605b080405d9efae26de6e2eafea38c02acc",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/e8177e87efe74437b812915887d416f5b68b4e30",
+                "reference": "e8177e87efe74437b812915887d416f5b68b4e30",
                 "shasum": ""
             },
             "require": {
@@ -2157,7 +2156,7 @@
                 "mongodb",
                 "persistence"
             ],
-            "time": "2016-01-12 18:46:56"
+            "time": "2015-12-28 19:40:56"
         },
         {
             "name": "monolog/monolog",
@@ -3306,74 +3305,17 @@
             "time": "2016-01-03 15:42:47"
         },
         {
-            "name": "symfomany/laravel-mongo",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Symfomany/laravel-mongo.git",
-                "reference": "4afea034f6bdd3c44422e99094c4209c79884fe4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Symfomany/laravel-mongo/zipball/4afea034f6bdd3c44422e99094c4209c79884fe4",
-                "reference": "4afea034f6bdd3c44422e99094c4209c79884fe4",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": "^5.1",
-                "illuminate/database": "^5.1",
-                "illuminate/events": "^5.1",
-                "illuminate/support": "^5.1",
-                "mongodb/mongodb": "^1.0.0@beta"
-            },
-            "require-dev": {
-                "fzaninotto/faker": "~1.4",
-                "mockery/mockery": "0.9.*",
-                "orchestra/testbench": "^3.1",
-                "phpspec/phpspec": "~2.1",
-                "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "^0.6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mongo\\": "src/Mongo"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Boyer Julien",
-                    "homepage": "https://github.com/symfomany/laravel-mongo"
-                }
-            ],
-            "description": "A MongoDB based Eloquent model and Query builder for Laravel 5",
-            "homepage": "https://github.com/symfomany/laravel-mongo",
-            "keywords": [
-                "database",
-                "eloquent",
-                "laravel",
-                "model",
-                "mongo",
-                "mongodb"
-            ],
-            "time": "2016-01-07 18:06:15"
-        },
-        {
             "name": "symfony/browser-kit",
             "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "3ed44ccb09c04ada01255fe72b043923495e578b"
+                "reference": "a93dffaf763182acad12a4c42c7efc372899891e"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/browser-kit/zipball/a93dffaf763182acad12a4c42c7efc372899891e",
-                "reference": "3ed44ccb09c04ada01255fe72b043923495e578b",
+                "reference": "a93dffaf763182acad12a4c42c7efc372899891e",
                 "shasum": ""
             },
             "require": {
@@ -3417,7 +3359,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-03 15:33:41"
+            "time": "2016-01-12 17:46:01"
         },
         {
             "name": "symfony/config",
@@ -3475,12 +3417,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a84e68e0705eab144185b1a796f9a3d289620e63"
+                "reference": "d3fc138b6ed8f8074591821d3416d8f9c04d6ca6"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/d3fc138b6ed8f8074591821d3416d8f9c04d6ca6",
-                "reference": "a84e68e0705eab144185b1a796f9a3d289620e63",
+                "reference": "d3fc138b6ed8f8074591821d3416d8f9c04d6ca6",
                 "shasum": ""
             },
             "require": {
@@ -3526,7 +3468,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-06 09:57:37"
+            "time": "2016-01-14 08:26:43"
         },
         {
             "name": "symfony/css-selector",
@@ -3587,12 +3529,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "b5b13b19095c5e40799342d719fb01af48d008bd"
+                "reference": "5aca4aa9600b943287b4a1799a4d1d78b5388175"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/debug/zipball/5aca4aa9600b943287b4a1799a4d1d78b5388175",
-                "reference": "b5b13b19095c5e40799342d719fb01af48d008bd",
+                "reference": "5aca4aa9600b943287b4a1799a4d1d78b5388175",
                 "shasum": ""
             },
             "require": {
@@ -3636,7 +3578,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-03 15:32:00"
+            "time": "2016-01-13 07:57:33"
         },
         {
             "name": "symfony/dom-crawler",
@@ -3699,12 +3641,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "475b620e39d5ba913961f63931823a7914cdaa80"
+                "reference": "ee278f7c851533e58ca307f66305ccb9188aceda"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ee278f7c851533e58ca307f66305ccb9188aceda",
-                "reference": "475b620e39d5ba913961f63931823a7914cdaa80",
+                "reference": "ee278f7c851533e58ca307f66305ccb9188aceda",
                 "shasum": ""
             },
             "require": {
@@ -3751,7 +3693,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-03 15:33:41"
+            "time": "2016-01-13 10:28:07"
         },
         {
             "name": "symfony/filesystem",
@@ -3808,12 +3750,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "07573dcda7863bc7925ce0910d527ce12219241c"
+                "reference": "d20ac81c81a67ab898b0c0afa435f3e9a7d460cf"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/finder/zipball/d20ac81c81a67ab898b0c0afa435f3e9a7d460cf",
-                "reference": "07573dcda7863bc7925ce0910d527ce12219241c",
+                "reference": "d20ac81c81a67ab898b0c0afa435f3e9a7d460cf",
                 "shasum": ""
             },
             "require": {
@@ -3849,7 +3791,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-03 15:32:00"
+            "time": "2016-01-14 08:26:43"
         },
         {
             "name": "symfony/http-foundation",
@@ -3857,12 +3799,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "d422b2090d41654cf7dabc5c832b5b5bfb3fef25"
+                "reference": "2f9d240056f026af5f7ba7f7052b0c6709bf288c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2f9d240056f026af5f7ba7f7052b0c6709bf288c",
-                "reference": "d422b2090d41654cf7dabc5c832b5b5bfb3fef25",
+                "reference": "2f9d240056f026af5f7ba7f7052b0c6709bf288c",
                 "shasum": ""
             },
             "require": {
@@ -3904,7 +3846,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-07 13:28:07"
+            "time": "2016-01-13 10:26:43"
         },
         {
             "name": "symfony/http-kernel",
@@ -3912,12 +3854,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "ff7fbee35f2ab7185aba2cfdd81027fd7945ddb3"
+                "reference": "2a965fa7f4c841bc3d1f7f25aca833fe4a439ecb"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/2a965fa7f4c841bc3d1f7f25aca833fe4a439ecb",
-                "reference": "ff7fbee35f2ab7185aba2cfdd81027fd7945ddb3",
+                "reference": "2a965fa7f4c841bc3d1f7f25aca833fe4a439ecb",
                 "shasum": ""
             },
             "require": {
@@ -3986,7 +3928,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-03 15:32:00"
+            "time": "2016-01-14 11:52:48"
         },
         {
             "name": "symfony/polyfill-php56",
@@ -3994,12 +3936,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php56.git",
-                "reference": "b188ceb6bc4f2bdbd89b4d1b5cd2271eea6eb2d2"
+                "reference": "00a7781ba12cc2d0f303a845af4d0b7c91f85f07"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/00a7781ba12cc2d0f303a845af4d0b7c91f85f07",
-                "reference": "b188ceb6bc4f2bdbd89b4d1b5cd2271eea6eb2d2",
+                "reference": "00a7781ba12cc2d0f303a845af4d0b7c91f85f07",
                 "shasum": ""
             },
             "require": {
@@ -4042,7 +3984,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-01-01 11:06:21"
+            "time": "2016-01-13 07:16:33"
         },
         {
             "name": "symfony/polyfill-util",
@@ -4050,12 +3992,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-util.git",
-                "reference": "41250fb7b4d06134c13a7e5ced298efe893cfd30"
+                "reference": "3c73bcdad66642261a08921ca19a78525feb3673"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/3c73bcdad66642261a08921ca19a78525feb3673",
-                "reference": "41250fb7b4d06134c13a7e5ced298efe893cfd30",
+                "reference": "3c73bcdad66642261a08921ca19a78525feb3673",
                 "shasum": ""
             },
             "require": {
@@ -4094,7 +4036,7 @@
                 "polyfill",
                 "shim"
             ],
-            "time": "2016-01-01 11:06:21"
+            "time": "2016-01-13 07:16:33"
         },
         {
             "name": "symfony/process",
@@ -5156,16 +5098,16 @@
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.7.2",
+            "version": "2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "ae1dbb45615d02832880adcb6f46784250ce247e"
+                "reference": "cc65a0a1081bf8e76c7420290fb7a55880236786"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/ae1dbb45615d02832880adcb6f46784250ce247e",
-                "reference": "ae1dbb45615d02832880adcb6f46784250ce247e",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/cc65a0a1081bf8e76c7420290fb7a55880236786",
+                "reference": "cc65a0a1081bf8e76c7420290fb7a55880236786",
                 "shasum": ""
             },
             "require": {
@@ -5204,7 +5146,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2016-01-11 23:29:57"
+            "time": "2016-01-13 19:29:06"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -5579,65 +5521,6 @@
                 "test"
             ],
             "time": "2015-05-11 14:41:42"
-        },
-        {
-            "name": "jenssegers/mongodb",
-            "version": "v2.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jenssegers/laravel-mongodb.git",
-                "reference": "c9e0739d1b874eb05c85daa0637d30fd974c4233"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jenssegers/laravel-mongodb/zipball/c9e0739d1b874eb05c85daa0637d30fd974c4233",
-                "reference": "c9e0739d1b874eb05c85daa0637d30fd974c4233",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": "^5.1",
-                "illuminate/database": "^5.1",
-                "illuminate/events": "^5.1",
-                "illuminate/support": "^5.1"
-            },
-            "require-dev": {
-                "mockery/mockery": "^0.9",
-                "orchestra/testbench": "^3.1",
-                "phpunit/phpunit": "^4.0|^5.0",
-                "satooshi/php-coveralls": "^0.6"
-            },
-            "suggest": {
-                "jenssegers/mongodb-sentry": "Add Sentry support to Laravel-MongoDB",
-                "jenssegers/mongodb-session": "Add MongoDB session support to Laravel-MongoDB"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Jenssegers\\Mongodb": "src/",
-                    "Jenssegers\\Eloquent": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jens Segers",
-                    "homepage": "https://jenssegers.com"
-                }
-            ],
-            "description": "A MongoDB based Eloquent model and Query builder for Laravel 4",
-            "homepage": "https://github.com/jenssegers/laravel-mongodb",
-            "keywords": [
-                "database",
-                "eloquent",
-                "laravel",
-                "model",
-                "mongo",
-                "mongodb"
-            ],
-            "time": "2015-12-20 11:15:10"
         },
         {
             "name": "mockery/mockery",
@@ -6241,12 +6124,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d0896b45cbc66f60e957f19a95e826ccf7fbb321"
+                "reference": "7f0787732c8472b4ade576236cf19e0e4f1c5e55"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7f0787732c8472b4ade576236cf19e0e4f1c5e55",
-                "reference": "d0896b45cbc66f60e957f19a95e826ccf7fbb321",
+                "reference": "7f0787732c8472b4ade576236cf19e0e4f1c5e55",
                 "shasum": ""
             },
             "require": {
@@ -6305,7 +6188,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-01-08 13:46:07"
+            "time": "2016-01-13 10:07:55"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6796,12 +6679,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "9db3e5a309bd5f3dfd974f5b42d820904352c4d8"
+                "reference": "82287b794641153ae1837b9288c3ae90cecdf5c4"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/82287b794641153ae1837b9288c3ae90cecdf5c4",
-                "reference": "9db3e5a309bd5f3dfd974f5b42d820904352c4d8",
+                "reference": "82287b794641153ae1837b9288c3ae90cecdf5c4",
                 "shasum": ""
             },
             "require": {
@@ -6837,7 +6720,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-06 10:01:46"
+            "time": "2016-01-13 16:23:43"
         }
     ],
     "aliases": [],
@@ -6845,7 +6728,7 @@
     "stability-flags": {
         "barryvdh/laravel-debugbar": 20,
         "netshell/paypal": 20,
-        "symfomany/laravel-mongo": 20
+        "mongodb/mongodb": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,
