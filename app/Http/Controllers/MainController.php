@@ -93,10 +93,16 @@ class MainController extends Controller
         $nbmovies = Movies::count();
         $nbseances = Sessions::count();
 
-        $videos =  collect(DB::connection('mongodb')->collection('videos')->get())->shuffle();
-        $youtubeinfo =  DB::connection('mongodb')->collection('stats')
-            ->where(['origin' => 'Youtube', 'type' => 'infos'])
-            ->first();
+
+        $manager = new \MongoDB\Driver\Manager("mongodb://localhost:27017");
+        $collection = new \MongoDB\Collection($manager, "laravel.videos");
+        $videos = collect($collection->find()->toArray())->shuffle();
+
+        $collection = new \MongoDB\Collection($manager, "laravel.stats");
+        $youtubeinfo = collect($collection->find(["origin"  => "Youtube"])->toArray())->first();
+
+        $collection = new \MongoDB\Collection($manager, "laravel.stats");
+        $tweeterinfo = collect($collection->find(['origin' => 'Twitter', 'type' => 'infos'])->toArray())->first();
 
 
         $actor = new Actors(); // Je récpere mon modèle
@@ -113,16 +119,20 @@ class MainController extends Controller
         $seances = $session->getNextSession();
         $users = $user->getLastUsers();
 
+
+
         return view('Main/dashboard', [
             'avgnotecommentaire' => $avgnotecommentaire->avgnote,
             'avgnotepresse' => $avgnotepresse->avgpress,
             'avgacteurs' => $avgacteurs->age,
-            'avghour' => $avghour->avghour,
-            'nbacteurs' => $nbacteurs,
-            'youtubeinfo' => $youtubeinfo['data'],
-            'youtubeinfodateupdated' => $youtubeinfo['created_at']->sec,
             'videos' => $videos,
             'video' => $videos[0],
+            'youtubeinfo' => $youtubeinfo->data,
+            'tweeterinfo' => $tweeterinfo['data'][0],
+            'youtubeinfodateupdated' => $youtubeinfo->created,
+            'tweeterinfodateupdated' => $tweeterinfo['created_at'],
+            'avghour' => $avghour->avghour,
+            'nbacteurs' => $nbacteurs,
             'nbcommentaires' => $nbcommentaires,
             'nbmovies' => $nbmovies,
             'nbseances' => $nbseances,

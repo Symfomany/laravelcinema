@@ -36,8 +36,7 @@
         "barryvdh/laravel-debugbar": "^2.2@dev",
         "netshell/paypal": "dev-master",
         "phpdocumentor/phpdocumentor": "^2.8",
-        "Symfomany/laravel-mongo": "dev-master"
-
+        "mongodb/mongodb": "^1.0.0@beta"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

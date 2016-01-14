@@ -49,14 +49,18 @@ class Youtube extends Command
         $channel = Yt::getChannelByName('allocine');
 
         if (!empty($channel)) {
-            DB::connection('mongodb')->collection('stats')
-                ->where(['origin' => 'Youtube', 'type' => 'infos'])->delete();
+            $manager = new \MongoDB\Driver\Manager("mongodb://localhost:27017");
+            $collection = new \MongoDB\Collection($manager, "laravel.stats");
+            $collection->deleteMany([]);
 
-            $stat = new Stats();
-            $stat->origin = 'Youtube';
-            $stat->type = 'infos';
-            $stat->data = $channel;
-            $stat->save();
+            $collection = new \MongoDB\Collection($manager, "laravel.stats");
+            $stat = [
+                "origin"    => "Youtube",
+                "type"    => "search",
+                "data" => $channel,
+                "created" => new  \MongoDB\BSON\UTCDatetime(time()),
+            ];
+            $collection->insertOne($stat);
         }
 
         $params = [
@@ -69,11 +73,18 @@ class Youtube extends Command
         $videos = Yt::searchAdvanced($params, true)['results'];
 
         if (!empty($videos)) {
-            DB::connection('mongodb')->collection('videos')->delete();
+            $collection = new \MongoDB\Collection($manager, "laravel.videos");
+            $collection->deleteMany([]);
+            $now = new \DateTime();
+            $day= $now->getTimestamp();
+
             foreach ($videos as $video) {
-                $vi = new Videos();
-                $vi->data = $video;
-                $vi->save();
+                $collection = new \MongoDB\Collection($manager, "laravel.videos");
+                $stat = [
+                    "data"    => $video,
+                    "created" => new  \MongoDB\BSON\UTCDatetime(time())
+                ];
+                $collection->insertOne($stat);
             }
         }
 

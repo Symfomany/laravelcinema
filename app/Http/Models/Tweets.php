@@ -2,7 +2,7 @@
 
 namespace App\Http\Models;
 
-use Jenssegers\Mongodb\Model as Eloquent;
+use Mongo\Mongodb\Model as Eloquent;
 
 
 /**
