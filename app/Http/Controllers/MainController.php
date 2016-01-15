@@ -88,6 +88,7 @@ class MainController extends Controller
      */
     public function dashboard()
     {
+        
         $nbacteurs = Actors::count();
         $nbcommentaires = Comments::count();
         $nbmovies = Movies::count();
