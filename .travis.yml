@@ -24,7 +24,6 @@ before_script:
   - mysql -uroot cineacademy < mysql/cineacademy.sql
   - php artisan  db:seed
 
-
 script: phpunit
 
 cache:
