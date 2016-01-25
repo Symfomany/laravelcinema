@@ -72,7 +72,6 @@ class Youtube extends Command
         if (!empty($videos)) {
             $collection = new \MongoDB\Collection($manager, "laravel.videos");
             $collection->deleteMany([]);
-            $now = new \DateTime();
 
             foreach ($videos as $video) {
                 $collection = new \MongoDB\Collection($manager, "laravel.videos");
