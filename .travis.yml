@@ -42,7 +42,6 @@ before_script:
   - mysql -e 'create database IF NOT EXISTS  cineacademy;'   -uroot
   - mysql -uroot cineacademy < mysql/cineacademy.sql
   - php artisan  db:seed --force
-  - phpunit --self-update
 
 script: phpunit
 
