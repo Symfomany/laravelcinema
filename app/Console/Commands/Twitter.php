@@ -47,9 +47,9 @@ class Twitter extends Command
             $collection->deleteMany(['origin' => 'Twitter', 'type' => 'infos']);
 
             $stat = [
-                'origin' => 'Twitter',
-                'type' => 'infos',
-                'data' => $infos,
+                'origin'  => 'Twitter',
+                'type'    => 'infos',
+                'data'    => $infos,
                 'created' => new  \MongoDB\BSON\UTCDatetime(time()),
             ];
             $collection->insertOne($stat);
@@ -61,9 +61,9 @@ class Twitter extends Command
 
             foreach ($tweets as $tweet) {
                 $stat = [
-                    'origin' => 'Twitter',
-                    'type' => 'dmsout',
-                    'data' => $tweet,
+                    'origin'  => 'Twitter',
+                    'type'    => 'dmsout',
+                    'data'    => $tweet,
                     'created' => new  \MongoDB\BSON\UTCDatetime(time()),
                 ];
                 $collection->insertOne($stat);
@@ -76,9 +76,9 @@ class Twitter extends Command
 
             foreach ($tweets as $tweet) {
                 $stat = [
-                    'origin' => 'Twitter',
-                    'type' => 'favorites',
-                    'data' => $tweet,
+                    'origin'  => 'Twitter',
+                    'type'    => 'favorites',
+                    'data'    => $tweet,
                     'created' => new  \MongoDB\BSON\UTCDatetime(time()),
                 ];
                 $collection->insertOne($stat);
@@ -87,7 +87,7 @@ class Twitter extends Command
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getMentionsTimeline(
             [
-                'count' => 15,
+                'count'  => 15,
                 'format' => 'php', ]);
 
         if (!empty($tweets)) {
@@ -95,9 +95,9 @@ class Twitter extends Command
 
             foreach ($tweets as $tweet) {
                 $stat = [
-                    'origin' => 'Twitter',
-                    'type' => 'mentionstimeline',
-                    'data' => $tweet,
+                    'origin'  => 'Twitter',
+                    'type'    => 'mentionstimeline',
+                    'data'    => $tweet,
                     'created' => new  \MongoDB\BSON\UTCDatetime(time()),
                 ];
                 $collection->insertOne($stat);
@@ -105,7 +105,7 @@ class Twitter extends Command
         }
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getHomeTimeline([
-                'count' => 15,
+                'count'  => 15,
                 'format' => 'php',
             ]);
 
@@ -114,9 +114,9 @@ class Twitter extends Command
 
             foreach ($tweets as $tweet) {
                 $stat = [
-                    'origin' => 'Twitter',
-                    'type' => 'hometimeline',
-                    'data' => $tweet,
+                    'origin'  => 'Twitter',
+                    'type'    => 'hometimeline',
+                    'data'    => $tweet,
                     'created' => new  \MongoDB\BSON\UTCDatetime(time()),
                 ];
                 $collection->insertOne($stat);
@@ -125,8 +125,8 @@ class Twitter extends Command
 
         $tweets = \Thujohn\Twitter\Facades\Twitter::getUserTimeline([
                 'screen_name' => 'allocine',
-                'count' => 15,
-                'format' => 'php',
+                'count'       => 15,
+                'format'      => 'php',
             ]);
 
         if (!empty($tweets)) {
@@ -134,9 +134,9 @@ class Twitter extends Command
 
             foreach ($tweets as $tweet) {
                 $stat = [
-                    'origin' => 'Twitter',
-                    'type' => 'usertimeline',
-                    'data' => $tweet,
+                    'origin'  => 'Twitter',
+                    'type'    => 'usertimeline',
+                    'data'    => $tweet,
                     'created' => new  \MongoDB\BSON\UTCDatetime(time()),
                 ];
                 $collection->insertOne($stat);

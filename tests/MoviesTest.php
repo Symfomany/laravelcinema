@@ -66,6 +66,7 @@ class MoviesTest extends TestCase
             ->see('Le champ date release doit être une date postérieure au now.')
             ->seePageIs('/admin/movies/edit/3');
     }
+
     public function testEditSuccess()
     {
         $this->authentification()
@@ -76,6 +77,7 @@ class MoviesTest extends TestCase
             ->followRedirects()
             ->seePageIs('/admin/movies/index');
     }
+
     public function testRemove()
     {
         $this
@@ -86,6 +88,7 @@ class MoviesTest extends TestCase
             ->notSeeInDatabase('movies', ['id' => 3])
             ->see('Le film Godzilla a bien été supprimé');
     }
+
     public function testAddCart()
     {
         $this
@@ -115,7 +118,6 @@ class MoviesTest extends TestCase
      */
     public function testActivateAndCover()
     {
-
         $this->authentification()
             ->visit('/admin/movies/index')
             ->seePageIs('/admin/movies/index')

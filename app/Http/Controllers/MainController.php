@@ -41,15 +41,15 @@ class MainController extends Controller
             'title' => 'required|min:10',
             ], [
             'title.required' => 'Votre titre est obligatoire',
-            'title.min' => 'Votre titre est trop court',
+            'title.min'      => 'Votre titre est trop court',
             ]);
 
         if ($validator->fails()) { // si mon validateur échoue
             return $validator->errors()->all();
         } else {
             Movies::create([
-                'title' => $request->title,
-                'description' => $request->description,
+                'title'         => $request->title,
+                'description'   => $request->description,
                 'categories_id' => $request->categories_id,
             ]);
 
@@ -117,22 +117,22 @@ class MainController extends Controller
         $users = $user->getLastUsers();
 
         return view('Main/dashboard', [
-            'avgnotecommentaire' => $avgnotecommentaire->avgnote,
-            'avgnotepresse' => $avgnotepresse->avgpress,
-            'avgacteurs' => $avgacteurs->age,
-            'videos' => $videos,
-            'video' => $videos[0],
-            'youtubeinfo' => $youtubeinfo->data,
-            'tweeterinfo' => $tweeterinfo['data'][0],
+            'avgnotecommentaire'     => $avgnotecommentaire->avgnote,
+            'avgnotepresse'          => $avgnotepresse->avgpress,
+            'avgacteurs'             => $avgacteurs->age,
+            'videos'                 => $videos,
+            'video'                  => $videos[0],
+            'youtubeinfo'            => $youtubeinfo->data,
+            'tweeterinfo'            => $tweeterinfo['data'][0],
             'youtubeinfodateupdated' => $youtubeinfo->created,
             'tweeterinfodateupdated' => $tweeterinfo['created_at'],
-            'avghour' => $avghour->avghour,
-            'nbacteurs' => $nbacteurs,
-            'nbcommentaires' => $nbcommentaires,
-            'nbmovies' => $nbmovies,
-            'nbseances' => $nbseances,
-            'seances' => $seances,
-            'users' => $users,
+            'avghour'                => $avghour->avghour,
+            'nbacteurs'              => $nbacteurs,
+            'nbcommentaires'         => $nbcommentaires,
+            'nbmovies'               => $nbmovies,
+            'nbseances'              => $nbseances,
+            'seances'                => $seances,
+            'users'                  => $users,
         ]);
     }
 }

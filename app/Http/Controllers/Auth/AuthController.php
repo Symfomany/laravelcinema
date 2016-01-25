@@ -77,8 +77,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:administrators',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:administrators',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -93,8 +93,8 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return Administrators::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -145,10 +145,10 @@ class AuthController extends Controller
         }
 
         return Administrators::create([
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
+            'name'      => $githubUser->name,
+            'email'     => $githubUser->email,
             'github_id' => $githubUser->id,
-            'avatar' => $githubUser->avatar,
+            'avatar'    => $githubUser->avatar,
         ]);
     }
 }
