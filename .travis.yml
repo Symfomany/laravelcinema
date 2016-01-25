@@ -24,10 +24,7 @@ before_install:
   - sleep 3
 
 install:
-  - if dpkg --compare-versions ${SERVER_VERSION} le "2.4"; then export SERVER_PACKAGE=mongodb-10gen-enterprise; else export SERVER_PACKAGE=mongodb-enterprise; fi
-  - sudo apt-get install ${SERVER_PACKAGE}
   - sudo apt-get -y install gdb
-
 
 before_script:
   - phpenv config-rm xdebug.ini
