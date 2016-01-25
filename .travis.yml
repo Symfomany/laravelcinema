@@ -6,12 +6,7 @@ php:
 sudo: false
 
 env:
-    - LARAVEL_VERSION="5.1.*"
-
-before_install:
-  - if [ "$MONGO_VERSION" != "" ]; then pecl -q install -f mongo-2.4.9; fi # Use a specific driver version when needed rather than the one shipped by Travis
-  - echo "extension=mongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-  - echo "extension=redis.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+    - LARAVEL_VERSION="5.2.*"
 
 
 before_script:
