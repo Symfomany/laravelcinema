@@ -13,14 +13,15 @@ env:
     - MONGO_REPO_URI="http://repo.mongodb.com/apt/ubuntu"
     - MONGO_REPO_TYPE="precise/mongodb-enterprise/"
     - SOURCES_LOC="/etc/apt/sources.list.d/mongodb.list"
+    - MONGODB_VERSION=2.6.10
 
 before_install:
-  - sudo apt-key adv --keyserver ${KEY_SERVER} --recv 7F0CEB10
-  - sudo apt-key adv --keyserver ${KEY_SERVER} --recv EA312927
-  - echo "deb ${MONGO_REPO_URI} ${MONGO_REPO_TYPE}${SERVER_VERSION} multiverse" | sudo tee ${SOURCES_LOC}
-  - sudo apt-get update -qq
+  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$MONGODB_VERSION.tgz
+  - tar xfz mongodb-linux-x86_64-$MONGODB_VERSION.tgz
+  - export PATH=`pwd`/mongodb-linux-x86_64-$MONGODB_VERSION/bin:$PATH
   - mkdir -p data/db
   - mongod --dbpath=data/db &
+  - sleep 3
 
 install:
   - if dpkg --compare-versions ${SERVER_VERSION} le "2.4"; then export SERVER_PACKAGE=mongodb-10gen-enterprise; else export SERVER_PACKAGE=mongodb-enterprise; fi
