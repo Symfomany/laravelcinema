@@ -33,6 +33,11 @@ http://fr.slideshare.net/alahaxe/laravel-yet-another-framework-44869051?qid=a813
 http://fr.slideshare.net/AoSiX/laravel-blade?qid=9c7b88aa-89a5-42ee-bf3a-e8dc7ab7d489&v=default&b=&from_search=2
 
 
+## Fix PSR-1 and PSR-2
+
+`php-cs-fixer fix app`
+
+
 ## PDFs of Training in Laravel - Symfony 2 - OOP - PHP
 
 Directory /training for pdf in free white books

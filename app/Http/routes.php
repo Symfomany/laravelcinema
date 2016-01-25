@@ -15,8 +15,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::auth();
 
-
-    /**
+    /*
      * Pages Accueil
      * uses => appel le nom du controlleur
      * et l'action du controller.
@@ -370,5 +369,3 @@ Route::group(['middleware' => ['web']], function () {
     });
 
 });
-
-

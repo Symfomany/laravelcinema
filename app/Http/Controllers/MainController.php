@@ -87,20 +87,19 @@ class MainController extends Controller
      */
     public function dashboard()
     {
-
         $nbacteurs = Actors::count();
         $nbcommentaires = Comments::count();
         $nbmovies = Movies::count();
         $nbseances = Sessions::count();
 
-        $manager = new \MongoDB\Driver\Manager("mongodb://localhost:27017");
-        $collection = new \MongoDB\Collection($manager, "laravel","videos");
+        $manager = new \MongoDB\Driver\Manager('mongodb://localhost:27017');
+        $collection = new \MongoDB\Collection($manager, 'laravel', 'videos');
         $videos = collect($collection->find()->toArray())->shuffle();
 
-        $collection = new \MongoDB\Collection($manager, "laravel","stats");
-        $youtubeinfo = collect($collection->find(["origin"  => "Youtube"])->toArray())->first();
+        $collection = new \MongoDB\Collection($manager, 'laravel', 'stats');
+        $youtubeinfo = collect($collection->find(['origin' => 'Youtube'])->toArray())->first();
 
-        $collection = new \MongoDB\Collection($manager, "laravel","stats");
+        $collection = new \MongoDB\Collection($manager, 'laravel', 'stats');
         $tweeterinfo = collect($collection->find(['origin' => 'Twitter', 'type' => 'infos'])->toArray())->first();
 
         $actor = new Actors(); // Je récpere mon modèle
@@ -116,8 +115,6 @@ class MainController extends Controller
 
         $seances = $session->getNextSession();
         $users = $user->getLastUsers();
-
-
 
         return view('Main/dashboard', [
             'avgnotecommentaire' => $avgnotecommentaire->avgnote,
