@@ -15,8 +15,8 @@ class AuthTest extends TestCase
     public function testAuthPage()
     {
         // visit test si la page est OKAY
-        // et si je me trouve dans l'uri auth/ogin
-        $this->visit('/auth/login')
+        // et si je me trouve dans l'uri /ogin
+        $this->visit('/login')
         // code 200 : Bon fonctionement de la page
              ->see('Email') // see permet de voir un element HTML
              ->see('Password');
@@ -27,7 +27,7 @@ class AuthTest extends TestCase
      */
     public function testLoginFailure()
     {
-        $this->visit('/auth/login')
+        $this->visit('/login')
             // type() permet de remplir un champs
              ->type('toto@free.fr', 'email')
              ->type('tata', 'password')
@@ -40,12 +40,12 @@ class AuthTest extends TestCase
              ->see('Password')
 
             // si la page courante est égale à unr URI
-             ->seePageIs('/auth/login');
+             ->seePageIs('/login');
     }
 
     public function testLoginSuccess()
     {
-        $this->visit('/auth/login')
+        $this->visit('/login')
             ->withoutMiddleware()
             // On désactrive le middleware
             // pour que la sécurité ne prenne pas

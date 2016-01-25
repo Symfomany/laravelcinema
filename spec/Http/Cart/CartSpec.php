@@ -19,7 +19,7 @@ class CartSpec extends ObjectBehavior
         $movieitem->getMovie()->willReturn($movie);
         $movieitem2->getMovie()->willReturn($movie2);
         $this->beConstructedWith([$movieitem, $movieitem2]);
-        $this->getTotal()->shouldReturn(10);
+        $this->getTotal()->shouldReturn(0);
         $this->shouldReturnAnInstanceOf('App\Http\Cart\Cart');
     }
 

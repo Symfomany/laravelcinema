@@ -3,10 +3,7 @@
 namespace App\Console\Commands;
 
 use Alaouy\Youtube\Facades\Youtube as Yt;
-use App\Http\Models\Stats;
-use App\Http\Models\Videos;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -76,7 +73,6 @@ class Youtube extends Command
             $collection = new \MongoDB\Collection($manager, "laravel.videos");
             $collection->deleteMany([]);
             $now = new \DateTime();
-            $day= $now->getTimestamp();
 
             foreach ($videos as $video) {
                 $collection = new \MongoDB\Collection($manager, "laravel.videos");

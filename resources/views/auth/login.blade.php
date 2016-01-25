@@ -7,9 +7,9 @@
 
 @section('bodyclass')
     external-page external-alt sb-l-c sb-r-c
-@endsection
+    @endsection
 
-@section('content')
+    @section('content')
             <!-- Begin: Content -->
     <section id="content">
 
@@ -25,7 +25,7 @@
             <!-- Login Panel/Form -->
             <div class="panel mt30 mb25">
 
-                <form method="post"  id="contact">
+                <form method="post" action="{{ url('/login') }}"  id="contact">
                     <div class="panel-body bg-light p25 pb15">
 
                         @if (count($errors) > 0)
@@ -113,6 +113,7 @@
             <div class="login-links hidden">
                 <a href="pages_login-alt.html" class="active" title="Sign In">Sign In</a> |
                 <a href="{{ url('auth/register') }}" class="" title="Register">Register</a>
+                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
             </div>
 
         </div>

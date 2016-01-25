@@ -25,7 +25,7 @@ class AuthController extends Controller
     /**
      * @var string
      */
-    protected $loginPath = '/auth/login';
+    protected $loginPath = '/login';
 
     /**
      * @var string
@@ -35,12 +35,12 @@ class AuthController extends Controller
     /**
      * @var string
      */
-    protected $redirectAfterLogout = '/auth/login/';
+    protected $redirectAfterLogout = '/login/';
 
     /**
      * @var string
      */
-    protected $redirectTo = '/auth/login';
+    protected $redirectTo = '/login';
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ class AuthController extends Controller
     public function __construct()
     {
         // application du middleware guest
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest', ['except' => 'logout']);
     }
 
     /**
@@ -99,62 +99,9 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Get Page on login.
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function getLogin()
-    {
-        return view('Auth/login', ['errors' => []]);
-    }
 
-    /**
-     * Handle a login request to the application.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function postLogin(Request $request)
-    {
-        $this->validate($request, [
-            $this->loginUsername() => 'required', 'password' => 'required',
-        ]);
 
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        $throttles = $this->isUsingThrottlesLoginsTrait();
-
-        if ($throttles && $this->hasTooManyLoginAttempts($request)) {
-            return $this->sendLockoutResponse($request);
-        }
-
-        $this->getCredentials($request);
-
-        //override AUth atempt() here...
-        if (Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-            'active' => 1,
-        ])) {
-            return $this->handleUserWasAuthenticated($request, $throttles);
-        }
-
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
-        if ($throttles) {
-            $this->incrementLoginAttempts($request);
-        }
-
-        return redirect($this->loginPath())
-            ->withInput($request->only($this->loginUsername(), 'remember'))
-            ->withErrors([
-                $this->loginUsername() => $this->getFailedLoginMessage(),
-            ]);
-    }
+    /********************************************** Github Auth ****************************************************************************/
 
     /**
      * Redirect the user to the GitHub authentication page.
@@ -195,11 +142,11 @@ class AuthController extends Controller
      */
     private function findOrCreateUser($githubUser)
     {
-        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+        if ($authUser = Administrators::where('github_id', $githubUser->id)->first()) {
             return $authUser;
         }
 
-        return User::create([
+        return Administrators::create([
             'name' => $githubUser->name,
             'email' => $githubUser->email,
             'github_id' => $githubUser->id,

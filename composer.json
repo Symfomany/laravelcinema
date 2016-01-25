@@ -20,7 +20,7 @@
 
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*",
+        "laravel/framework": "~5.1",
         "predis/predis": "*",
         "caouecs/laravel4-lang": "^2.0",
         "laravel/envoy": "~1.0",

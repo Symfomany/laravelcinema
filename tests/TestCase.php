@@ -17,8 +17,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
      */
     public function authentification()
     {
-        $this->visit('/auth/login')
-//            ->withoutMiddleware()
+        $this->visit('/login')
             ->type('julien2@meetserious.com', 'email')
             ->type('123456', 'password')
             ->check('remember')

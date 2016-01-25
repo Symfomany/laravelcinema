@@ -152,7 +152,7 @@
                     <span class="fa fa-gear"></span> Settings </a>
             </li>
             <li class="dropdown-footer">
-                <a href="{{ url('auth/logout') }}" class="">
+                <a href="{{ url('/logout') }}" class="">
                     <span class="fa fa-power-off pr5"></span> Deconnexion </a>
             </li>
         </ul>

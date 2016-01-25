@@ -15,12 +15,12 @@
 
 ## Laravel PHP Project
 
-Pedagogic Project  in **Laravel 5** on Back-Office to handle Movies, Categories, Actors, Directors, Comments...like *Allociné*
+Pedagogic Project  in **Laravel 5.2** on Back-Office to handle Movies, Categories, Actors, Directors, Comments...like *Allociné*
 Propulsed by *Julien Boyer*  julien@meetserious.com
 
 ----------
 
-## Why Laravel 5?![GitHub Logo](/screens/laravel.png)
+## Why Laravel 5?
 
 In first, my presentation about that available here:
 **http://slides.com/julienboyer/deck-5**
@@ -62,6 +62,7 @@ Directory /training for pdf in free white books
 Best Stacks & Technologies
 ====
 
+* Laravel 5.2
 * Composer Require
 * PHP >= 5.5.9
 * Redis server with Predis
@@ -171,3 +172,7 @@ Screenshots
 ### License
 
 *The Laravel project is open-sourced software*
+
+### Major Stack
+
+* This project built in Larael 5.2*

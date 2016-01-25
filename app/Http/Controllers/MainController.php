@@ -9,6 +9,7 @@ use App\Http\Models\Sessions;
 use App\Http\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Netshell\Paypal\Facades\Paypal;
 
@@ -95,15 +96,14 @@ class MainController extends Controller
         $nbseances = Sessions::count();
 
         $manager = new \MongoDB\Driver\Manager("mongodb://localhost:27017");
-        $collection = new \MongoDB\Collection($manager, "laravel.videos");
+        $collection = new \MongoDB\Collection($manager, "laravel","videos");
         $videos = collect($collection->find()->toArray())->shuffle();
 
-        $collection = new \MongoDB\Collection($manager, "laravel.stats");
+        $collection = new \MongoDB\Collection($manager, "laravel","stats");
         $youtubeinfo = collect($collection->find(["origin"  => "Youtube"])->toArray())->first();
 
-        $collection = new \MongoDB\Collection($manager, "laravel.stats");
+        $collection = new \MongoDB\Collection($manager, "laravel","stats");
         $tweeterinfo = collect($collection->find(['origin' => 'Twitter', 'type' => 'infos'])->toArray())->first();
-
 
         $actor = new Actors(); // Je récpere mon modèle
         $comment = new Comments(); // Je récpere mon modèle

@@ -15,7 +15,7 @@
               </a>
               <div class="media-body">
                 <div class="media-links">
-                   <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="{{ url('auth/logout') }}">Deconnexion</a>
+                   <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="{{ url('/logout') }}">Deconnexion</a>
                 </div>
                 <div class="media-author">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</div>
               </div>
