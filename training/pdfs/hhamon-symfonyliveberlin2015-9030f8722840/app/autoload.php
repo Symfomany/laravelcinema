@@ -13,7 +13,7 @@ if (!function_exists('dump')) {
     }
 }
 
-/**
+/*
  * @var ClassLoader
  */
 $loader = require __DIR__.'/../vendor/autoload.php';

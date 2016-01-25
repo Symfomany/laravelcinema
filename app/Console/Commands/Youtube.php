@@ -52,18 +52,18 @@ class Youtube extends Command
 
             $collection = new \MongoDB\Collection($manager, 'laravel.stats');
             $stat = [
-                'origin' => 'Youtube',
-                'type' => 'search',
-                'data' => $channel,
+                'origin'  => 'Youtube',
+                'type'    => 'search',
+                'data'    => $channel,
                 'created' => new  \MongoDB\BSON\UTCDatetime(time()),
             ];
             $collection->insertOne($stat);
         }
 
         $params = [
-            'q' => $keyword,
-            'type' => 'video',
-            'part' => 'id, snippet',
+            'q'          => $keyword,
+            'type'       => 'video',
+            'part'       => 'id, snippet',
             'maxResults' => 30,
         ];
 
@@ -76,7 +76,7 @@ class Youtube extends Command
             foreach ($videos as $video) {
                 $collection = new \MongoDB\Collection($manager, 'laravel.videos');
                 $stat = [
-                    'data' => $video,
+                    'data'    => $video,
                     'created' => new  \MongoDB\BSON\UTCDatetime(time()),
                 ];
                 $collection->insertOne($stat);

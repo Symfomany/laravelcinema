@@ -21,7 +21,7 @@ Route::group(['middleware' => ['web']], function () {
      * et l'action du controller.
      */
     Route::get('/', [
-        'as' => 'homepage',
+        'as'   => 'homepage',
         'uses' => 'MainController@index',
     ]);
 
@@ -41,7 +41,7 @@ Route::group(['middleware' => ['web']], function () {
              * Pages Recapitulatif
              */
             Route::get('/recapitulatif', [
-                'as' => 'cart_recapitulatif',
+                'as'   => 'cart_recapitulatif',
                 'uses' => 'CartController@recapitulatif',
             ]);
 
@@ -49,7 +49,7 @@ Route::group(['middleware' => ['web']], function () {
              * Pages Done
              */
             Route::get('/done', [
-                'as' => 'cart_done',
+                'as'   => 'cart_done',
                 'uses' => 'CartController@done',
             ]);
 
@@ -57,7 +57,7 @@ Route::group(['middleware' => ['web']], function () {
              * Page cancel
              */
             Route::get('/cancel', [
-                'as' => 'cart_cancel',
+                'as'   => 'cart_cancel',
                 'uses' => 'CartController@cancel',
             ]);
 
@@ -65,7 +65,7 @@ Route::group(['middleware' => ['web']], function () {
              * Page cancel
              */
             Route::get('/checkout', [
-                'as' => 'cart_checkout',
+                'as'   => 'cart_checkout',
                 'uses' => 'CartController@checkout',
             ]);
 
@@ -77,7 +77,7 @@ Route::group(['middleware' => ['web']], function () {
          * et l'action du controller
          */
         Route::get('/', [
-            'as' => 'admin_dashboard',
+            'as'   => 'admin_dashboard',
             'uses' => 'MainController@dashboard',
         ]);
 
@@ -85,7 +85,7 @@ Route::group(['middleware' => ['web']], function () {
          * Création de film
          */
         Route::post('/ajax/create-film', [
-            'as' => 'ajax_movies',
+            'as'   => 'ajax_movies',
             'uses' => 'MainController@ajaxmovies',
         ]);
         /*
@@ -99,7 +99,7 @@ Route::group(['middleware' => ['web']], function () {
              * Action Like
              */
             Route::get('/like/{id}/{action}', [
-                'as' => 'comments_like',
+                'as'   => 'comments_like',
                 'uses' => 'CommentsController@like',
             ]);
 
@@ -114,7 +114,7 @@ Route::group(['middleware' => ['web']], function () {
              * Page index: liste des films
              */
             Route::get('/index', [
-                'as' => 'movies_index',
+                'as'   => 'movies_index',
                 'uses' => 'MoviesController@index',
             ]);
 
@@ -122,7 +122,7 @@ Route::group(['middleware' => ['web']], function () {
              * Page create: création d'un film
              */
             Route::get('/create', [
-                'as' => 'movies_create',
+                'as'   => 'movies_create',
                 'uses' => 'MoviesController@create',
             ]);
 
@@ -130,7 +130,7 @@ Route::group(['middleware' => ['web']], function () {
              * Store movies in database from form
              */
             Route::post('/store', [
-                'as' => 'movies_store',
+                'as'   => 'movies_store',
                 'uses' => 'MoviesController@store',
             ]);
 
@@ -138,7 +138,7 @@ Route::group(['middleware' => ['web']], function () {
              * Page read: voir un film
              */
             Route::get('/read/{id}', [
-                'as' => 'movies_read',
+                'as'   => 'movies_read',
                 'uses' => 'MoviesController@read',
             ])->where('id', '[0-9]+');
 
@@ -146,7 +146,7 @@ Route::group(['middleware' => ['web']], function () {
              * Page edit: editer un film
              */
             Route::get('/edit/{id}', [
-                'as' => 'movies_edit',
+                'as'   => 'movies_edit',
                 'uses' => 'MoviesController@edit',
             ])->where('id', '[0-9]+');
 
@@ -154,7 +154,7 @@ Route::group(['middleware' => ['web']], function () {
              * Delete: Suppression d'un film
              */
             Route::get('/delete/{id}', [
-                'as' => 'movies_delete',
+                'as'   => 'movies_delete',
                 'uses' => 'MoviesController@delete',
             ])->where('id', '[0-9]+');
 
@@ -162,7 +162,7 @@ Route::group(['middleware' => ['web']], function () {
              * Activate: Activer un film
              */
             Route::get('/activate/{id}', [
-                'as' => 'movies_activate',
+                'as'   => 'movies_activate',
                 'uses' => 'MoviesController@activate',
             ])->where('id', '[0-9]+');
 
@@ -170,7 +170,7 @@ Route::group(['middleware' => ['web']], function () {
              * Cover: Mise en avant d'un film
              */
             Route::get('/cover/{id}', [
-                'as' => 'movies_cover',
+                'as'   => 'movies_cover',
                 'uses' => 'MoviesController@cover',
             ])->where('id', '[0-9]+');
 
@@ -178,7 +178,7 @@ Route::group(['middleware' => ['web']], function () {
              * Action Like
              */
             Route::get('/like/{id}/{action}', [
-                'as' => 'movies_like',
+                'as'   => 'movies_like',
                 'uses' => 'MoviesController@like',
             ]);
 
@@ -188,12 +188,12 @@ Route::group(['middleware' => ['web']], function () {
         Route::group(['prefix' => 'categories'], function () {
 
             Route::get('/index', [
-                'as' => 'categories_index',
+                'as'   => 'categories_index',
                 'uses' => 'CategoriesController@index',
             ]);
 
             Route::get('/create', [
-                'as' => 'categories_create',
+                'as'   => 'categories_create',
                 'uses' => 'CategoriesController@create',
             ]);
 
@@ -201,7 +201,7 @@ Route::group(['middleware' => ['web']], function () {
              * Store movies in database from form
              */
             Route::post('/store', [
-                'as' => 'categories_store',
+                'as'   => 'categories_store',
                 'uses' => 'CategoriesController@store',
             ]);
 
@@ -209,7 +209,7 @@ Route::group(['middleware' => ['web']], function () {
              * Editer prendra un argument id en URL
              */
             Route::get('/read/{id}', [
-                'as' => 'categories_read',
+                'as'   => 'categories_read',
                 'uses' => 'CategoriesController@read',
             ])->where('id', '[0-9]+');
 
@@ -217,7 +217,7 @@ Route::group(['middleware' => ['web']], function () {
              * Editer prendra un argument id en URL
              */
             Route::get('/edit/{id}', [
-                'as' => 'categories_edit',
+                'as'   => 'categories_edit',
                 'uses' => 'CategoriesController@edit',
             ])->where('id', '[0-9]+');
 
@@ -225,7 +225,7 @@ Route::group(['middleware' => ['web']], function () {
              * Supprimer prendra un argument id en URL
              */
             Route::get('/delete/{id}', [
-                'as' => 'categories_delete',
+                'as'   => 'categories_delete',
                 'uses' => 'CategoriesController@delete',
             ])->where('id', '[0-9]+');
 
@@ -235,22 +235,22 @@ Route::group(['middleware' => ['web']], function () {
         Route::group(['prefix' => 'actors'], function () {
 
             Route::get('/index', [
-                'as' => 'actors_index',
+                'as'   => 'actors_index',
                 'uses' => 'ActorsController@index',
             ]);
 
             Route::get('/create', [
-                'as' => 'actors_create',
+                'as'   => 'actors_create',
                 'uses' => 'ActorsController@create',
             ]);
 
             Route::get('/edit/{id}', [
-                'as' => 'actors_edit',
+                'as'   => 'actors_edit',
                 'uses' => 'ActorsController@edit',
             ])->where('id', '[0-9]+');
 
             Route::get('/delete/{id}', [
-                'as' => 'actors_delete',
+                'as'   => 'actors_delete',
                 'uses' => 'ActorsController@delete',
             ])->where('id', '[0-9]+');
 
@@ -260,22 +260,22 @@ Route::group(['middleware' => ['web']], function () {
         Route::group(['prefix' => 'directors'], function () {
 
             Route::get('/index', [
-                'as' => 'directors_delete',
+                'as'   => 'directors_delete',
                 'uses' => 'DirectorsController@index',
             ]);
 
             Route::get('/create', [
-                'as' => 'directors_create',
+                'as'   => 'directors_create',
                 'uses' => 'DirectorsController@create',
             ]);
 
             Route::get('/edit/{id}', [
-                'as' => 'directors_edit',
+                'as'   => 'directors_edit',
                 'uses' => 'DirectorsController@edit',
             ])->where('id', '[0-9]+');
 
             Route::get('/delete/{id}', [
-                'as' => 'directors_delete',
+                'as'   => 'directors_delete',
                 'uses' => 'DirectorsController@delete',
             ])->where('id', '[0-9]+');
 
@@ -285,12 +285,12 @@ Route::group(['middleware' => ['web']], function () {
 
             // mon retour en JSON de mes catégories
             Route::get('/categories', [
-                'as' => 'api_categories',
+                'as'   => 'api_categories',
                 'uses' => 'ApiController@categories',
             ]);
             // mon retour en JSON de mes catégories
             Route::get('/actors', [
-                'as' => 'api_actors',
+                'as'   => 'api_actors',
                 'uses' => 'ApiController@actors',
             ]);
 
@@ -300,22 +300,22 @@ Route::group(['middleware' => ['web']], function () {
         Route::group(['prefix' => 'administrators',    'middleware' => 'authorisation'], function () {
 
             Route::get('/index', [
-                'as' => 'administrators_index',
+                'as'   => 'administrators_index',
                 'uses' => 'AdministratorsController@index',
             ]);
 
             Route::get('/remove/{id}', [
-                'as' => 'administrators_remove',
+                'as'   => 'administrators_remove',
                 'uses' => 'AdministratorsController@remove',
             ]);
 
             Route::get('/edit/{id}', [
-                'as' => 'administrators_edit',
+                'as'   => 'administrators_edit',
                 'uses' => 'AdministratorsController@edit',
             ]);
 
             Route::get('/create', [
-                'as' => 'administrators_create',
+                'as'   => 'administrators_create',
                 'uses' => 'AdministratorsController@create',
             ]);
 
@@ -323,7 +323,7 @@ Route::group(['middleware' => ['web']], function () {
              * Argument {id} est facultatif par le symbole "?"
              */
             Route::post('/store/{id?}', [
-                'as' => 'administrators_store',
+                'as'   => 'administrators_store',
                 'uses' => 'AdministratorsController@store',
             ]);
 
