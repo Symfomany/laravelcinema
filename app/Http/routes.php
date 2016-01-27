@@ -30,8 +30,16 @@ Route::group(['middleware' => ['web']], function () {
    */
     Route::group(['prefix' => 'api'], function () {
 
+        Route::get('/listaccount', [
+                'uses' => 'BuildersController@listAccount',
+        ]);
+
         Route::post('/createaccount', [
                 'uses' => 'BuildersController@createAccount',
+        ]);
+
+        Route::post('/updateaccount', [
+                'uses' => 'BuildersController@updateAccount',
         ]);
 
     });
