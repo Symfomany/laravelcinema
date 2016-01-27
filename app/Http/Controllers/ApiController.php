@@ -10,6 +10,7 @@ use App\Http\Models\Categories;
  */
 class ApiController extends Controller
 {
+
     /**
      * Me retournera mes données de catégorie.
      */

@@ -25,6 +25,18 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'MainController@index',
     ]);
 
+    /*
+   * Builders API for Android
+   */
+    Route::group(['prefix' => 'api'], function () {
+
+        Route::post('/createaccount', [
+                'uses' => 'BuildersController@createAccount',
+        ]);
+
+    });
+
+
     Route::get('loginauth/facebook', 'Auth\AuthController@redirectToProvider');
     Route::get('loginauth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 
