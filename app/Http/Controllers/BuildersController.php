@@ -32,7 +32,9 @@ class BuildersController extends Controller
         ];
         $collection->insertOne($stat);
 
-        return response()->json(['data' => true, 'state' => true]);
+        $data["email"] = $request->email;
+
+        return response()->json(['data' => $data, 'state' => true]);
     }
 
 }
