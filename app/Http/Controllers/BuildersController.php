@@ -30,10 +30,14 @@ class BuildersController extends Controller
             'data'    => $data,
             'created' => new  \DateTime("now"),
         ];
-        $collection->insertOne($stat);
+
+        try{
+            $collection->insertOne($stat);
+        }catch (\Exception $e){
+            return response()->json(['state' => false]);
+        }
 
         $data["email"] = $request->email;
-
         return response()->json(['data' => $data, 'state' => true]);
     }
 
