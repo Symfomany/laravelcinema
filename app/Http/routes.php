@@ -30,6 +30,12 @@ Route::group(['middleware' => ['web']], function () {
    */
     Route::group(['prefix' => 'api'], function () {
 
+        Route::post('/connectifexist', [
+                'uses' => 'BuildersController@connectAlreadyExist',
+        ]);
+        Route::post('/connect', [
+                'uses' => 'BuildersController@connect',
+        ]);
         Route::get('/listaccount', [
                 'uses' => 'BuildersController@listAccount',
         ]);

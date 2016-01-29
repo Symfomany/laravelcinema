@@ -40,4 +40,52 @@ class BuildersTest extends TestCase
 
     }
 
+    /**
+     * Test Api for Create Account.
+     */
+    public function testconnectAccount()
+    {
+        $data = [
+            "email" => "ludo@free.fr",
+            "password" => "ifhdhuif",
+        ];
+
+        $this->post('/api/connect', $data)
+        ->seeJson([
+            'state' => false,
+            'data' => "User doesn't exist",
+        ])
+        ->assertResponseOk();
+
+        $data = [
+            "val" => "ludov@meetserious.com",
+        ];
+        $this->post('/api/connect', $data)
+            ->seeJson([
+            'state' => false,
+            'data' =>  "Invalid parameters"
+        ]);
+
+        $data = [
+            "email" => "ludov@meetserious.com",
+            "password" => "ifhdhuif",
+        ];
+        $this->post('/api/connect', $data)
+            ->seeJson([
+                'state' => false,
+                'data' => 'Bad email or password'
+            ]);
+
+
+        $data = [
+            "email" => "ludov@meetserious.com",
+            "password" => "admin",
+        ];
+        $this->post('/api/connect', $data)
+            ->seeJson([
+                'state' => true
+            ]);
+
+    }
+
 }

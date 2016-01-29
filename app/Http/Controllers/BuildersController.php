@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Models\Api;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 
 /**
@@ -39,6 +42,73 @@ class BuildersController extends Controller
 
         $data["email"] = $request->email;
         return response()->json(['data' => $data, 'state' => true]);
+    }
+
+    /**
+     * Auth
+     */
+    public function connect(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
+
+        if (!empty($email) && !empty($password)) {
+            $manager = new \MongoDB\Driver\Manager('mongodb://localhost:27017');
+            $collection = new \MongoDB\Collection($manager, 'builders', 'account');
+
+
+            if ($collection->count(["email" => $email]) == 0) {
+                return response()->json(['data' => "User doesn't exist", 'state' => false]);
+            }
+
+            $user = $collection->findOne(["email" => $email])->bsonSerialize();
+
+            if(password_verify($password, $user->password) == false){
+                return response()->json(['data' => "Bad email or password", 'state' => false]);
+            }
+
+            $api = new Api($user);
+            Auth::login($api);
+
+            dump(Auth::user());
+
+            return response()->json(['data' => $user, 'state' => true]);
+
+        } else {
+            return response()->json(['data' => "Invalid parameters", 'state' => false]);
+        }
+
+        return response()->json(['data' => "Bad credentials", 'state' => false]);
+    }
+    /**
+     * Auth
+     */
+    public function connectAlreadyExist(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
+
+        if (!empty($email) && !empty($password)) {
+                $auth = auth()->guard('user');
+
+                $credentials = [
+                    'email' =>  $email,
+                    'password' =>  $password,
+                    'enabled' => true
+                ];
+
+                if ($auth->attempt($credentials) && auth()->guard('user')->check()) {
+
+                    return response()->json(['data' => auth()->guard('user')->user()->toArray(), 'state' => true]);
+                } else {
+                    return response()->json(['data' => "Bad email or password", 'state' => false]);
+                }
+
+        } else {
+            return response()->json(['data' => "Invalid parameters", 'state' => false]);
+        }
+
+        return response()->json(['data' => "Bad credentials", 'state' => false]);
     }
 
     /**

@@ -5,13 +5,26 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+
 /**
  * Classe qui va stocker mes requetes autoirs
  * de ma table movies
  * Hérite de ma super classe Model.
  */
-class User extends Model
+class User extends Model implements
+    AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract
+
 {
+    use Authenticatable, Authorizable, CanResetPassword;
+
     /**
      * Décrit le nom de la table
      * que classe fait référence.
@@ -33,48 +46,5 @@ class User extends Model
         return $result;
     }
 
-    /**
-     *  Retourne tous les films.
-     */
-    public function getAllMovies()
-    {
 
-        // retourne le resultat de ma requete SELECT * FROM movies
-        return DB::table('user')->get();
-    }
-
-    /**
-     * Retourne la catégorie à laquelle appartient un objet film.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function categories()
-    {
-        return $this->belongsTo('App\Http\Models\Categories');
-    }
-
-    public function comments()
-    {
-        return $this->hasMany('App\Http\Models\Comments');
-    }
-
-    public function actors()
-    {
-        return $this->belongsToMany('App\Http\Models\Actors');
-    }
-
-    public function directors()
-    {
-        return $this->belongsToMany('App\Http\Models\Directors');
-    }
-
-    public function sessions()
-    {
-        return $this->hasMany('App\Http\Models\Sessions');
-    }
-
-    public function recommandations()
-    {
-        return $this->hasMany('App\Http\Models\Recommandations');
-    }
 }
