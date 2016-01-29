@@ -5,6 +5,7 @@ use App\Http\Models\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use LukePOLO\LaraCart\Facades\LaraCart;
 
 
 /**
@@ -86,7 +87,7 @@ class BuildersController extends Controller
     {
         if (auth()->guard('api')->check()) {
 
-            auth()->guard('api')->logout();
+            Auth::logout();
 
             return response()->json(['state' => true]);
 
@@ -96,6 +97,67 @@ class BuildersController extends Controller
         }
 
     }
+
+
+    /**
+     * Auth
+     */
+    public function getAnnouncesCart()
+    {
+
+        $items = LaraCart::getItems();
+
+        return response()->json(['data' => $items, 'state' => true]);
+    }
+
+
+
+    /**
+     * Auth
+     */
+    public function addAnnounceCart(Request $request)
+    {
+        $id = $request->id;
+        $title = $request->title;
+        $quantity = $request->quantity;
+        $prix = $request->prix;
+        $options = $request->options;
+
+        $item = LaraCart::add($id, $title, $quantity, $prix, ['size' => $options ]);
+
+        return response()->json(['data' => $item, 'state' => true]);
+    }
+
+
+    /**
+     * Auth
+     */
+    public function removeAnnounceCart(Request $request)
+    {
+        $hash = $request->hash;
+
+        LaraCart::removeItem($hash);
+
+        $items = LaraCart::getItems();
+
+        return response()->json(['data' => $items, 'state' => true]);
+    }
+
+
+    /**
+     * Auth
+     */
+    public function getTotalAnnouncesCart()
+    {
+        $data['subtotal'] = LaraCart::subTotal($tax = false, $format = true, $withDiscount = true);
+        $data['totaldiscount'] = LaraCart::totalDiscount($formatted = false);
+        $data['taxtotal'] = LaraCart::taxTotal($formatted = false);
+        $data['total'] = LaraCart::total($formatted = false, $withDiscount = true);
+
+        return response()->json(['data' => $data, 'state' => true]);
+    }
+
+
     /**
      * Auth
      */
@@ -144,6 +206,8 @@ class BuildersController extends Controller
 
         return response()->json($tab);
     }
+
+
 
     /**
      * Update account

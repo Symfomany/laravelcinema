@@ -187,6 +187,12 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
 
+        /**
+         *
+         */
+        LukePOLO\LaraCart\LaraCartServiceProvider::class,
+
+
     ],
 
     /*
@@ -238,6 +244,7 @@ return [
         'Paypal'    => Netshell\Paypal\Facades\Paypal::class,
         'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
         'Socialize' => Laravel\Socialite\Facades\Socialite::class,
+        'LaraCart' => LukePOLO\LaraCart\Facades\LaraCart::class,
 
     ],
 

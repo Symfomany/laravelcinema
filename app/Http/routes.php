@@ -30,6 +30,23 @@ Route::group(['middleware' => ['web']], function () {
    */
     Route::group(['prefix' => 'api'], function () {
 
+
+        Route::post('/add', [
+            'uses' => 'AdController@addAnnounce',
+        ]);
+
+
+        Route::get('/getannounces', [
+            'uses' => 'BuildersController@getAnnouncesCart',
+        ]);
+        Route::get('/totalannounces', [
+            'uses' => 'BuildersController@getTotalAnnouncesCart',
+        ]);
+
+        Route::post('/addannounce', [
+            'uses' => 'BuildersController@addAnnounceCart',
+        ]);
+
         Route::get('/disconnect', [
             'uses' => 'BuildersController@disconnect',
         ]);

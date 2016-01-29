@@ -11,6 +11,14 @@
 |
 */
 
+$factory->define(\App\Http\Models\User::class, function (Faker\Generator $faker) {
+    return [
+        'email' => "zuzu38080@gmail.com",
+        'password' => bcrypt("admin"),
+        'salt' => str_random(10),
+    ];
+});
+
 /**
  * Factory to generate Data Fixtures with Movies & Faker.
  */

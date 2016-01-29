@@ -206,6 +206,7 @@ class MoviesController extends Controller
 
         $filename = '';
 
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = $file->getClientOriginalName(); // Récupère le nom original du fichier
