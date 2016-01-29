@@ -88,4 +88,30 @@ class BuildersTest extends TestCase
 
     }
 
+    /**
+     * Test Api for Create Account.
+     */
+    public function testdisconnectAccount()
+    {
+        $this->get('/api/disconnect')
+            ->seeJson([
+                'state' => false
+            ]);
+
+        $data = [
+            "email" => "ludov@meetserious.com",
+            "password" => "admin",
+        ];
+        $this->post('/api/connect', $data)
+            ->seeJson([
+                'state' => true
+            ]);
+
+        $this->get('/api/disconnect')
+            ->seeJson([
+                'state' => false
+            ]);
+
+    }
+
 }

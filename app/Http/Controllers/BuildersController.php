@@ -70,8 +70,6 @@ class BuildersController extends Controller
             $api = new Api($user);
             Auth::login($api);
 
-            dump(Auth::user());
-
             return response()->json(['data' => $user, 'state' => true]);
 
         } else {
@@ -79,6 +77,24 @@ class BuildersController extends Controller
         }
 
         return response()->json(['data' => "Bad credentials", 'state' => false]);
+    }
+
+    /**
+     * Auth
+     */
+    public function disconnect()
+    {
+        if (auth()->guard('api')->check()) {
+
+            auth()->guard('api')->logout();
+
+            return response()->json(['state' => true]);
+
+        } else {
+
+            return response()->json(['state' => false]);
+        }
+
     }
     /**
      * Auth

@@ -30,9 +30,14 @@ Route::group(['middleware' => ['web']], function () {
    */
     Route::group(['prefix' => 'api'], function () {
 
+        Route::get('/disconnect', [
+            'uses' => 'BuildersController@disconnect',
+        ]);
+
         Route::post('/connectifexist', [
                 'uses' => 'BuildersController@connectAlreadyExist',
         ]);
+
         Route::post('/connect', [
                 'uses' => 'BuildersController@connect',
         ]);
