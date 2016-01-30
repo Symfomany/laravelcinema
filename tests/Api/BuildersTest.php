@@ -153,7 +153,20 @@ class BuildersTest extends TestCase
 
         $file = new \Symfony\Component\HttpFoundation\File\UploadedFile($path, $original_name, $mime_type, $size, $error, $test);
 
-        $this->call('POST', 'api/add', [], [], ['upload' => $file], []);
+        $data = [
+            "name" => "Boyer",
+            "email" => "julien@meetserious.com",
+            "phone" => "0674585648",
+            "description" => "TRes jolie et sympa petit appart",
+            "chambres" => 1,
+            "pieces" => 2,
+            "surface" => 38.5,
+            "prix" => 750.50,
+            "aid" => "2dsq6dXWc5xw1wx5151xw1"
+        ];
+
+
+        $this->call('POST', 'api/add', $data, [], ['image' => $file], []);
 
         $this->assertResponseOk();
     }
