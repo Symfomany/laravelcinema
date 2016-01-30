@@ -12,38 +12,84 @@ use Illuminate\Support\Facades\Validator;
 class AdController extends Controller
 {
 
-    public function addAnnounce(Request $request){
+    public function adAnnounce(Request $request){
+
+        $data = [
+            "image" => Input::file('image'),
+            "name" => $request->name,
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "description" => $request->description,
+            "chambres" => $request->chambres,
+            "pieces" => $request->pieces,
+            "surface" => $request->surface,
+            "prix" => $request->prix,
+            "aid" => $request->aid
+        ];
 
         $file = null;
+        $data["email"] = $request->email;
 
-
-        // Build the input for our validation
         $input = array('image' => Input::file('image'));
 
-        // Within the ruleset, make sure we let the validator know that this
-        // file should be an image
         $rules = array(
             'image' => 'image'
         );
 
-        // Now pass the input and rules into the validator
         $validator = Validator::make($input, $rules);
 
-        // Check to see if validation fails or passes
         if ($validator->fails())
         {
             return response()->json(['data' => 'Fichier invalid', 'state' => false]);
         } else {
             if ($request->hasFile('image')) {
+
+                $manager = new \MongoDB\Driver\Manager('mongodb://localhost:27017');
+                $collection = new \MongoDB\Collection($manager, 'builders', 'ads');
+                $stat = [
+                    'email'    => $request->email,
+                    'data'    => $data,
+                    'created' => new  \DateTime("now"),
+                ];
+
+                try{
+                    $collection->insertOne($stat);
+                } catch (\Exception $e){
+                    return response()->json(['state' => false]);
+                }
+
                 $file = $request->file('image');
-                $filename = $file->getClientOriginalName(); // Récupère le nom original du fichier
-                $destinationPath = public_path().'/uploads/ad'; // Indique où stocker le fichier
-                $file->move($destinationPath, $filename); // Déplace le fichier
-                return response()->json(['data' => asset($filename), 'state' => true]);
+                $filename = $file->getClientOriginalName();
+                $destinationPath = public_path().'/uploads/ad';
+                $file->move($destinationPath, $filename);
+
+                $data['image'] = asset($filename);
+                return response()->json(['data' => $data, 'state' => true]);
+
             }
         }
 
 
+    }
+
+
+
+    /**
+     * List ads
+     */
+    public function ads()
+    {
+        $manager = new \MongoDB\Driver\Manager('mongodb://localhost:27017');
+        $collection = new \MongoDB\Collection($manager, 'builders', 'ads');
+
+        $result = $collection->find()->toArray();
+
+        $tab = [];
+        foreach($result as $one){
+            $tab[] = $one->bsonSerialize();
+        }
+
+        return response()->json($tab);
     }
 
 

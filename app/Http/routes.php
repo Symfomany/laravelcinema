@@ -32,9 +32,12 @@ Route::group(['middleware' => ['web']], function () {
 
 
         Route::post('/add', [
-            'uses' => 'AdController@addAnnounce',
+            'uses' => 'AdController@adAnnounce',
         ]);
 
+        Route::get('/ads', [
+            'uses' => 'AdController@ads',
+        ]);
 
         Route::get('/getannounces', [
             'uses' => 'BuildersController@getAnnouncesCart',
