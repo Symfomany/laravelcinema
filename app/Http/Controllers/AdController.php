@@ -15,7 +15,6 @@ class AdController extends Controller
     public function adAnnounce(Request $request){
 
         $data = [
-            "image" => Input::file('image'),
             "name" => $request->name,
             "email" => $request->email,
             "phone" => $request->phone,
@@ -44,6 +43,14 @@ class AdController extends Controller
         } else {
             if ($request->hasFile('image')) {
 
+
+                $file = $request->file('image');
+                $filename = $file->getClientOriginalName();
+                $destinationPath = public_path().'/uploads/ad';
+                $file->move($destinationPath, $filename);
+
+                $data['image'] = asset($filename);
+
                 $manager = new \MongoDB\Driver\Manager('mongodb://localhost:27017');
                 $collection = new \MongoDB\Collection($manager, 'builders', 'ads');
                 $stat = [
@@ -58,12 +65,6 @@ class AdController extends Controller
                     return response()->json(['state' => false]);
                 }
 
-                $file = $request->file('image');
-                $filename = $file->getClientOriginalName();
-                $destinationPath = public_path().'/uploads/ad';
-                $file->move($destinationPath, $filename);
-
-                $data['image'] = asset($filename);
                 return response()->json(['data' => $data, 'state' => true]);
 
             }
