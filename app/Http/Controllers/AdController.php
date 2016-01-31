@@ -49,7 +49,7 @@ class AdController extends Controller
                 $destinationPath = public_path().'/uploads/ad';
                 $file->move($destinationPath, $filename);
 
-                $data['image'] = asset($filename);
+                $data['image'] = asset('uploads/ad/'.$filename);
 
                 $manager = new \MongoDB\Driver\Manager('mongodb://localhost:27017');
                 $collection = new \MongoDB\Collection($manager, 'builders', 'ads');
