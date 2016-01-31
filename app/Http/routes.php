@@ -31,11 +31,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['prefix' => 'api'], function () {
 
 
-        Route::post('/add', [
+        Route::any('/add', [
             'uses' => 'AdController@adAnnounce',
         ]);
 
-        Route::get('/ads', [
+        Route::any('/ads', [
             'uses' => 'AdController@ads',
         ]);
 
